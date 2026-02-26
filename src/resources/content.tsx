@@ -1,232 +1,235 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import {
+  About,
+  Blog,
+  Business,
+  Education,
+  Gallery,
+  Home,
+  Newsletter,
+  Person,
+  Personal,
+  Social,
+  Work,
+} from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
-  avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  firstName: "KaiLinks",
+  lastName: "Team",
+  name: "KaiLinks",
+  role: "Socio global de gestión de destinos (DMC), exhibiciones y entrada a mercados",
+  avatar: "/images/avatar.webp",
+  email: "info@kailinks.com",
+  location: "Asia/Tokyo",
+  languages: ["Inglés", "Español", "Japonés", "Chino mandarín"],
 };
 
 const newsletter: Newsletter = {
-  display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
+  display: false,
+  title: <>Recibe actualizaciones de KaiLinks</>,
+  description: <>Perspectivas para programas educativos, delegaciones empresariales y soporte personalizado.</>,
 };
 
 const social: Social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
-  // Set essentials: true for links you want to show on the about page
   {
-    name: "GitHub",
-    icon: "github",
-    link: "https://github.com/once-ui-system",
+    name: "Sitio web",
+    icon: "globe",
+    link: "https://kailinks.com",
     essential: true,
   },
   {
-    name: "LinkedIn",
-    icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    name: "Correo",
+    icon: "email",
+    link: `mailto:${person.email}`,
     essential: true,
+  },
+  {
+    name: "X",
+    icon: "x",
+    link: "https://x.com/KaiLinksGlobal",
+    essential: false,
   },
   {
     name: "Instagram",
     icon: "instagram",
-    link: "https://www.instagram.com/once_ui/",
+    link: "https://www.instagram.com/kailinksglobal/",
     essential: false,
   },
   {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
-    essential: true,
-  },
-  {
-    name: "Email",
-    icon: "email",
-    link: `mailto:${person.email}`,
-    essential: true,
+    name: "LinkedIn",
+    icon: "linkedin",
+    link: "https://www.linkedin.com/company/kai-links/",
+    essential: false,
   },
 ];
 
 const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
-  label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  label: "Inicio",
+  title: "KaiLinks | DMC y acceso a mercados",
+  description:
+    "Servicios DMC, exhibiciones, eventos y apoyo de entrada a mercados en Japón, México, Alemania/UE y Hong Kong/China.",
+  headline: <>Conectamos culturas y negocios — del plan a la ejecución.</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <strong>KaiLinks</strong>
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Featured work
+          DMC · Pabellones · Incentivos · Entrada a mercados
         </Text>
       </Row>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/business",
   },
   subline: (
     <>
-    I'm Selene, a design engineer at <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
-</>
+      Programas académicos, eventos corporativos, viajes de incentivo y logística individual
+      — planeados y operados en campo en Japón, México, Alemania/UE y Hong Kong/China.
+    </>
   ),
 };
 
 const about: About = {
   path: "/about",
-  label: "About",
-  title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  label: "Nosotros",
+  title: "Nosotros | KaiLinks",
+  description:
+    "KaiLinks es un socio global DMC y de ejecución internacional para programas, exhibiciones y soporte de entrada a mercados con cobertura en Japón, México, Alemania/UE y Hong Kong/China.",
   tableOfContent: {
-    display: true,
+    display: false,
     subItems: false,
   },
   avatar: {
-    display: true,
+    display: false,
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://kailinks.com/contact",
   },
   intro: {
     display: true,
-    title: "Introduction",
+    title: "Quiénes somos",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        KaiLinks acompaña a organizaciones y personas cuando necesitan ejecutar programas en
+        destinos que no controlan directamente. Combinamos diseño operativo, coordinación local y
+        soporte de entrada a mercados para que el cliente se concentre en objetivos, decisiones y
+        resultados, mientras nosotros gestionamos la operación en campo.
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
-    title: "Work Experience",
+    display: true,
+    title: "Líneas de trabajo",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Operación DMC",
+        timeframe: "Educación | Empresas | Personal",
+        role: "Diseño de programas y ejecución local",
         achievements: [
-          <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
-          </>,
-          <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
-          </>,
+          <>Planeación integral de itinerarios, proveedores, reservas y coordinación en sitio.</>,
+          <>Modelos flexibles para programas en una ciudad, varias ciudades o varios países.</>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Entrada a mercados y alianzas",
+        timeframe: "Evaluación | Matchmaking | Coordinación regional",
+        role: "Desarrollo regional y alianzas",
         achievements: [
-          <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
-          </>,
-          <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
-          </>,
+          <>Investigación de mercado, análisis de factibilidad y matchmaking de socios.</>,
+          <>Guía regulatoria, localización y coordinación con especialistas en cada mercado.</>,
+        ],
+        images: [],
+      },
+      {
+        company: "Entrega operativa",
+        timeframe: "Antes, durante y después del programa",
+        role: "Ejecución, control de riesgo y reportes",
+        achievements: [
+          <>Resolución en tiempo real, control de agenda y soporte de comunicación multilingüe.</>,
+          <>Reportes post programa con recomendaciones para mejorar la siguiente ejecución.</>,
         ],
         images: [],
       },
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
-    title: "Studies",
+    display: true,
+    title: "Cobertura operativa",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Japón",
+        description: <>Programas educativos, coordinación local, visitas institucionales y soporte ejecutivo.</>,
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "México",
+        description: <>Intercambios institucionales, delegaciones, logística de destino y coordinación en ciudades clave.</>,
+      },
+      {
+        name: "Alemania / UE",
+        description: <>Planeación de conferencias, soporte de exhibiciones y coordinación transfronteriza.</>,
+      },
+      {
+        name: "Hong Kong / China",
+        description: <>Acceso de negocios, soporte ejecutivo y coordinación regional de alto nivel.</>,
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
-    title: "Technical skills",
+    display: true,
+    title: "Capacidades de ejecución",
     skills: [
       {
-        title: "Figma",
-        description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
-        ),
+        title: "Planeación y alianzas",
+        description:
+          "Arquitectura de programas, selección de socios locales, negociación de sedes y diseño de timeline.",
         tags: [
           {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+        name: "Estrategia",
+            icon: "document",
           },
           {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "Alianzas",
+            icon: "globe",
           },
         ],
+        images: [],
       },
       {
-        title: "Next.js",
-        description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
-        ),
+        title: "Ejecución en sitio",
+        description:
+          "Despliegue de equipo, gestión de asistentes, staff local, traslados y resolución de incidencias.",
         tags: [
           {
-            name: "JavaScript",
-            icon: "javascript",
+        name: "Operaciones",
+            icon: "grid",
           },
           {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
+        name: "Coordinación",
+            icon: "calendar",
           },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
+        images: [],
+      },
+      {
+        title: "Soporte post programa",
+        description:
+          "Documentación, reportes y recomendaciones de optimización para el siguiente ciclo.",
+        tags: [
           {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+        name: "Análisis",
+            icon: "book",
+          },
+          {
+            name: "Seguimiento",
+            icon: "person",
           },
         ],
+        images: [],
       },
     ],
   },
@@ -235,70 +238,100 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
+  title: "Perspectivas de KaiLinks",
+  description: "Notas prácticas sobre gestión de destinos y operaciones entre mercados.",
 };
 
 const work: Work = {
   path: "/work",
-  label: "Work",
-  title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
-  // Create new project pages by adding a new .mdx file to app/blog/posts
-  // All projects will be listed on the /home and /work routes
+  label: "Casos",
+  title: "Casos de éxito",
+  description: "Ejemplos seleccionados de entrega en programas KaiLinks.",
+};
+
+const education: Education = {
+  path: "/education",
+  label: "Educación",
+  title: "Instituciones educativas",
+  description:
+    "Diseñamos y ejecutamos programas académicos en cuatro regiones: Japan, México, Hong Kong/China y Alemania/UE. Nos encargamos de la vinculación institucional, agenda, logística y operación en sitio.",
+};
+
+const business: Business = {
+  path: "/business",
+  label: "Empresas",
+  title: "Empresas",
+  description:
+    "Soporte operativo para reuniones corporativas, conferencias, viajes de incentivo, participación en expos y estrategias de entrada a nuevos mercados.",
+};
+
+const personal: Personal = {
+  path: "/personal",
+  label: "Personal",
+  title: "Viajes individuales",
+  description:
+    "Logística para freelancers, deportistas y profesionales independientes que quieren participar en eventos, competencias y actividades en el extranjero.",
 };
 
 const gallery: Gallery = {
   path: "/gallery",
-  label: "Gallery",
-  title: `Photo gallery – ${person.name}`,
-  description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
+  label: "Galeria",
+  title: "Galería KaiLinks",
+  description: "Momentos seleccionados de programas ejecutados por KaiLinks.",
   images: [
     {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
+      src: "/images/events/Nagano_Sky_2025.webp",
+      alt: "Nagano Sky — programa en Japón",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
+      src: "/images/events/HongKong_Jewrellery_2025.webp",
+      alt: "Hong Kong Jewellery Fair — feria comercial",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
+      src: "/images/events/Tokyo_Spasce_Expo_2024.webp",
+      alt: "Tokyo Space Expo — exhibición tecnológica",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
+      src: "/images/events/Osaka_Expo_2025.webp",
+      alt: "Osaka Expo 2025 — evento internacional",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
+      src: "/images/events/Queretaro_Expo_2025.webp",
+      alt: "Querétaro Expo — exhibición en México",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
+      src: "/images/events/UpcmEvnts_2.webp",
+      alt: "Evento empresarial — delegación de negocios",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
+      src: "/images/events/UpcmEvnts_4.webp",
+      alt: "Conferencia internacional — programa KaiLinks",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/vertical-3.jpg",
-      alt: "image",
+      src: "/images/events/Tokyo_Electronics_2025.webp",
+      alt: "Tokyo Electronics — feria de electrónica",
       orientation: "vertical",
     },
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export {
+  person,
+  social,
+  newsletter,
+  home,
+  about,
+  blog,
+  work,
+  gallery,
+  education,
+  business,
+  personal,
+};
