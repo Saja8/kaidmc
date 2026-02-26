@@ -3,6 +3,8 @@
 import { Card, Column, Media, Row, Avatar, Text } from "@once-ui-system/core";
 import { formatDate } from "@/utils/formatDate";
 import { person } from "@/resources";
+import { useEffect, useState } from "react";
+import { Locale, getClientLocale } from "@/resources/locale";
 
 interface PostProps {
   post: any;
@@ -11,6 +13,12 @@ interface PostProps {
 }
 
 export default function Post({ post, thumbnail, direction }: PostProps) {
+  const [locale, setLocale] = useState<Locale>("es");
+
+  useEffect(() => {
+    setLocale(getClientLocale());
+  }, []);
+
   return (
     <Card
       fillWidth
@@ -33,7 +41,10 @@ export default function Post({ post, thumbnail, direction }: PostProps) {
           cursor="interactive"
           radius="l"
           src={post.metadata.image}
-          alt={"Thumbnail of " + post.metadata.title}
+          alt={
+            (locale === "en" ? "Thumbnail of " : locale === "ja" ? "サムネイル: " : "Miniatura de ") +
+            post.metadata.title
+          }
           aspectRatio="16 / 9"
         />
       )}

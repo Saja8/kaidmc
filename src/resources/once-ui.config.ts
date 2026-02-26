@@ -14,19 +14,22 @@ import {
 import { home } from "./index";
 
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL: string = "https://demo.magic-portfolio.com";
+const baseURL: string = "https://kailinks.com";
 
 const routes: RoutesConfig = {
   "/": true,
   "/about": true,
-  "/work": true,
+  "/work": false,
   "/blog": true,
-  "/gallery": true,
+  "/gallery": false,
+  "/education": true,
+  "/business": true,
+  "/personal": true,
 };
 
 const display: DisplayConfig = {
-  location: true,
-  time: true,
+  location: false,
+  time: false,
   themeSwitcher: true,
 };
 
@@ -74,11 +77,11 @@ const fonts: FontsConfig = {
 // default customization applied to the HTML in the main layout.tsx
 const style: StyleConfig = {
   theme: "system", // dark | light | system
-  neutral: "gray", // sand | gray | slate | mint | rose | dusk | custom
-  brand: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
-  accent: "red", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
-  solid: "contrast", // color | contrast
-  solidStyle: "flat", // flat | plastic
+  neutral: "slate", // sand | gray | slate | mint | rose | dusk | custom
+  brand: "blue", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  accent: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  solid: "color", // color | contrast
+  solidStyle: "plastic", // flat | plastic
   border: "playful", // rounded | playful | conservative | sharp
   surface: "translucent", // filled | translucent
   transition: "all", // all | micro | macro
@@ -107,19 +110,19 @@ const effects: EffectsConfig = {
     radius: 100,
   },
   gradient: {
-    display: false,
-    opacity: 100,
+    display: true,
+    opacity: 42,
     x: 50,
-    y: 60,
-    width: 100,
-    height: 50,
-    tilt: 0,
-    colorStart: "accent-background-strong",
-    colorEnd: "page-background",
+    y: 14,
+    width: 84,
+    height: 48,
+    tilt: -12,
+    colorStart: "brand-background-strong",
+    colorEnd: "accent-background-strong",
   },
   dots: {
-    display: true,
-    opacity: 40,
+    display: false,
+    opacity: 20,
     size: "2",
     color: "brand-background-strong",
   },
@@ -131,12 +134,12 @@ const effects: EffectsConfig = {
     height: "0.25rem",
   },
   lines: {
-    display: false,
-    opacity: 100,
-    color: "neutral-alpha-weak",
-    size: "16",
+    display: true,
+    opacity: 8,
+    color: "brand-alpha-medium",
+    size: "32",
     thickness: 1,
-    angle: 45,
+    angle: 145,
   },
 };
 
@@ -186,18 +189,18 @@ const mailchimp: MailchimpConfig = {
 
 // default schema data
 const schema: SchemaConfig = {
-  logo: "",
+  logo: "/images/logo.png",
   type: "Organization",
-  name: "Once UI",
+  name: "KaiLinks",
   description: home.description,
-  email: "lorant@once-ui.com",
+  email: "info@kailinks.com",
 };
 
 // social links
 const sameAs: SameAsConfig = {
-  threads: "https://www.threads.com/@once_ui",
-  linkedin: "https://www.linkedin.com/company/once-ui/",
-  discord: "https://discord.com/invite/5EyAQ4eNdS",
+  threads: "https://x.com/KaiLinksGlobal",
+  linkedin: "https://www.linkedin.com/company/kai-links/",
+  discord: "https://kailinks.com/contact",
 };
 
 // social sharing configuration for blog posts

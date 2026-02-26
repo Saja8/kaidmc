@@ -1,9 +1,11 @@
-import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
-import { Mailchimp } from "@/components";
+import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
 import { Posts } from "@/components/blog/Posts";
-import { baseURL, blog, person, newsletter } from "@/resources";
+import { baseURL, getLocalizedResources, getServerLocale } from "@/resources";
 
 export async function generateMetadata() {
+  const locale = await getServerLocale();
+  const { blog } = getLocalizedResources(locale);
+
   return Meta.generate({
     title: blog.title,
     description: blog.description,
@@ -13,7 +15,10 @@ export async function generateMetadata() {
   });
 }
 
-export default function Blog() {
+export default async function Blog() {
+  const locale = await getServerLocale();
+  const { blog, person } = getLocalizedResources(locale);
+
   return (
     <Column maxWidth="m" paddingTop="24">
       <Schema
@@ -29,17 +34,18 @@ export default function Blog() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading marginBottom="l" variant="heading-strong-xl" marginLeft="24">
+      <Heading marginBottom="8" variant="heading-strong-xl" marginLeft="24">
         {blog.title}
       </Heading>
+      <Text marginLeft="24" marginBottom="l" onBackground="neutral-weak" variant="body-default-l">
+        {blog.description}
+      </Text>
       <Column fillWidth flex={1} gap="40">
-        <Posts range={[1, 1]} thumbnail />
-        <Posts range={[2, 3]} columns="2" thumbnail direction="column" />
-        <Mailchimp marginBottom="l" />
-        <Heading as="h2" variant="heading-strong-xl" marginLeft="l">
-          Earlier posts
+        <Posts locale={locale} range={[1, 1]} thumbnail />
+        <Heading as="h2" variant="heading-strong-l" marginLeft="l">
+          {locale === "en" ? "More posts" : locale === "ja" ? "その他の記事" : "Mas publicaciones"}
         </Heading>
-        <Posts range={[4]} columns="2" />
+        <Posts locale={locale} range={[2]} columns="2" thumbnail direction="column" />
       </Column>
     </Column>
   );

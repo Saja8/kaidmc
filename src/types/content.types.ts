@@ -224,6 +224,21 @@ export interface Blog extends BasePageConfig {}
 export interface Work extends BasePageConfig {}
 
 /**
+ * Education services page configuration.
+ */
+export interface Education extends BasePageConfig {}
+
+/**
+ * Business services page configuration.
+ */
+export interface Business extends BasePageConfig {}
+
+/**
+ * Personal trips page configuration.
+ */
+export interface Personal extends BasePageConfig {}
+
+/**
  * Gallery page configuration.
  * @description Configuration for the Gallery page, including metadata, navigation label, and image list.
  */

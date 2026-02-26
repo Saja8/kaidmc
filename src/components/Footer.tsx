@@ -1,8 +1,10 @@
 import { Row, IconButton, SmartLink, Text } from "@once-ui-system/core";
-import { person, social } from "@/resources";
+import { getLocalizedResources, getServerLocale } from "@/resources";
 import styles from "./Footer.module.scss";
 
-export const Footer = () => {
+export const Footer = async () => {
+  const locale = await getServerLocale();
+  const { person, social } = getLocalizedResources(locale);
   const currentYear = new Date().getFullYear();
 
   return (
@@ -26,7 +28,7 @@ export const Footer = () => {
           <Text paddingX="4">{person.name}</Text>
           <Text onBackground="neutral-weak">
             {/* Usage of this template requires attribution. Please don't remove the link to Once UI unless you have a Pro license. */}
-            / Build your portfolio with{" "}
+            / {locale === "en" ? "Built with" : locale === "ja" ? "制作" : "Sitio construido con"}{" "}
             <SmartLink href="https://once-ui.com/products/magic-portfolio">Once UI</SmartLink>
           </Text>
         </Text>

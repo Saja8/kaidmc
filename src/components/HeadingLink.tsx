@@ -1,7 +1,8 @@
 "use client";
 
-import React, { JSX } from "react";
+import React, { JSX, useEffect, useState } from "react";
 import { Heading, Flex, IconButton, useToast } from "@once-ui-system/core";
+import { Locale, getClientLocale } from "@/resources/locale";
 
 import styles from "@/components/HeadingLink.module.scss";
 
@@ -14,6 +15,11 @@ interface HeadingLinkProps {
 
 export const HeadingLink: React.FC<HeadingLinkProps> = ({ id, level, children, style }) => {
   const { addToast } = useToast();
+  const [locale, setLocale] = useState<Locale>("es");
+
+  useEffect(() => {
+    setLocale(getClientLocale());
+  }, []);
 
   const copyURL = (id: string): void => {
     const url = `${window.location.origin}${window.location.pathname}#${id}`;
@@ -21,13 +27,21 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({ id, level, children, s
       () => {
         addToast({
           variant: "success",
-          message: "Link copied to clipboard.",
+          message: locale === "en"
+            ? "Link copied to clipboard."
+            : locale === "ja"
+              ? "リンクをコピーしました。"
+              : "Enlace copiado al portapapeles.",
         });
       },
       () => {
         addToast({
           variant: "danger",
-          message: "Failed to copy link.",
+          message: locale === "en"
+            ? "Failed to copy link."
+            : locale === "ja"
+              ? "リンクをコピーできませんでした。"
+              : "No se pudo copiar el enlace.",
         });
       },
     );
@@ -61,7 +75,7 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({ id, level, children, s
         size="s"
         icon="openLink"
         variant="ghost"
-        tooltip="Copy"
+        tooltip={locale === "en" ? "Copy" : locale === "ja" ? "コピー" : "Copiar"}
         tooltipPosition="right"
       />
     </Flex>

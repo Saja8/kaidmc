@@ -3,47 +3,38 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
+import { Button, Fade, Line, Row, Text, ToggleButton } from "@once-ui-system/core";
 
-import { routes, display, person, about, blog, work, gallery } from "@/resources";
+import { routes, display } from "@/resources";
+import { getClientLocale } from "@/resources/locale";
+import { LanguageToggle } from "./LanguageToggle";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
-type TimeDisplayProps = {
-  timeZone: string;
-  locale?: string; // Optionally allow locale, defaulting to 'en-GB'
-};
-
-const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" }) => {
-  const [currentTime, setCurrentTime] = useState("");
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone,
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
-      };
-      const timeString = new Intl.DateTimeFormat(locale, options).format(now);
-      setCurrentTime(timeString);
-    };
-
-    updateTime();
-    const intervalId = setInterval(updateTime, 1000);
-
-    return () => clearInterval(intervalId);
-  }, [timeZone, locale]);
-
-  return <>{currentTime}</>;
-};
-
-export default TimeDisplay;
-
 export const Header = () => {
   const pathname = usePathname() ?? "";
+  const [locale, setLocale] = useState<"en" | "es" | "ja">("es");
+
+  useEffect(() => {
+    setLocale(getClientLocale());
+  }, []);
+
+  const labels =
+    locale === "en"
+      ? {
+          about: "About",
+          blog: "Blog",
+          education: "Education",
+          business: "Business",
+          personal: "Personal",
+        }
+      : {
+          about: locale === "ja" ? "会社情報" : "Nosotros",
+          blog: locale === "ja" ? "ブログ" : "Blog",
+          education: locale === "ja" ? "教育機関" : "Educacion",
+          business: locale === "ja" ? "企業" : "Empresas",
+          personal: locale === "ja" ? "個人向け" : "Personal",
+        };
 
   return (
     <>
@@ -53,8 +44,7 @@ export const Header = () => {
         s={{ hide: false }}
         fillWidth
         position="fixed"
-        bottom="0"
-        to="top"
+        top="0"
         height="80"
         zIndex={9}
       />
@@ -72,8 +62,12 @@ export const Header = () => {
           position: "fixed",
         }}
       >
-        <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
+        <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s" s={{ hide: true }}>
+          <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "var(--static-space-8)" }}>
+            <Text variant="label-strong-m" onBackground="brand-strong" style={{ letterSpacing: "-0.02em" }}>
+              KaiLinks
+            </Text>
+          </a>
         </Row>
         <Row fillWidth horizontal="center">
           <Row
@@ -90,40 +84,82 @@ export const Header = () => {
                 <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
               )}
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
-              {routes["/about"] && (
+              {routes["/education"] && (
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
-                      prefixIcon="person"
-                      href="/about"
-                      label={about.label}
-                      selected={pathname === "/about"}
+                      prefixIcon="book"
+                      href="/education"
+                      label={labels.education}
+                      selected={pathname.startsWith("/education")}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
-                      prefixIcon="person"
-                      href="/about"
-                      selected={pathname === "/about"}
+                      prefixIcon="book"
+                      href="/education"
+                      selected={pathname.startsWith("/education")}
                     />
                   </Row>
                 </>
               )}
-              {routes["/work"] && (
+              {routes["/business"] && (
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="grid"
-                      href="/work"
-                      label={work.label}
-                      selected={pathname.startsWith("/work")}
+                      href="/business"
+                      label={labels.business}
+                      selected={pathname.startsWith("/business")}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="grid"
-                      href="/work"
-                      selected={pathname.startsWith("/work")}
+                      href="/business"
+                      selected={pathname.startsWith("/business")}
+                    />
+                  </Row>
+                </>
+              )}
+              {routes["/personal"] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="person"
+                      href="/personal"
+                      label={labels.personal}
+                      selected={pathname.startsWith("/personal")}
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="person"
+                      href="/personal"
+                      selected={pathname.startsWith("/personal")}
+                    />
+                  </Row>
+                </>
+              )}
+              {(routes["/education"] || routes["/business"] || routes["/personal"]) &&
+                (routes["/about"] || routes["/blog"]) && (
+                  <Line background="neutral-alpha-medium" vert maxHeight="24" />
+                )}
+              {routes["/about"] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="openLink"
+                      href="/about"
+                      label={labels.about}
+                      selected={pathname.startsWith("/about")}
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="openLink"
+                      href="/about"
+                      selected={pathname.startsWith("/about")}
                     />
                   </Row>
                 </>
@@ -132,36 +168,17 @@ export const Header = () => {
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
-                      prefixIcon="book"
+                      prefixIcon="document"
                       href="/blog"
-                      label={blog.label}
+                      label={labels.blog}
                       selected={pathname.startsWith("/blog")}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
-                      prefixIcon="book"
+                      prefixIcon="document"
                       href="/blog"
                       selected={pathname.startsWith("/blog")}
-                    />
-                  </Row>
-                </>
-              )}
-              {routes["/gallery"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="gallery"
-                      href="/gallery"
-                      label={gallery.label}
-                      selected={pathname.startsWith("/gallery")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      prefixIcon="gallery"
-                      href="/gallery"
-                      selected={pathname.startsWith("/gallery")}
                     />
                   </Row>
                 </>
@@ -169,25 +186,25 @@ export const Header = () => {
               {display.themeSwitcher && (
                 <>
                   <Line background="neutral-alpha-medium" vert maxHeight="24" />
+                  <LanguageToggle />
                   <ThemeToggle />
                 </>
               )}
             </Row>
           </Row>
         </Row>
-        <Flex fillWidth horizontal="end" vertical="center">
-          <Flex
-            paddingRight="12"
-            horizontal="end"
-            vertical="center"
-            textVariant="body-default-s"
-            gap="20"
+        <Row fillWidth horizontal="end" vertical="center" paddingRight="12" s={{ hide: true }}>
+          <Button
+            href="https://kailinks.com/contact"
+            variant="secondary"
+            size="s"
+            weight="default"
+            prefixIcon="email"
+            data-border="rounded"
           >
-            <Flex s={{ hide: true }}>
-              {display.time && <TimeDisplay timeZone={person.location} />}
-            </Flex>
-          </Flex>
-        </Flex>
+            {locale === "en" ? "Contact" : locale === "ja" ? "お問い合わせ" : "Contacto"}
+          </Button>
+        </Row>
       </Row>
     </>
   );

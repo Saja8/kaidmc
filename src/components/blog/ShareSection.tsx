@@ -2,6 +2,8 @@
 
 import { Row, Text, Button, useToast } from "@once-ui-system/core";
 import { socialSharing } from "@/resources";
+import { useEffect, useState } from "react";
+import { Locale, getClientLocale } from "@/resources/locale";
 
 interface ShareSectionProps {
   title: string;
@@ -68,14 +70,20 @@ const socialPlatforms: Record<string, SocialPlatform> = {
   email: {
     name: "email",
     icon: "email",
-    label: "Email",
+    label: "Correo",
     generateUrl: (title, url) => 
-      `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(`Check out this post: ${url}`)}`,
+      `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(`${title} ${url}`)}`,
   },
 };
 
 export function ShareSection({ title, url }: ShareSectionProps) {
   const { addToast } = useToast();
+  const [locale, setLocale] = useState<Locale>("es");
+
+  useEffect(() => {
+    setLocale(getClientLocale());
+  }, []);
+
   // Don't render if sharing is disabled
   if (!socialSharing.display) {
     return null;
@@ -86,13 +94,26 @@ export function ShareSection({ title, url }: ShareSectionProps) {
       await navigator.clipboard.writeText(url);
       addToast({
         variant: "success",
-        message: "Link copied to clipboard",
+        message:
+          locale === "en"
+            ? "Link copied to clipboard"
+            : locale === "ja"
+              ? "リンクをコピーしました"
+              : "Enlace copiado al portapapeles",
       });
     } catch (err) {
-      console.error('Failed to copy: ', err);
+      console.error(
+        locale === "en" ? "Failed to copy: " : locale === "ja" ? "コピーに失敗しました: " : "No se pudo copiar: ",
+        err,
+      );
       addToast({
         variant: "danger",
-        message: "Failed to copy link",
+        message:
+          locale === "en"
+            ? "Failed to copy link"
+            : locale === "ja"
+              ? "リンクをコピーできませんでした"
+              : "No se pudo copiar el enlace",
       });
     }
   };
@@ -106,7 +127,11 @@ export function ShareSection({ title, url }: ShareSectionProps) {
   return (
     <Row fillWidth center gap="16" marginTop="32" marginBottom="16">
       <Text variant="label-default-m" onBackground="neutral-weak">
-        Share this post:
+        {locale === "en"
+          ? "Share this post:"
+          : locale === "ja"
+            ? "この記事を共有:"
+            : "Compartir esta publicacion:"}
       </Text>
       <Row data-border="rounded" gap="16" horizontal="center" wrap>
         {enabledPlatforms.map((platform, index) => (

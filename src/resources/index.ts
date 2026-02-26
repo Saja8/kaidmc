@@ -8,7 +8,20 @@ export {
   blog,
   work,
   gallery,
+  education,
+  business,
+  personal,
 } from "./content";
+
+export { getLocalizedResources } from "./localized";
+export {
+  defaultLocale,
+  getClientLocale,
+  getServerLocale,
+  normalizeLocale,
+  setClientLocale,
+  type Locale,
+} from "./locale";
 
 export {
   display,
