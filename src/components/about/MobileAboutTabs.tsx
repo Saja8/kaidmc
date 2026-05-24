@@ -20,24 +20,13 @@ type TeamMember = {
   scholar?: string;
 };
 
-type ScientificMember = {
-  name: string;
-  title: string;
-  affiliation: string;
-  group: string;
-  href: string;
-};
-
 type MobileAboutTabsProps = {
   coverageTitle: string;
   processTitle: string;
   teamTitle: string;
-  scientificTitle: string;
-  scientificIntro: string;
   coverageItems: Array<{ label: string; text: string }>;
   processSteps: ProcessStep[];
   teamMembers: TeamMember[];
-  scientificMembers: ScientificMember[];
   profileLabels: {
     linkedin: string;
     scholar: string;
@@ -49,17 +38,14 @@ export function MobileAboutTabs({
   coverageTitle,
   processTitle,
   teamTitle,
-  scientificTitle,
-  scientificIntro,
   coverageItems,
   processSteps,
   teamMembers,
-  scientificMembers,
   profileLabels,
 }: MobileAboutTabsProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const tabsId = useId();
-  const tabs = [coverageTitle, processTitle, scientificTitle, teamTitle];
+  const tabs = [coverageTitle, processTitle, teamTitle];
 
   return (
     <section className={styles.mobileTabs} aria-label="About sections">
@@ -116,30 +102,6 @@ export function MobileAboutTabs({
         )}
 
         {activeIndex === 2 && (
-          <div className={styles.mobileScientificList}>
-            <p className={styles.mobileCardText}>{scientificIntro}</p>
-            {scientificMembers.map((member) => (
-              <article key={member.name} className={styles.mobileScientificCard}>
-                <div>
-                  <p className={styles.mobileCardTitle}>{member.name}</p>
-                  <p className={styles.mobileTeamMeta}>{member.group}</p>
-                  <p className={styles.mobileCardText}>
-                    {member.title} · {member.affiliation}
-                  </p>
-                </div>
-                <IconButton
-                  href={member.href}
-                  icon="openLink"
-                  tooltip={profileLabels.source}
-                  size="s"
-                  variant="secondary"
-                />
-              </article>
-            ))}
-          </div>
-        )}
-
-        {activeIndex === 3 && (
           <div className={styles.mobileTeamList}>
             {teamMembers.map((member) => (
               <article key={member.name} className={styles.mobileTeamCard}>

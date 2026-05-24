@@ -244,30 +244,6 @@
   gap: var(--static-space-8);
 }
 
-.scientificGrid {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--static-space-8);
-}
-
-.scientificCard {
-  min-height: 10rem;
-  border-radius: var(--radius-m);
-  border: 1px solid color-mix(in srgb, var(--neutral-alpha-weak) 70%, transparent);
-  background:
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--page-background) 94%, var(--neutral-alpha-weak)),
-      color-mix(in srgb, var(--page-background) 99%, var(--brand-alpha-weak))
-    );
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.scientificCard:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px color-mix(in srgb, var(--brand-alpha-weak) 16%, transparent);
-}
-
 .trackGrid {
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -499,7 +475,6 @@
 
   .mobileCoverageList,
   .mobileProcessList,
-  .mobileScientificList,
   .mobileTeamList {
     display: grid;
     gap: var(--static-space-8);
@@ -507,7 +482,6 @@
 
   .mobileCoverageCard,
   .mobileProcessCard,
-  .mobileScientificCard,
   .mobileTeamCard {
     border: 1px solid var(--neutral-alpha-weak);
     border-radius: var(--radius-m);
@@ -515,8 +489,7 @@
   }
 
   .mobileCoverageCard,
-  .mobileProcessCard,
-  .mobileScientificCard {
+  .mobileProcessCard {
     padding: var(--static-space-12);
   }
 
@@ -531,13 +504,6 @@
     grid-template-columns: 3rem minmax(0, 1fr);
     gap: var(--static-space-12);
     padding: var(--static-space-12);
-    align-items: start;
-  }
-
-  .mobileScientificCard {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: var(--static-space-8);
     align-items: start;
   }
 
@@ -632,10 +598,6 @@
     grid-template-columns: 1fr;
   }
 
-  .scientificGrid {
-    grid-template-columns: 1fr;
-  }
-
   .skillGrid {
     grid-template-columns: 1fr;
   }
@@ -664,7 +626,6 @@
   .workCard,
     .trackCard,
     .processCard,
-    .scientificCard,
     .skillCard,
     .teamCard {
     min-height: unset;
@@ -676,7 +637,6 @@
   .summaryCard,
     .trackCard,
     .processCard,
-    .scientificCard,
     .skillCard,
     .teamCard {
     transition: none;
@@ -685,7 +645,6 @@
   .summaryCard:hover,
     .trackCard:hover,
     .processCard:hover,
-    .scientificCard:hover,
     .skillCard:hover,
     .teamCard:hover {
     transform: none;

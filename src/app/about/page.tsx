@@ -55,9 +55,6 @@ export default async function About() {
           emailLabel: "Send email",
           coverageTitle: "Coverage",
           processTitle: "How a program works",
-          scientificTitle: "Scientific committee",
-          scientificIntro:
-            "Academic advisors and IFToMM network members connected to aerospace systems, mechanism science, robotics, and mechatronics.",
           coverageItems: [
             {
               label: "East Asia",
@@ -135,9 +132,6 @@ export default async function About() {
             emailLabel: "メール送信",
             coverageTitle: "対応地域",
             processTitle: "プログラムの進め方",
-            scientificTitle: "科学委員会",
-            scientificIntro:
-              "航空宇宙システム、機構学、ロボティクス、メカトロニクスに関わる研究者・IFToMMネットワークメンバー。",
             coverageItems: [
               {
                 label: "東アジア",
@@ -214,9 +208,6 @@ export default async function About() {
             emailLabel: "Enviar correo",
             coverageTitle: "Cobertura",
             processTitle: "Cómo funciona un programa",
-            scientificTitle: "Comité científico",
-            scientificIntro:
-              "Asesores académicos y miembros de la red IFToMM vinculados con sistemas aeroespaciales, ciencia de mecanismos, robótica y mecatrónica.",
             coverageItems: [
               {
                 label: "Asia Oriental",
@@ -284,93 +275,6 @@ export default async function About() {
               },
             ],
           };
-
-  const scientificCommittee = [
-    {
-      name: "Hironori Sahara",
-      title: "Professor, Ph.D.",
-      affiliation: "Tokyo Metropolitan University",
-      group: "Tokyo Metropolitan University",
-      href: "https://researchmap.jp/hironori-sahara?lang=en",
-    },
-    {
-      name: "Hideki Takenaka",
-      title: "Assistant Professor, Ph.D.",
-      affiliation: "Tokyo Metropolitan University",
-      group: "Tokyo Metropolitan University",
-      href: "https://researchmap.jp/takenaka-hideki?lang=en",
-    },
-    {
-      name: "Claudio Villegas",
-      title: "Chair, IFToMM Young Faculty Group",
-      affiliation: "University of Bío-Bío",
-      group: "IFToMM Young Faculty Group",
-      href: "https://iftomm-world.org/cdg-2-iftomm-young-faculty-group/",
-    },
-    {
-      name: "Jiang Ming",
-      title: "Chair Secretariat, IFToMM Young Faculty Group",
-      affiliation: "Tokyo Institute of Technology",
-      group: "IFToMM Young Faculty Group",
-      href: "https://iftomm-world.org/cdg-2-iftomm-young-faculty-group/",
-    },
-    {
-      name: "Sajjad Keshtkar",
-      title: "Member, IFToMM Young Faculty Group",
-      affiliation: "Tokyo Metropolitan University",
-      group: "IFToMM Young Faculty Group",
-      href: "https://iftomm-world.org/cdg-2-iftomm-young-faculty-group/",
-    },
-    {
-      name: "Maria G. Contreras C.",
-      title: "Member, IFToMM Young Faculty Group",
-      affiliation: "Tecnológico de Monterrey / UTEQ",
-      group: "IFToMM Young Faculty Group",
-      href: "https://iftomm-world.org/cdg-2-iftomm-young-faculty-group/",
-    },
-    {
-      name: "Giuseppe Carbone",
-      title: "Chair, IFToMM Technical Committee for Robotics and Mechatronics",
-      affiliation: "University of Calabria",
-      group: "IFToMM Robotics and Mechatronics TC",
-      href: "https://iftomm-world.org/committees/technical-committee-for-robotics-and-mechatronics/",
-    },
-    {
-      name: "Shaoping Bai",
-      title: "Deputy Chair, IFToMM Technical Committee for Robotics and Mechatronics",
-      affiliation: "Aalborg University",
-      group: "IFToMM Robotics and Mechatronics TC",
-      href: "https://iftomm-world.org/committees/technical-committee-for-robotics-and-mechatronics/",
-    },
-    {
-      name: "Yukio Takeda",
-      title: "Member, IFToMM Robotics and Mechatronics TC",
-      affiliation: "Tokyo Institute of Technology",
-      group: "IFToMM Robotics and Mechatronics TC",
-      href: "https://iftomm-world.org/committees/technical-committee-for-robotics-and-mechatronics/",
-    },
-    {
-      name: "Gentian Venture",
-      title: "Member, IFToMM Robotics and Mechatronics TC",
-      affiliation: "Tokyo University of Agriculture and Technology",
-      group: "IFToMM Robotics and Mechatronics TC",
-      href: "https://iftomm-world.org/committees/technical-committee-for-robotics-and-mechatronics/",
-    },
-    {
-      name: "Hiram Ponce",
-      title: "Member, IFToMM Robotics and Mechatronics TC",
-      affiliation: "Universidad Panamericana",
-      group: "IFToMM Robotics and Mechatronics TC",
-      href: "https://iftomm-world.org/committees/technical-committee-for-robotics-and-mechatronics/",
-    },
-    {
-      name: "Tobias Bruckmann",
-      title: "Member, IFToMM Young Faculty Group / Robotics and Mechatronics TC",
-      affiliation: "University of Duisburg-Essen",
-      group: "IFToMM network",
-      href: "https://iftomm-world.org/cdg-2-iftomm-young-faculty-group/",
-    },
-  ];
 
   return (
     <Column maxWidth="m" gap="xl">
@@ -441,9 +345,6 @@ export default async function About() {
         coverageItems={ui.coverageItems}
         processSteps={ui.processSteps}
         teamMembers={ui.teamMembers}
-        scientificTitle={ui.scientificTitle}
-        scientificIntro={ui.scientificIntro}
-        scientificMembers={scientificCommittee}
         profileLabels={profileLabels}
       />
 
@@ -467,46 +368,7 @@ export default async function About() {
         </div>
       </Column>
 
-      {/* ── 3. Scientific committee ── */}
-      <Column fillWidth gap="16" className={styles.desktopDetailSection}>
-        <Column gap="4">
-          <Heading as="h2" variant="heading-strong-xl">
-            {ui.scientificTitle}
-          </Heading>
-          <Text variant="body-default-m" onBackground="neutral-weak" style={{ maxWidth: "42rem" }}>
-            {ui.scientificIntro}
-          </Text>
-        </Column>
-        <div className={styles.scientificGrid}>
-          {scientificCommittee.map((member) => (
-            <Column key={member.name} gap="8" padding="16" className={styles.scientificCard}>
-              <Row gap="8" horizontal="between" vertical="start">
-                <Column gap="4">
-                  <Text variant="heading-strong-s">{member.name}</Text>
-                  <Text variant="label-default-s" onBackground="brand-medium">
-                    {member.group}
-                  </Text>
-                </Column>
-                <IconButton
-                  href={member.href}
-                  icon="openLink"
-                  tooltip={profileLabels.source}
-                  size="s"
-                  variant="secondary"
-                />
-              </Row>
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                {member.title}
-              </Text>
-              <Badge paddingX="12" paddingY="4" background="neutral-alpha-weak" arrow={false}>
-                {member.affiliation}
-              </Badge>
-            </Column>
-          ))}
-        </div>
-      </Column>
-
-      {/* ── 4. Team ── */}
+      {/* ── 3. Team ── */}
       <Column fillWidth gap="16" className={styles.desktopDetailSection}>
         <Heading as="h2" variant="heading-strong-xl">
           {ui.teamTitle}
