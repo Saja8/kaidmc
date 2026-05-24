@@ -77,6 +77,9 @@ export default async function Education() {
           >
             {education.description}
           </Text>
+          <div className="kailinksServiceHeroIllustration" aria-hidden="true">
+            <img src="/images/illustrations/education-programs.svg" alt="" loading="eager" />
+          </div>
         </Column>
       </RevealFx>
 
@@ -112,7 +115,7 @@ export default async function Education() {
           >
             {ui.ctaText}
           </Text>
-          <Button variant="primary" size="l" href="https://kailinks.com/contact">
+          <Button variant="primary" size="l" href="https://kailinks.com/contact" arrowIcon>
             {ui.ctaButton}
           </Button>
         </Column>

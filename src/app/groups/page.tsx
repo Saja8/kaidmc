@@ -94,6 +94,9 @@ export default async function Personal() {
           >
             {personal.description}
           </Text>
+          <div className="kailinksServiceHeroIllustration" aria-hidden="true">
+            <img src="/images/illustrations/group-programs.svg" alt="" loading="eager" />
+          </div>
         </Column>
       </RevealFx>
 
@@ -129,7 +132,7 @@ export default async function Personal() {
           >
             {ui.ctaText}
           </Text>
-          <Button variant="primary" size="l" href="https://kailinks.com/contact">
+          <Button variant="primary" size="l" href="https://kailinks.com/contact" arrowIcon>
             {ui.ctaButton}
           </Button>
         </Column>

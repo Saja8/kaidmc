@@ -78,7 +78,7 @@ export default async function Business() {
 
       {/* — Hero — */}
       <RevealFx>
-        <Column gap="12" horizontal="center" align="center">
+        <Column gap="20" horizontal="center" align="center">
           <Badge paddingX="12" paddingY="4" background="brand-alpha-weak" arrow={false}>
             {ui.badge}
           </Badge>
@@ -94,6 +94,9 @@ export default async function Business() {
           >
             {business.description}
           </Text>
+          <div className="kailinksServiceHeroIllustration" aria-hidden="true">
+            <img src="/images/illustrations/business-programs.svg" alt="" loading="eager" />
+          </div>
         </Column>
       </RevealFx>
 
@@ -129,7 +132,7 @@ export default async function Business() {
           >
             {ui.ctaText}
           </Text>
-          <Button variant="primary" size="l" href="https://kailinks.com/contact">
+          <Button variant="primary" size="l" href="https://kailinks.com/contact" arrowIcon>
             {ui.ctaButton}
           </Button>
         </Column>

@@ -484,7 +484,19 @@ header[data-border="rounded"] a[href="/"]:hover {
   }
 
   .kailinksCorporateSection {
-    display: none !important;
+    padding: var(--static-space-16) !important;
+  }
+
+  .kailinksFactGrid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--static-space-8) !important;
+  }
+
+  .kailinksFact {
+    flex: unset !important;
+    min-width: unset !important;
+    padding: var(--static-space-12) !important;
   }
 
   .kailinksOperationsVisual,
@@ -918,6 +930,25 @@ header[data-border="rounded"] a[href="/"]:hover {
   border-radius: 999px;
   white-space: nowrap;
   background: color-mix(in srgb, var(--neutral-alpha-weak) 45%, transparent);
+}
+
+/* ─── Service page hero illustration ─── */
+.kailinksServiceHeroIllustration {
+  width: 100%;
+  max-width: 26rem;
+  margin: 0.5rem auto 0;
+}
+
+.kailinksServiceHeroIllustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1024px) {
+  .kailinksServiceHeroIllustration {
+    max-width: 16rem;
+  }
 }
 
 /* ─── Reduced-motion accessibility ─── */
