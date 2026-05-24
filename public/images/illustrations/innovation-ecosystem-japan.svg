@@ -1,0 +1,62 @@
+<svg viewBox="0 0 400 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.04"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="250" fill="url(#g5)"/>
+
+  <!-- subtle grid -->
+  <g stroke="#3b82f6" stroke-opacity="0.06" stroke-width="1">
+    <line x1="0" y1="62" x2="400" y2="62"/>
+    <line x1="0" y1="125" x2="400" y2="125"/>
+    <line x1="0" y1="188" x2="400" y2="188"/>
+    <line x1="100" y1="0" x2="100" y2="250"/>
+    <line x1="200" y1="0" x2="200" y2="250"/>
+    <line x1="300" y1="0" x2="300" y2="250"/>
+  </g>
+
+  <!-- hexagonal network nodes -->
+  <!-- central hex -->
+  <polygon points="200,78 220,90 220,114 200,126 180,114 180,90" fill="#3b82f6" fill-opacity="0.16" stroke="#3b82f6" stroke-opacity="0.32" stroke-width="1.5"/>
+  <!-- satellite hex top-right -->
+  <polygon points="242,56 262,68 262,92 242,104 222,92 222,68" fill="#3b82f6" fill-opacity="0.09" stroke="#3b82f6" stroke-opacity="0.20" stroke-width="1"/>
+  <!-- satellite hex top-left -->
+  <polygon points="158,56 178,68 178,92 158,104 138,92 138,68" fill="#3b82f6" fill-opacity="0.09" stroke="#3b82f6" stroke-opacity="0.20" stroke-width="1"/>
+  <!-- satellite hex bottom -->
+  <polygon points="200,126 220,138 220,162 200,174 180,162 180,138" fill="#06b6d4" fill-opacity="0.09" stroke="#06b6d4" stroke-opacity="0.20" stroke-width="1"/>
+  <!-- far hex right -->
+  <polygon points="284,34 304,46 304,70 284,82 264,70 264,46" fill="#3b82f6" fill-opacity="0.05" stroke="#3b82f6" stroke-opacity="0.12" stroke-width="1"/>
+  <!-- far hex left -->
+  <polygon points="116,34 136,46 136,70 116,82 96,70 96,46" fill="#06b6d4" fill-opacity="0.05" stroke="#06b6d4" stroke-opacity="0.12" stroke-width="1"/>
+
+  <!-- central dot -->
+  <circle cx="200" cy="102" r="6" fill="#3b82f6" fill-opacity="0.80"/>
+  <circle cx="242" cy="80" r="4.5" fill="#3b82f6" fill-opacity="0.55"/>
+  <circle cx="158" cy="80" r="4.5" fill="#3b82f6" fill-opacity="0.55"/>
+  <circle cx="200" cy="150" r="4.5" fill="#06b6d4" fill-opacity="0.55"/>
+  <circle cx="284" cy="58" r="3.5" fill="#3b82f6" fill-opacity="0.38"/>
+  <circle cx="116" cy="58" r="3.5" fill="#06b6d4" fill-opacity="0.38"/>
+
+  <!-- connection lines -->
+  <line x1="200" y1="102" x2="242" y2="80" stroke="#3b82f6" stroke-opacity="0.22" stroke-width="1.5"/>
+  <line x1="200" y1="102" x2="158" y2="80" stroke="#3b82f6" stroke-opacity="0.22" stroke-width="1.5"/>
+  <line x1="200" y1="102" x2="200" y2="150" stroke="#06b6d4" stroke-opacity="0.22" stroke-width="1.5"/>
+  <line x1="242" y1="80" x2="284" y2="58" stroke="#3b82f6" stroke-opacity="0.14" stroke-width="1"/>
+  <line x1="158" y1="80" x2="116" y2="58" stroke="#06b6d4" stroke-opacity="0.14" stroke-width="1"/>
+
+  <!-- extended network right side -->
+  <circle cx="330" cy="125" r="5" fill="#06b6d4" fill-opacity="0.40"/>
+  <circle cx="358" cy="105" r="4" fill="#06b6d4" fill-opacity="0.28"/>
+  <circle cx="358" cy="145" r="4" fill="#06b6d4" fill-opacity="0.28"/>
+  <line x1="330" y1="125" x2="358" y2="105" stroke="#06b6d4" stroke-opacity="0.20" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <line x1="330" y1="125" x2="358" y2="145" stroke="#06b6d4" stroke-opacity="0.20" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <line x1="200" y1="102" x2="330" y2="125" stroke="#06b6d4" stroke-opacity="0.14" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- dots bottom -->
+  <circle cx="80" cy="210" r="4" fill="#3b82f6" fill-opacity="0.18"/>
+  <circle cx="100" cy="210" r="4" fill="#3b82f6" fill-opacity="0.12"/>
+  <circle cx="120" cy="210" r="4" fill="#3b82f6" fill-opacity="0.08"/>
+</svg>

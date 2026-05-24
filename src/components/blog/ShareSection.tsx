@@ -70,8 +70,8 @@ const socialPlatforms: Record<string, SocialPlatform> = {
   email: {
     name: "email",
     icon: "email",
-    label: "Correo",
-    generateUrl: (title, url) => 
+    label: "Email",
+    generateUrl: (title, url) =>
       `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(`${title} ${url}`)}`,
   },
 };
@@ -131,7 +131,7 @@ export function ShareSection({ title, url }: ShareSectionProps) {
           ? "Share this post:"
           : locale === "ja"
             ? "この記事を共有:"
-            : "Compartir esta publicacion:"}
+            : "Compartir esta publicación:"}
       </Text>
       <Row data-border="rounded" gap="16" horizontal="center" wrap>
         {enabledPlatforms.map((platform, index) => (

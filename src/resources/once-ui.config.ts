@@ -24,7 +24,7 @@ const routes: RoutesConfig = {
   "/gallery": false,
   "/education": true,
   "/business": true,
-  "/personal": true,
+  "/groups": true,
 };
 
 const display: DisplayConfig = {
@@ -40,24 +40,28 @@ const protectedRoutes: ProtectedRoutesConfig = {
 };
 
 // Import and set font for each variant
-import { Geist } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 
-const heading = Geist({
+const heading = Plus_Jakarta_Sans({
   variable: "--font-heading",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
-const body = Geist({
+const body = DM_Sans({
   variable: "--font-body",
   subsets: ["latin"],
+  weight: ["300", "400", "500"],
   display: "swap",
 });
 
-const label = Geist({
+const label = DM_Sans({
   variable: "--font-label",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -78,11 +82,11 @@ const fonts: FontsConfig = {
 const style: StyleConfig = {
   theme: "system", // dark | light | system
   neutral: "slate", // sand | gray | slate | mint | rose | dusk | custom
-  brand: "blue", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
-  accent: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  brand: "indigo", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  accent: "emerald", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
   solid: "color", // color | contrast
   solidStyle: "plastic", // flat | plastic
-  border: "playful", // rounded | playful | conservative | sharp
+  border: "rounded", // rounded | playful | conservative | sharp
   surface: "translucent", // filled | translucent
   transition: "all", // all | micro | macro
   scaling: "100", // 90 | 95 | 100 | 105 | 110
@@ -111,7 +115,7 @@ const effects: EffectsConfig = {
   },
   gradient: {
     display: true,
-    opacity: 42,
+    opacity: 28,
     x: 50,
     y: 14,
     width: 84,
@@ -221,7 +225,6 @@ const socialSharing: SocialSharingConfig = {
 
 export {
   display,
-  mailchimp,
   routes,
   protectedRoutes,
   baseURL,

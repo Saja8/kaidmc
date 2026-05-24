@@ -1,4 +1,4 @@
-import {
+import type {
   About,
   Blog,
   Business,
@@ -27,7 +27,9 @@ const person: Person = {
 const newsletter: Newsletter = {
   display: false,
   title: <>Recibe actualizaciones de KaiLinks</>,
-  description: <>Perspectivas para programas educativos, delegaciones empresariales y soporte personalizado.</>,
+  description: (
+    <>Perspectivas para programas educativos, delegaciones empresariales y viajes de grupo.</>
+  ),
 };
 
 const social: Social = [
@@ -67,10 +69,10 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Inicio",
-  title: "KaiLinks | DMC y acceso a mercados",
+  title: "KaiLinks | Operación internacional",
   description:
-    "Servicios DMC, exhibiciones, eventos y apoyo de entrada a mercados en Japón, México, Alemania/UE y Hong Kong/China.",
-  headline: <>Conectamos culturas y negocios — del plan a la ejecución.</>,
+    "Planeación y ejecución local para programas internacionales con coordinación profesional en cada destino.",
+  headline: <>Operación internacional, sin fricción.</>,
   featured: {
     display: true,
     title: (
@@ -78,16 +80,16 @@ const home: Home = {
         <strong>KaiLinks</strong>
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          DMC · Pabellones · Incentivos · Entrada a mercados
+          Coordinación local · Programas internacionales
         </Text>
       </Row>
     ),
-    href: "/business",
+    href: "/about",
   },
   subline: (
     <>
-      Programas académicos, eventos corporativos, viajes de incentivo y logística individual
-      — planeados y operados en campo en Japón, México, Alemania/UE y Hong Kong/China.
+      KaiLinks estructura la agenda, coordina proveedores y gestiona la operación en sitio para que
+      cada programa avance con claridad.
     </>
   ),
 };
@@ -97,7 +99,7 @@ const about: About = {
   label: "Nosotros",
   title: "Nosotros | KaiLinks",
   description:
-    "KaiLinks es un socio global DMC y de ejecución internacional para programas, exhibiciones y soporte de entrada a mercados con cobertura en Japón, México, Alemania/UE y Hong Kong/China.",
+    "KaiLinks es un socio global DMC y de ejecución internacional para programas, exhibiciones y soporte de entrada a mercados con red en Asia Oriental, América Latina y Europa.",
   tableOfContent: {
     display: false,
     subItems: false,
@@ -114,10 +116,10 @@ const about: About = {
     title: "Quiénes somos",
     description: (
       <>
-        KaiLinks acompaña a organizaciones y personas cuando necesitan ejecutar programas en
-        destinos que no controlan directamente. Combinamos diseño operativo, coordinación local y
-        soporte de entrada a mercados para que el cliente se concentre en objetivos, decisiones y
-        resultados, mientras nosotros gestionamos la operación en campo.
+        KaiLinks acompaña a organizaciones y grupos cuando necesitan ejecutar programas en destinos
+        que no controlan directamente. Combinamos diseño operativo, coordinación local y soporte de
+        entrada a mercados para que el cliente se concentre en objetivos, decisiones y resultados,
+        mientras nosotros gestionamos la operación en campo.
       </>
     ),
   },
@@ -127,7 +129,7 @@ const about: About = {
     experiences: [
       {
         company: "Operación DMC",
-        timeframe: "Educación | Empresas | Personal",
+        timeframe: "Educación | Empresas | Grupos",
         role: "Diseño de programas y ejecución local",
         achievements: [
           <>Planeación integral de itinerarios, proveedores, reservas y coordinación en sitio.</>,
@@ -162,20 +164,39 @@ const about: About = {
     title: "Cobertura operativa",
     institutions: [
       {
-        name: "Japón",
-        description: <>Programas educativos, coordinación local, visitas institucionales y soporte ejecutivo.</>,
+        name: "Asia Oriental",
+        description: (
+          <>
+            Programas educativos, coordinación local, visitas institucionales y soporte ejecutivo.
+          </>
+        ),
       },
       {
-        name: "México",
-        description: <>Intercambios institucionales, delegaciones, logística de destino y coordinación en ciudades clave.</>,
+        name: "América Latina",
+        description: (
+          <>
+            Intercambios institucionales, delegaciones, logística de destino y coordinación en
+            ciudades clave.
+          </>
+        ),
       },
       {
-        name: "Alemania / UE",
-        description: <>Planeación de conferencias, soporte de exhibiciones y coordinación transfronteriza.</>,
+        name: "Europa",
+        description: (
+          <>
+            Entrada a mercado, canales comerciales, soporte de exhibiciones y coordinación
+            transfronteriza.
+          </>
+        ),
       },
       {
-        name: "Hong Kong / China",
-        description: <>Acceso de negocios, soporte ejecutivo y coordinación regional de alto nivel.</>,
+        name: "Programas multicity",
+        description: (
+          <>
+            Coordinación entre sedes, proveedores y equipos locales cuando el programa cruza
+            regiones.
+          </>
+        ),
       },
     ],
   },
@@ -189,7 +210,7 @@ const about: About = {
           "Arquitectura de programas, selección de socios locales, negociación de sedes y diseño de timeline.",
         tags: [
           {
-        name: "Estrategia",
+            name: "Estrategia",
             icon: "document",
           },
           {
@@ -205,11 +226,11 @@ const about: About = {
           "Despliegue de equipo, gestión de asistentes, staff local, traslados y resolución de incidencias.",
         tags: [
           {
-        name: "Operaciones",
+            name: "Operaciones",
             icon: "grid",
           },
           {
-        name: "Coordinación",
+            name: "Coordinación",
             icon: "calendar",
           },
         ],
@@ -221,12 +242,12 @@ const about: About = {
           "Documentación, reportes y recomendaciones de optimización para el siguiente ciclo.",
         tags: [
           {
-        name: "Análisis",
+            name: "Análisis",
             icon: "book",
           },
           {
             name: "Seguimiento",
-            icon: "person",
+            icon: "globe",
           },
         ],
         images: [],
@@ -254,69 +275,59 @@ const education: Education = {
   label: "Educación",
   title: "Instituciones educativas",
   description:
-    "Diseñamos y ejecutamos programas académicos en cuatro regiones: Japan, México, Hong Kong/China y Alemania/UE. Nos encargamos de la vinculación institucional, agenda, logística y operación en sitio.",
+    "Diseñamos y ejecutamos programas académicos, conferencias y eventos institucionales con vinculación, agenda, logística y operación en sitio.",
 };
 
 const business: Business = {
   path: "/business",
   label: "Empresas",
-  title: "Empresas",
+  title: "Programas para empresas",
   description:
-    "Soporte operativo para reuniones corporativas, conferencias, viajes de incentivo, participación en expos y estrategias de entrada a nuevos mercados.",
+    "Estructuramos agendas ejecutivas, participación en expos y coordinación local para empresas que necesitan operar fuera de su mercado habitual.",
 };
 
 const personal: Personal = {
-  path: "/personal",
-  label: "Personal",
-  title: "Viajes individuales",
+  path: "/groups",
+  label: "Grupos",
+  title: "Programas de grupo",
   description:
-    "Logística para freelancers, deportistas y profesionales independientes que quieren participar en eventos, competencias y actividades en el extranjero.",
+    "Coordinamos grupos, incentivos, delegaciones y experiencias especiales con agenda clara, proveedores confiables y soporte local.",
 };
 
 const gallery: Gallery = {
   path: "/gallery",
-  label: "Galeria",
+  label: "Galería",
   title: "Galería KaiLinks",
   description: "Momentos seleccionados de programas ejecutados por KaiLinks.",
   images: [
     {
-      src: "/images/events/Nagano_Sky_2025.webp",
-      alt: "Nagano Sky — programa en Japón",
+      src: "/images/illustrations/group-travel.svg",
+      alt: "Ilustración de operación para viajes de grupo",
       orientation: "horizontal",
     },
     {
-      src: "/images/events/HongKong_Jewrellery_2025.webp",
-      alt: "Hong Kong Jewellery Fair — feria comercial",
+      src: "/images/illustrations/pavilion-expo.svg",
+      alt: "Ilustración de operación de pabellón y exposición",
       orientation: "vertical",
     },
     {
-      src: "/images/events/Tokyo_Spasce_Expo_2024.webp",
-      alt: "Tokyo Space Expo — exhibición tecnológica",
+      src: "/images/illustrations/kailinks-operations-map.svg",
+      alt: "Ilustración de coordinación internacional",
       orientation: "horizontal",
     },
     {
-      src: "/images/events/Osaka_Expo_2025.webp",
-      alt: "Osaka Expo 2025 — evento internacional",
+      src: "/images/illustrations/education-programs.svg",
+      alt: "Ilustración de programa educativo internacional",
       orientation: "vertical",
     },
     {
-      src: "/images/events/Queretaro_Expo_2025.webp",
-      alt: "Querétaro Expo — exhibición en México",
+      src: "/images/illustrations/startup-market-entry.svg",
+      alt: "Ilustración de agenda empresarial internacional",
       orientation: "vertical",
     },
     {
-      src: "/images/events/UpcmEvnts_2.webp",
-      alt: "Evento empresarial — delegación de negocios",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/events/UpcmEvnts_4.webp",
-      alt: "Conferencia internacional — programa KaiLinks",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/events/Tokyo_Electronics_2025.webp",
-      alt: "Tokyo Electronics — feria de electrónica",
+      src: "/images/illustrations/risk-map.svg",
+      alt: "Ilustración de control operativo y riesgos",
       orientation: "vertical",
     },
   ],

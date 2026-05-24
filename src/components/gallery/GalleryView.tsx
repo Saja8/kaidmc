@@ -1,12 +1,17 @@
 "use client";
 
 import { Media, MasonryGrid } from "@once-ui-system/core";
-import { gallery } from "@/resources";
 
-export default function GalleryView() {
+interface GalleryImage {
+  src: string;
+  alt: string;
+  orientation: string;
+}
+
+export default function GalleryView({ images }: { images: GalleryImage[] }) {
   return (
     <MasonryGrid columns={2} s={{ columns: 1 }}>
-      {gallery.images.map((image, index) => (
+      {images.map((image, index) => (
         <Media
           enlarge
           priority={index < 10}

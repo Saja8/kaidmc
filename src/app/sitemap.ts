@@ -14,6 +14,27 @@ export default async function sitemap() {
       }))
     : [];
 
+  const educationPosts = routesConfig["/education"]
+    ? getPosts(["src", "app", "education", "projects"]).map((post) => ({
+        url: `${baseURL}/education/${post.slug}`,
+        lastModified: post.metadata.publishedAt,
+      }))
+    : [];
+
+  const businessPosts = routesConfig["/business"]
+    ? getPosts(["src", "app", "business", "projects"]).map((post) => ({
+        url: `${baseURL}/business/${post.slug}`,
+        lastModified: post.metadata.publishedAt,
+      }))
+    : [];
+
+  const personalPosts = routesConfig["/groups"]
+    ? getPosts(["src", "app", "groups", "projects"]).map((post) => ({
+        url: `${baseURL}/groups/${post.slug}`,
+        lastModified: post.metadata.publishedAt,
+      }))
+    : [];
+
   const activeRoutes = Object.keys(routesConfig).filter(
     (route) => routesConfig[route as keyof typeof routesConfig],
   );
@@ -23,5 +44,5 @@ export default async function sitemap() {
     lastModified: new Date().toISOString().split("T")[0],
   }));
 
-  return [...routes, ...blogs, ...works];
+  return [...routes, ...blogs, ...works, ...educationPosts, ...businessPosts, ...personalPosts];
 }

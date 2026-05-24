@@ -14,7 +14,6 @@ import { Locale, getClientLocale } from "@/resources/locale";
 
 interface ProjectCardProps {
   href: string;
-  priority?: boolean;
   images: string[];
   title: string;
   content: string;

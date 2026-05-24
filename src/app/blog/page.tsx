@@ -43,7 +43,7 @@ export default async function Blog() {
       <Column fillWidth flex={1} gap="40">
         <Posts locale={locale} range={[1, 1]} thumbnail />
         <Heading as="h2" variant="heading-strong-l" marginLeft="l">
-          {locale === "en" ? "More posts" : locale === "ja" ? "その他の記事" : "Mas publicaciones"}
+          {locale === "en" ? "More posts" : locale === "ja" ? "その他の記事" : "Más publicaciones"}
         </Heading>
         <Posts locale={locale} range={[2]} columns="2" thumbnail direction="column" />
       </Column>

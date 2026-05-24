@@ -31,7 +31,7 @@ export function getPersonalProjectsPath(locale: Locale): string[] {
   return [
     "src",
     "app",
-    "personal",
+    "groups",
     locale === "en" ? "projects-en" : locale === "ja" ? "projects-ja" : "projects",
   ];
 }

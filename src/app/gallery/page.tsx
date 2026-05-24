@@ -1,8 +1,10 @@
 import { Flex, Meta, Schema } from "@once-ui-system/core";
 import GalleryView from "@/components/gallery/GalleryView";
-import { baseURL, gallery, person } from "@/resources";
+import { baseURL, getLocalizedResources, getServerLocale } from "@/resources";
 
 export async function generateMetadata() {
+  const locale = await getServerLocale();
+  const { gallery } = getLocalizedResources(locale);
   return Meta.generate({
     title: gallery.title,
     description: gallery.description,
@@ -12,7 +14,10 @@ export async function generateMetadata() {
   });
 }
 
-export default function Gallery() {
+export default async function Gallery() {
+  const locale = await getServerLocale();
+  const { gallery, person } = getLocalizedResources(locale);
+
   return (
     <Flex maxWidth="l">
       <Schema
@@ -28,7 +33,7 @@ export default function Gallery() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <GalleryView />
+      <GalleryView images={gallery.images} />
     </Flex>
   );
 }

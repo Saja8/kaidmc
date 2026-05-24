@@ -18,8 +18,8 @@ export default async function NotFound() {
             cta: "ホームに戻る",
           }
         : {
-            heading: "Pagina no encontrada",
-            text: "La pagina que buscas no existe.",
+            heading: "Página no encontrada",
+            text: "La página que buscas no existe.",
             cta: "Volver al inicio",
           };
 

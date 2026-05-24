@@ -1,0 +1,155 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bp-bg" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#EEF2FF"/>
+      <stop offset="100%" stop-color="#DDE4FF"/>
+    </linearGradient>
+    <radialGradient id="bp-globe" cx="38%" cy="33%" r="68%" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#A5B4FC"/>
+      <stop offset="55%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#3730A3"/>
+    </radialGradient>
+    <linearGradient id="bp-bld" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#818CF8"/>
+      <stop offset="100%" stop-color="#312E81"/>
+    </linearGradient>
+    <linearGradient id="bp-bld2" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#3730A3"/>
+    </linearGradient>
+    <clipPath id="bp-gc">
+      <circle cx="612" cy="218" r="152"/>
+    </clipPath>
+    <filter id="bp-shd" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#312E81" flood-opacity="0.18"/>
+    </filter>
+    <pattern id="bp-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#C7D2FE" opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bp-bg)"/>
+  <rect width="800" height="500" fill="url(#bp-dots)"/>
+
+  <!-- Globe glow ring -->
+  <circle cx="612" cy="218" r="175" fill="#C7D2FE" opacity="0.18"/>
+
+  <!-- Globe -->
+  <circle cx="612" cy="218" r="152" fill="url(#bp-globe)" filter="url(#bp-shd)"/>
+
+  <!-- Meridians clipped -->
+  <g clip-path="url(#bp-gc)" stroke="white" stroke-width="0.8" fill="none" opacity="0.18">
+    <ellipse cx="612" cy="218" rx="50" ry="152"/>
+    <ellipse cx="612" cy="218" rx="100" ry="152"/>
+    <ellipse cx="612" cy="218" rx="152" ry="50"/>
+    <ellipse cx="612" cy="218" rx="152" ry="100"/>
+    <line x1="460" y1="218" x2="764" y2="218"/>
+    <line x1="612" y1="66" x2="612" y2="370"/>
+  </g>
+
+  <!-- Globe highlight -->
+  <ellipse cx="575" cy="178" rx="42" ry="30" fill="white" opacity="0.13"/>
+
+  <!-- City dot: Tokyo (east right) -->
+  <circle cx="700" cy="183" r="14" fill="#FCD34D" opacity="0.22"/>
+  <circle cx="700" cy="183" r="8" fill="#FCD34D"/>
+
+  <!-- City dot: Mexico City (west left) -->
+  <circle cx="544" cy="260" r="14" fill="#34D399" opacity="0.22"/>
+  <circle cx="544" cy="260" r="8" fill="#34D399"/>
+
+  <!-- City dot: Stuttgart (north center) -->
+  <circle cx="617" cy="152" r="14" fill="#FCA5A5" opacity="0.22"/>
+  <circle cx="617" cy="152" r="8" fill="#FCA5A5"/>
+
+  <!-- Connection arcs (globe → buildings) -->
+  <path d="M544,260 Q430,285 295,365" stroke="#34D399" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity="0.5"/>
+  <path d="M700,183 Q510,95 292,284" stroke="#FCD34D" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity="0.5"/>
+  <path d="M617,152 Q458,78 258,204" stroke="#FCA5A5" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity="0.42"/>
+
+  <!-- SKYLINE: Building 1 — tall tower with antenna + pyramid (Tokyo Tower ref) -->
+  <rect x="50" y="205" width="34" height="250" rx="2" fill="url(#bp-bld)"/>
+  <polygon points="50,220 67,162 84,220" fill="#818CF8"/>
+  <line x1="67" y1="162" x2="67" y2="132" stroke="#818CF8" stroke-width="4" stroke-linecap="round"/>
+  <rect x="56" y="244" width="9" height="12" rx="1" fill="white" opacity="0.2"/>
+  <rect x="70" y="244" width="9" height="12" rx="1" fill="white" opacity="0.2"/>
+  <rect x="56" y="268" width="9" height="12" rx="1" fill="white" opacity="0.2"/>
+  <rect x="70" y="268" width="9" height="12" rx="1" fill="white" opacity="0.2"/>
+  <rect x="56" y="292" width="9" height="12" rx="1" fill="white" opacity="0.2"/>
+  <rect x="70" y="292" width="9" height="12" rx="1" fill="white" opacity="0.2"/>
+
+  <!-- Building 2 — wide office block -->
+  <rect x="97" y="268" width="58" height="187" rx="2" fill="url(#bp-bld2)"/>
+  <rect x="103" y="280" width="11" height="14" rx="1" fill="white" opacity="0.17"/>
+  <rect x="121" y="280" width="11" height="14" rx="1" fill="white" opacity="0.17"/>
+  <rect x="139" y="280" width="11" height="14" rx="1" fill="white" opacity="0.17"/>
+  <rect x="103" y="305" width="11" height="14" rx="1" fill="white" opacity="0.17"/>
+  <rect x="121" y="305" width="11" height="14" rx="1" fill="white" opacity="0.17"/>
+  <rect x="139" y="305" width="11" height="14" rx="1" fill="white" opacity="0.17"/>
+  <rect x="103" y="330" width="11" height="14" rx="1" fill="white" opacity="0.17"/>
+  <rect x="121" y="330" width="11" height="14" rx="1" fill="white" opacity="0.17"/>
+  <rect x="139" y="330" width="11" height="14" rx="1" fill="white" opacity="0.17"/>
+
+  <!-- Building 3 — slim modern, flat-roof crown -->
+  <rect x="168" y="248" width="40" height="207" rx="2" fill="#3730A3"/>
+  <rect x="164" y="242" width="48" height="12" rx="2" fill="#6366F1"/>
+  <rect x="174" y="263" width="9" height="12" rx="1" fill="white" opacity="0.17"/>
+  <rect x="191" y="263" width="9" height="12" rx="1" fill="white" opacity="0.17"/>
+  <rect x="174" y="287" width="9" height="12" rx="1" fill="white" opacity="0.17"/>
+  <rect x="191" y="287" width="9" height="12" rx="1" fill="white" opacity="0.17"/>
+  <rect x="174" y="311" width="9" height="12" rx="1" fill="white" opacity="0.17"/>
+  <rect x="191" y="311" width="9" height="12" rx="1" fill="white" opacity="0.17"/>
+
+  <!-- Building 4 — short blocky -->
+  <rect x="221" y="308" width="52" height="147" rx="2" fill="#4F46E5"/>
+  <rect x="227" y="320" width="10" height="13" rx="1" fill="white" opacity="0.15"/>
+  <rect x="245" y="320" width="10" height="13" rx="1" fill="white" opacity="0.15"/>
+  <rect x="263" y="320" width="10" height="13" rx="1" fill="white" opacity="0.15"/>
+  <rect x="227" y="345" width="10" height="13" rx="1" fill="white" opacity="0.15"/>
+  <rect x="245" y="345" width="10" height="13" rx="1" fill="white" opacity="0.15"/>
+
+  <!-- Ground -->
+  <rect x="0" y="452" width="800" height="48" fill="#3730A3" opacity="0.07"/>
+  <line x1="0" y1="452" x2="800" y2="452" stroke="#4338CA" stroke-width="1.5" opacity="0.14"/>
+
+  <!-- Figure 1 (left person) -->
+  <circle cx="305" cy="308" r="22" fill="#6366F1"/>
+  <path d="M284,331 C292,322 305,330 305,330 C305,330 318,322 326,331 L330,425 H280 Z" fill="#4338CA"/>
+  <!-- tie -->
+  <path d="M302,332 L305,330 L308,332 L306,370 L305,377 L304,370 Z" fill="#FCD34D"/>
+  <!-- arm extending forward -->
+  <line x1="284" y1="355" x2="268" y2="386" stroke="#4338CA" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="266" cy="391" r="9" fill="#6366F1"/>
+
+  <!-- Figure 2 (right person) -->
+  <circle cx="392" cy="308" r="22" fill="#4F46E5"/>
+  <path d="M371,331 C379,322 392,330 392,330 C392,330 405,322 413,331 L417,425 H367 Z" fill="#3730A3"/>
+  <!-- tie -->
+  <path d="M389,332 L392,330 L395,332 L393,370 L392,377 L391,370 Z" fill="#34D399"/>
+  <!-- arm extending forward -->
+  <line x1="413" y1="355" x2="429" y2="386" stroke="#3730A3" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="431" cy="391" r="9" fill="#4F46E5"/>
+
+  <!-- Handshake indicator (golden circle + check) -->
+  <circle cx="348" cy="388" r="20" fill="#FCD34D" opacity="0.95"/>
+  <path d="M338,388 L344,395 L360,376" stroke="#92400E" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Briefcase -->
+  <rect x="328" y="436" width="40" height="28" rx="5" fill="#4338CA" stroke="#6366F1" stroke-width="1.5"/>
+  <path d="M338,436 V428 C338,424 362,424 362,428 V436" stroke="#6366F1" stroke-width="1.5" fill="none"/>
+  <line x1="328" y1="448" x2="368" y2="448" stroke="#6366F1" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Sparkle top-left -->
+  <g fill="#FCD34D" opacity="0.6">
+    <path d="M72,78 L74,86 L82,78 L74,86 L82,94 L74,86 L72,94 L70,86 L62,94 L70,86 L62,78 L70,86 Z"/>
+  </g>
+
+  <!-- Accent dots -->
+  <circle cx="462" cy="62" r="5" fill="#A5B4FC" opacity="0.65"/>
+  <circle cx="480" cy="52" r="3" fill="#818CF8" opacity="0.5"/>
+  <circle cx="46" cy="148" r="8" fill="#A5B4FC" opacity="0.4"/>
+  <circle cx="36" cy="170" r="5" fill="#6366F1" opacity="0.32"/>
+  <circle cx="764" cy="392" r="10" fill="#4338CA" opacity="0.1"/>
+  <circle cx="750" cy="412" r="6" fill="#6366F1" opacity="0.14"/>
+</svg>

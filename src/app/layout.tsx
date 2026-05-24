@@ -50,6 +50,10 @@ export default async function RootLayout({
       )}
     >
       <head>
+        <link rel="icon" type="image/png" href="/images/logo.png" />
+        <link rel="icon" type="image/webp" href="/images/logo.webp" />
+        <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
         <script
           id="theme-init"
           dangerouslySetInnerHTML={{

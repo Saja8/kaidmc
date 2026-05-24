@@ -244,6 +244,30 @@
   gap: var(--static-space-8);
 }
 
+.scientificGrid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--static-space-8);
+}
+
+.scientificCard {
+  min-height: 10rem;
+  border-radius: var(--radius-m);
+  border: 1px solid color-mix(in srgb, var(--neutral-alpha-weak) 70%, transparent);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--page-background) 94%, var(--neutral-alpha-weak)),
+      color-mix(in srgb, var(--page-background) 99%, var(--brand-alpha-weak))
+    );
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scientificCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--brand-alpha-weak) 16%, transparent);
+}
+
 .trackGrid {
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -336,7 +360,6 @@
 }
 
 .processCard {
-  min-height: 12rem;
   border-radius: var(--radius-m);
   border: 1px solid color-mix(in srgb, var(--neutral-alpha-weak) 70%, transparent);
   background:
@@ -351,6 +374,10 @@
 .processCard:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 28px color-mix(in srgb, var(--brand-alpha-weak) 16%, transparent);
+}
+
+.mobileTabs {
+  display: none;
 }
 
 .bulletList {
@@ -416,6 +443,149 @@
 }
 
 @media (max-width: breakpoints.$m) {
+  .desktopDetailSection {
+    display: none !important;
+  }
+
+  .mobileTabs {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: var(--static-space-12);
+    border: 1px solid var(--neutral-alpha-weak);
+    border-radius: var(--radius-l);
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--page-background) 94%, var(--neutral-alpha-weak)),
+        color-mix(in srgb, var(--page-background) 98%, var(--brand-alpha-weak))
+      );
+  }
+
+  .mobileTabList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--static-space-4);
+    padding: var(--static-space-4);
+    border: 1px solid var(--neutral-alpha-weak);
+    border-radius: var(--radius-m);
+    background: color-mix(in srgb, var(--page-background) 86%, var(--neutral-alpha-weak));
+  }
+
+  .mobileTab {
+    min-width: 0;
+    min-height: 2.25rem;
+    padding: 0 var(--static-space-8);
+    border: 0;
+    border-radius: var(--radius-s);
+    background: transparent;
+    color: var(--neutral-on-background-weak);
+    cursor: pointer;
+    font: inherit;
+    font-size: var(--font-size-label-s);
+    font-weight: 600;
+    line-height: 1.1;
+  }
+
+  .mobileTab[data-active="true"] {
+    background: var(--brand-alpha-weak);
+    color: var(--brand-on-background-strong);
+    box-shadow: inset 0 0 0 1px var(--brand-alpha-weak);
+  }
+
+  .mobileTabPanel {
+    padding-top: var(--static-space-12);
+  }
+
+  .mobileCoverageList,
+  .mobileProcessList,
+  .mobileScientificList,
+  .mobileTeamList {
+    display: grid;
+    gap: var(--static-space-8);
+  }
+
+  .mobileCoverageCard,
+  .mobileProcessCard,
+  .mobileScientificCard,
+  .mobileTeamCard {
+    border: 1px solid var(--neutral-alpha-weak);
+    border-radius: var(--radius-m);
+    background: color-mix(in srgb, var(--page-background) 92%, var(--neutral-alpha-weak));
+  }
+
+  .mobileCoverageCard,
+  .mobileProcessCard,
+  .mobileScientificCard {
+    padding: var(--static-space-12);
+  }
+
+  .mobileProcessCard {
+    display: grid;
+    grid-template-columns: 2.2rem minmax(0, 1fr);
+    gap: var(--static-space-10);
+  }
+
+  .mobileTeamCard {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: var(--static-space-12);
+    padding: var(--static-space-12);
+    align-items: start;
+  }
+
+  .mobileScientificCard {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--static-space-8);
+    align-items: start;
+  }
+
+  .mobileTeamPhoto {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 999px;
+    object-fit: cover;
+  }
+
+  .mobileTeamBody {
+    min-width: 0;
+  }
+
+  .mobileCardTitle,
+  .mobileCardText,
+  .mobileTeamMeta {
+    margin: 0;
+  }
+
+  .mobileCardTitle {
+    color: var(--neutral-on-background-strong);
+    font-size: var(--font-size-heading-xs);
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .mobileCardText {
+    margin-top: var(--static-space-4);
+    color: var(--neutral-on-background-weak);
+    font-size: var(--font-size-body-s);
+    line-height: 1.45;
+  }
+
+  .mobileTeamMeta,
+  .mobileStep {
+    color: var(--brand-on-background-medium);
+    font-size: var(--font-size-label-s);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .mobileProfileLinks {
+    display: flex;
+    gap: var(--static-space-8);
+    margin-top: var(--static-space-8);
+  }
+
   .heroGrid {
     grid-template-columns: 1fr;
   }
@@ -462,12 +632,22 @@
     grid-template-columns: 1fr;
   }
 
+  .scientificGrid {
+    grid-template-columns: 1fr;
+  }
+
   .skillGrid {
     grid-template-columns: 1fr;
   }
 
   .teamGrid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: breakpoints.$m) {
+  .summaryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -482,10 +662,11 @@
 
   .summaryCard,
   .workCard,
-  .trackCard,
-  .processCard,
-  .skillCard,
-  .teamCard {
+    .trackCard,
+    .processCard,
+    .scientificCard,
+    .skillCard,
+    .teamCard {
     min-height: unset;
   }
 }
@@ -493,18 +674,20 @@
 /* ─── Reduced-motion accessibility ─── */
 @media (prefers-reduced-motion: reduce) {
   .summaryCard,
-  .trackCard,
-  .processCard,
-  .skillCard,
-  .teamCard {
+    .trackCard,
+    .processCard,
+    .scientificCard,
+    .skillCard,
+    .teamCard {
     transition: none;
   }
 
   .summaryCard:hover,
-  .trackCard:hover,
-  .processCard:hover,
-  .skillCard:hover,
-  .teamCard:hover {
+    .trackCard:hover,
+    .processCard:hover,
+    .scientificCard:hover,
+    .skillCard:hover,
+    .teamCard:hover {
     transform: none;
   }
 }

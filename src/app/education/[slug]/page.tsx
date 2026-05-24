@@ -135,7 +135,7 @@ export default async function EducationProject({
             ? "More education services"
             : locale === "ja"
               ? "教育向けサービスをもっと見る"
-              : "Mas servicios de educacion"}
+              : "Más servicios de educación"}
         </Heading>
         <EducationProjects locale={locale} exclude={[post.slug]} range={[1, 2]} />
       </Column>

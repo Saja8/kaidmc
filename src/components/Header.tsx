@@ -5,11 +5,11 @@ import { useEffect, useState } from "react";
 
 import { Button, Fade, Line, Row, Text, ToggleButton } from "@once-ui-system/core";
 
-import { routes, display } from "@/resources";
+import { display, routes } from "@/resources";
 import { getClientLocale } from "@/resources/locale";
+import styles from "./Header.module.scss";
 import { LanguageToggle } from "./LanguageToggle";
 import { ThemeToggle } from "./ThemeToggle";
-import styles from "./Header.module.scss";
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
@@ -22,32 +22,38 @@ export const Header = () => {
   const labels =
     locale === "en"
       ? {
+          home: "Home",
           about: "About",
           blog: "Blog",
           education: "Education",
           business: "Business",
-          personal: "Personal",
+          personal: "Groups",
+          gallery: "Gallery",
         }
-      : {
-          about: locale === "ja" ? "会社情報" : "Nosotros",
-          blog: locale === "ja" ? "ブログ" : "Blog",
-          education: locale === "ja" ? "教育機関" : "Educacion",
-          business: locale === "ja" ? "企業" : "Empresas",
-          personal: locale === "ja" ? "個人向け" : "Personal",
-        };
+      : locale === "ja"
+        ? {
+            home: "ホーム",
+            about: "会社情報",
+            blog: "ブログ",
+            education: "教育",
+            business: "企業",
+            personal: "団体",
+            gallery: "ギャラリー",
+          }
+        : {
+            home: "Inicio",
+            about: "Nosotros",
+            blog: "Blog",
+            education: "Educación",
+            business: "Empresas",
+            personal: "Grupos",
+            gallery: "Galería",
+          };
 
   return (
     <>
       <Fade s={{ hide: true }} fillWidth position="fixed" height="80" zIndex={9} />
-      <Fade
-        hide
-        s={{ hide: false }}
-        fillWidth
-        position="fixed"
-        top="0"
-        height="80"
-        zIndex={9}
-      />
+      <Fade hide s={{ hide: false }} fillWidth position="fixed" top="0" height="80" zIndex={9} />
       <Row
         fitHeight
         className={styles.position}
@@ -62,15 +68,36 @@ export const Header = () => {
           position: "fixed",
         }}
       >
-        <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s" s={{ hide: true }}>
-          <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "var(--static-space-8)" }}>
-            <Text variant="label-strong-m" onBackground="brand-strong" style={{ letterSpacing: "-0.02em" }}>
+        <Row
+          paddingLeft="12"
+          fillWidth
+          vertical="center"
+          textVariant="body-default-s"
+          s={{ hide: true }}
+          className="kailinksHeaderBrand"
+        >
+          <a
+            href="/"
+            style={{
+              textDecoration: "none",
+              display: "flex",
+              alignItems: "center",
+              gap: "var(--static-space-8)",
+            }}
+          >
+            <Text
+              variant="label-strong-m"
+              onBackground="brand-strong"
+              style={{ letterSpacing: "-0.02em" }}
+            >
               KaiLinks
             </Text>
           </a>
         </Row>
-        <Row fillWidth horizontal="center">
+        <Row fillWidth horizontal="center" className="kailinksHeaderCenter">
           <Row
+            as="nav"
+            aria-label={locale === "en" ? "Main navigation" : locale === "ja" ? "メインナビゲーション" : "Navegación principal"}
             background="page"
             border="neutral-alpha-weak"
             radius="m-4"
@@ -78,36 +105,36 @@ export const Header = () => {
             padding="4"
             horizontal="center"
             zIndex={1}
+            className="kailinksNavShell"
           >
-            <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
+            <Row
+              gap="4"
+              vertical="center"
+              textVariant="body-default-s"
+              suppressHydrationWarning
+              className="kailinksNavItems"
+            >
               {routes["/"] && (
-                <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
-              )}
-              <Line background="neutral-alpha-medium" vert maxHeight="24" />
-              {routes["/education"] && (
                 <>
                   <Row s={{ hide: true }}>
-                    <ToggleButton
-                      prefixIcon="book"
-                      href="/education"
-                      label={labels.education}
-                      selected={pathname.startsWith("/education")}
-                    />
+                    <ToggleButton href="/" label={labels.home} selected={pathname === "/"} />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
-                      prefixIcon="book"
-                      href="/education"
-                      selected={pathname.startsWith("/education")}
+                      href="/"
+                      prefixIcon="home"
+                      aria-label={labels.home}
+                      title={labels.home}
+                      selected={pathname === "/"}
                     />
                   </Row>
                 </>
               )}
+              <Line background="neutral-alpha-medium" vert maxHeight="24" />
               {routes["/business"] && (
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
-                      prefixIcon="grid"
                       href="/business"
                       label={labels.business}
                       selected={pathname.startsWith("/business")}
@@ -115,33 +142,76 @@ export const Header = () => {
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
-                      prefixIcon="grid"
                       href="/business"
+                      prefixIcon="briefcase"
+                      aria-label={labels.business}
+                      title={labels.business}
                       selected={pathname.startsWith("/business")}
                     />
                   </Row>
                 </>
               )}
-              {routes["/personal"] && (
+              {routes["/education"] && (
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
-                      prefixIcon="person"
-                      href="/personal"
-                      label={labels.personal}
-                      selected={pathname.startsWith("/personal")}
+                      href="/education"
+                      label={labels.education}
+                      selected={pathname.startsWith("/education")}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
-                      prefixIcon="person"
-                      href="/personal"
-                      selected={pathname.startsWith("/personal")}
+                      href="/education"
+                      prefixIcon="student"
+                      aria-label={labels.education}
+                      title={labels.education}
+                      selected={pathname.startsWith("/education")}
                     />
                   </Row>
                 </>
               )}
-              {(routes["/education"] || routes["/business"] || routes["/personal"]) &&
+              {routes["/groups"] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      href="/groups"
+                      label={labels.personal}
+                      selected={pathname.startsWith("/groups")}
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      href="/groups"
+                      prefixIcon="groups"
+                      aria-label={labels.personal}
+                      title={labels.personal}
+                      selected={pathname.startsWith("/groups")}
+                    />
+                  </Row>
+                </>
+              )}
+              {routes["/gallery"] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      href="/gallery"
+                      label={labels.gallery}
+                      selected={pathname.startsWith("/gallery")}
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      href="/gallery"
+                      prefixIcon="image"
+                      aria-label={labels.gallery}
+                      title={labels.gallery}
+                      selected={pathname.startsWith("/gallery")}
+                    />
+                  </Row>
+                </>
+              )}
+              {(routes["/education"] || routes["/business"] || routes["/groups"] || routes["/gallery"]) &&
                 (routes["/about"] || routes["/blog"]) && (
                   <Line background="neutral-alpha-medium" vert maxHeight="24" />
                 )}
@@ -149,7 +219,6 @@ export const Header = () => {
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
-                      prefixIcon="openLink"
                       href="/about"
                       label={labels.about}
                       selected={pathname.startsWith("/about")}
@@ -157,8 +226,10 @@ export const Header = () => {
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
-                      prefixIcon="openLink"
                       href="/about"
+                      prefixIcon="info"
+                      aria-label={labels.about}
+                      title={labels.about}
                       selected={pathname.startsWith("/about")}
                     />
                   </Row>
@@ -168,7 +239,6 @@ export const Header = () => {
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
-                      prefixIcon="document"
                       href="/blog"
                       label={labels.blog}
                       selected={pathname.startsWith("/blog")}
@@ -176,8 +246,10 @@ export const Header = () => {
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
-                      prefixIcon="document"
                       href="/blog"
+                      prefixIcon="book"
+                      aria-label={labels.blog}
+                      title={labels.blog}
                       selected={pathname.startsWith("/blog")}
                     />
                   </Row>
@@ -187,13 +259,22 @@ export const Header = () => {
                 <>
                   <Line background="neutral-alpha-medium" vert maxHeight="24" />
                   <LanguageToggle />
-                  <ThemeToggle />
+                  <Row s={{ hide: true }}>
+                    <ThemeToggle />
+                  </Row>
                 </>
               )}
             </Row>
           </Row>
         </Row>
-        <Row fillWidth horizontal="end" vertical="center" paddingRight="12" s={{ hide: true }}>
+        <Row
+          fillWidth
+          horizontal="end"
+          vertical="center"
+          paddingRight="12"
+          s={{ hide: true }}
+          className="kailinksHeaderAction"
+        >
           <Button
             href="https://kailinks.com/contact"
             variant="secondary"

@@ -1,16 +1,16 @@
+import { MobileHomeTabs } from "@/components";
+import { baseURL, getLocalizedResources, getServerLocale, routes } from "@/resources";
 import {
   Badge,
   Button,
   Column,
   Heading,
-  Icon,
   Meta,
   RevealFx,
   Row,
   Schema,
   Text,
 } from "@once-ui-system/core";
-import { baseURL, getLocalizedResources, getServerLocale, routes } from "@/resources";
 
 export async function generateMetadata() {
   const locale = await getServerLocale();
@@ -37,107 +37,181 @@ export default async function Home() {
   const heroLead =
     locale === "en"
       ? {
-          title: "Tell us about your next program",
+          title: "Start with an operational brief",
           description:
-            "Send us destination, dates, group size, and goals. We usually reply in 1-2 business days with a clear plan, timeline, and budget range.",
-          checklist: ["Destination(s)", "Dates / timing", "Group size", "Main objective"],
+            "Share destination, dates, participant profile, and expected outcome. We respond with a practical delivery path and the first budget assumptions.",
+          checklist: ["Destination", "Dates", "Participants", "Outcome"],
           emailCta: "Send your brief",
           contactCta: "Open contact page",
         }
       : locale === "ja"
         ? {
-            title: "次のプログラムについてご相談ください",
+            title: "運営ブリーフから始める",
             description:
-              "行き先・日程・人数・目的をお送りください。通常1〜2営業日以内に、具体的なプラン・スケジュール・概算予算をご提案します。",
-            checklist: ["行き先", "日程 / 時期", "人数", "主目的"],
+              "行き先、日程、参加者像、期待する成果をお送りください。実行手順と初期予算前提を整理してご返信します。",
+            checklist: ["行き先", "日程", "参加者", "成果"],
             emailCta: "要件をメール送信",
             contactCta: "お問い合わせページ",
           }
         : {
-            title: "Cuéntanos sobre tu próximo programa",
+            title: "Comienza con un brief operativo",
             description:
-              "Envía destino, fechas, tamaño del grupo y objetivo. Normalmente respondemos en 1-2 días hábiles con un plan claro, cronograma y rango de presupuesto.",
-            checklist: ["Destino(s)", "Fechas / timing", "Tamaño del grupo", "Objetivo principal"],
-            emailCta: "Enviar briefing",
+              "Comparte destino, fechas, perfil de participantes y resultado esperado. Respondemos con una ruta de ejecución y supuestos iniciales de presupuesto.",
+            checklist: ["Destino", "Fechas", "Participantes", "Resultado"],
+            emailCta: "Enviar brief",
             contactCta: "Abrir página de contacto",
           };
 
-  const capabilities =
+  const facts =
     locale === "en"
       ? [
-          { icon: "book", title: "Study programs", desc: "Academic tours, campus visits, faculty exchange" },
-          { icon: "grid", title: "MICE & incentives", desc: "Meetings, incentive trips, conferences, events" },
-          { icon: "globe", title: "Expo pavilions", desc: "Booth logistics, market entry, B2B matchmaking" },
-          { icon: "person", title: "Individual travel", desc: "Event attendance, sports travel, freelancer logistics" },
+          { number: "01", title: "Coordination", desc: "One lead contact from brief to delivery" },
+          {
+            number: "02",
+            title: "Local network",
+            desc: "Partners across East Asia, Latin America, and Europe",
+          },
+          {
+            number: "03",
+            title: "Logistics",
+            desc: "Itinerary, suppliers, transport, and on-site control",
+          },
+          { number: "04", title: "Follow-up", desc: "Clear reporting after each program" },
         ]
       : locale === "ja"
         ? [
-            { icon: "book", title: "教育プログラム", desc: "学術ツアー、キャンパス訪問、教員交流" },
-            { icon: "grid", title: "MICE・インセンティブ", desc: "会議、報奨旅行、カンファレンス、イベント" },
-            { icon: "globe", title: "展示パビリオン", desc: "ブース運営、市場参入、B2Bマッチング" },
-            { icon: "person", title: "個人渡航", desc: "イベント参加、スポーツ遠征、フリーランス対応" },
+            { number: "01", title: "調整力", desc: "要件整理から実施まで一つの窓口で管理" },
+            {
+              number: "02",
+              title: "現地ネットワーク",
+              desc: "東アジア・中南米・欧州のパートナーと連携",
+            },
+            { number: "03", title: "ロジスティクス", desc: "旅程、調達、移動、現地運営を統合" },
+            { number: "04", title: "フォロー", desc: "実施後の報告と次回改善まで対応" },
           ]
         : [
-            { icon: "book", title: "Programas académicos", desc: "Tours universitarios, visitas a campus, intercambio docente" },
-            { icon: "grid", title: "MICE e incentivos", desc: "Reuniones, viajes de incentivos, conferencias, eventos" },
-            { icon: "globe", title: "Pabellones de expo", desc: "Logística de stands, entrada a mercados, matchmaking B2B" },
-            { icon: "person", title: "Viajes individuales", desc: "Eventos, competencias deportivas, logística freelancer" },
+            {
+              number: "01",
+              title: "Coordinación",
+              desc: "Un solo contacto desde brief hasta entrega",
+            },
+            {
+              number: "02",
+              title: "Red local",
+              desc: "Aliados en Asia Oriental, América Latina y Europa",
+            },
+            {
+              number: "03",
+              title: "Logística",
+              desc: "Itinerario, proveedores, traslados y control en sitio",
+            },
+            { number: "04", title: "Seguimiento", desc: "Reporte claro después de cada programa" },
           ];
+
+  const factsIntro =
+    locale === "en"
+      ? { eyebrow: "Method", heading: "Four operating strengths" }
+      : locale === "ja"
+        ? { eyebrow: "運営体制", heading: "4つの運営力" }
+        : { eyebrow: "Método", heading: "Cuatro fortalezas operativas" };
 
   const servicesIntro =
     locale === "en"
       ? {
-          badge: "Services",
-          heading: "Three tracks, one quality standard",
+          badge: "Programs",
+          heading: "Built around the objective",
           description:
-            "Each track has its own planning model — universities need different timelines than corporate groups. Pick the one that fits your program.",
+            "Choose the operating model that matches the audience, agenda, and level of local support required.",
         }
       : locale === "ja"
         ? {
-            badge: "サービス",
-            heading: "3つの区分、1つの品質基準",
+            badge: "プログラム",
+            heading: "目的に合わせた運営設計",
             description:
-              "大学と企業ではスケジュールも設計も異なります。目的に合う区分を選んでください。",
+              "参加者、アジェンダ、現地サポートのレベルに合わせて、適切な運営モデルを選択できます。",
           }
         : {
-            badge: "Servicios",
-            heading: "Tres líneas, un solo estándar de calidad",
+            badge: "Programas",
+            heading: "Diseño operativo según el objetivo",
             description:
-              "Cada línea tiene su propio modelo de planeación — las universidades necesitan tiempos diferentes que los grupos corporativos. Elige la que se ajuste a tu programa.",
+              "Elige el modelo de operación según audiencia, agenda y nivel de soporte local requerido.",
           };
 
-  const regions =
-    locale === "en"
-      ? ["Japan", "Mexico & Latam", "Hong Kong & China", "Germany & EU"]
-      : locale === "ja"
-        ? ["日本", "メキシコ・中南米", "香港・中国", "ドイツ・EU"]
-        : ["Japón", "México y Latam", "Hong Kong y China", "Alemania y UE"];
+  const servicePanels = [
+    {
+      enabled: routes["/business"],
+      href: business.path,
+      title: business.title,
+      description: business.description,
+      image: "/images/illustrations/business-programs.svg",
+      label:
+        locale === "en"
+          ? "Business programs"
+          : locale === "ja"
+            ? "企業プログラム"
+            : "Programas empresariales",
+      regions:
+        locale === "en"
+          ? ["East Asia", "Latin America", "Europe"]
+          : locale === "ja"
+            ? ["東アジア", "中南米", "欧州"]
+            : ["Asia Oriental", "América Latina", "Europa"],
+    },
+    {
+      enabled: routes["/education"],
+      href: education.path,
+      title: education.title,
+      description: education.description,
+      image: "/images/illustrations/education-programs.svg",
+      label:
+        locale === "en"
+          ? "Academic programs"
+          : locale === "ja"
+            ? "教育プログラム"
+            : "Programas académicos",
+      regions:
+        locale === "en"
+          ? ["Japan", "Mexico", "Guatemala"]
+          : locale === "ja"
+            ? ["日本", "メキシコ", "グアテマラ"]
+            : ["Japón", "México", "Guatemala"],
+    },
+    {
+      enabled: routes["/groups"],
+      href: personal.path,
+      title: personal.title,
+      description: personal.description,
+      image: "/images/illustrations/group-programs.svg",
+      label:
+        locale === "en"
+          ? "Group programs"
+          : locale === "ja"
+            ? "団体プログラム"
+            : "Programas de grupo",
+      regions:
+        locale === "en"
+          ? ["Japan", "Hong Kong", "Mexico"]
+          : locale === "ja"
+            ? ["日本", "香港", "メキシコ"]
+            : ["Japón", "Hong Kong", "México"],
+    },
+  ].filter((panel) => panel.enabled);
 
-  const regionsLabel =
-    locale === "en" ? "Where we deliver" : locale === "ja" ? "対応地域" : "Donde operamos";
-
-  /* Short taglines for homepage service cards (different from section page descriptions) */
-  const taglines =
-    locale === "en"
-      ? {
-          education: "Study tours, campus visits, and institutional exchanges — coordinated on-ground so your faculty focuses on teaching.",
-          business: "Conferences, expos, incentive trips, and market-entry operations — one team, multiple markets.",
-          personal: "Freelancers attending trade shows, athletes going to competitions — we handle the logistics, you handle the rest.",
-        }
-      : locale === "ja"
-        ? {
-            education: "スタディツアー、キャンパス訪問、大学間交流 — 現地運営は私たちに、教員は教育に専念。",
-            business: "カンファレンス、展示会、インセンティブ旅行、市場参入 — 一つのチームで複数市場に対応。",
-            personal: "展示会参加のフリーランス、大会遠征のアスリート — ロジスティクスは私たちが対応。",
-          }
-        : {
-            education: "Study tours, visitas a campus e intercambios — operados en sitio para que tu equipo académico se enfoque en enseñar.",
-            business: "Conferencias, expos, viajes de incentivo y entrada a mercados — un equipo, múltiples destinos.",
-            personal: "Freelancers en ferias, deportistas en competencias — nosotros manejamos la logística, tú haces lo tuyo.",
-          };
+  const clientLogos = Array.from({ length: 8 }, (_, i) => ({
+    src: `/images/clients/client-${i + 1}.png`,
+    alt: "",
+  }));
 
   return (
-    <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
+    <Column
+      maxWidth="m"
+      gap="xl"
+      paddingY="12"
+      horizontal="center"
+      className="kailinksHomePage"
+      style={{ position: "relative" }}
+    >
+      <div className="homeOrbWrap" aria-hidden="true" />
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -156,7 +230,13 @@ export default async function Home() {
       <Column fillWidth horizontal="center" gap="m">
         <Column maxWidth="s" horizontal="center" align="center">
           {home.featured.display && (
-            <RevealFx fillWidth horizontal="center" paddingTop="16" paddingBottom="20" paddingLeft="12">
+            <RevealFx
+              fillWidth
+              horizontal="center"
+              paddingTop="16"
+              paddingBottom="20"
+              paddingLeft="12"
+            >
               <Badge
                 background="brand-alpha-weak"
                 paddingX="12"
@@ -166,50 +246,90 @@ export default async function Home() {
                 arrow={false}
                 href={home.featured.href}
               >
-                <Row paddingY="2">{home.featured.title}</Row>
+                <Row paddingY="2" className="kailinksHeroBadge">
+                  {home.featured.title}
+                </Row>
               </Badge>
             </RevealFx>
           )}
           <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
-            <Heading wrap="balance" variant="display-strong-l">
+            <Heading wrap="balance" variant="display-strong-l" className="kailinksHomeHeadline">
               {home.headline}
             </Heading>
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="20">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
+            <Text
+              wrap="balance"
+              onBackground="neutral-weak"
+              variant="heading-default-xl"
+              className="kailinksHomeSubline"
+            >
               {home.subline}
             </Text>
           </RevealFx>
 
-          {/* ── 2. WHAT WE DO — capability tiles ── */}
+          {/* ── 2. FUJI-STYLE FACTS ── */}
           <RevealFx translateY={10} delay={0.26} fillWidth horizontal="center" paddingBottom="16">
-            <Row fillWidth wrap horizontal="center" gap="12" className="kailinksStatsStrip">
-              {capabilities.map((c) => (
-                <Column
-                  key={c.title}
-                  align="center"
-                  horizontal="center"
-                  gap="4"
-                  padding="12"
-                  radius="m"
-                  border="neutral-alpha-weak"
-                  background="page"
-                  className="kailinksStat"
-                  style={{ flex: "1 1 8rem", maxWidth: "12rem" }}
-                >
-                  <Icon name={c.icon} size="m" onBackground="brand-medium" />
-                  <Text variant="label-strong-s" onBackground="neutral-strong" align="center">{c.title}</Text>
-                  <Text variant="body-default-xs" onBackground="neutral-weak" align="center">{c.desc}</Text>
+            <Column fillWidth gap="16" className="kailinksCorporateSection">
+              <Row fillWidth horizontal="between" vertical="end" wrap gap="12">
+                <Column gap="4">
+                  <Text variant="label-strong-s" onBackground="brand-medium">
+                    {factsIntro.eyebrow}
+                  </Text>
+                  <Heading as="h2" variant="heading-strong-xl" wrap="balance">
+                    {factsIntro.heading}
+                  </Heading>
                 </Column>
-              ))}
-            </Row>
+              </Row>
+              <Row fillWidth wrap gap="12" className="kailinksFactGrid">
+                {facts.map((fact) => (
+                  <Column key={fact.number} gap="8" className="kailinksFact">
+                    <Text variant="heading-strong-xl" onBackground="brand-medium">
+                      {fact.number}
+                    </Text>
+                    <Column gap="4">
+                      <Text variant="label-strong-m" onBackground="neutral-strong">
+                        {fact.title}
+                      </Text>
+                      <Text variant="body-default-s" onBackground="neutral-weak">
+                        {fact.desc}
+                      </Text>
+                    </Column>
+                  </Column>
+                ))}
+              </Row>
+            </Column>
           </RevealFx>
         </Column>
       </Column>
 
+      {/* ── 3. OPERATIONS VISUAL ── */}
+      <RevealFx fillWidth translateY="8" delay={0.32}>
+        <div className="kailinksOperationsVisual" aria-hidden="true">
+          <img src="/images/illustrations/kailinks-operations-map.svg" alt="" loading="lazy" />
+        </div>
+      </RevealFx>
+
+      {/* ── CLIENT LOGO TICKER ── */}
+      <div className="kailinksDestTicker" aria-hidden="true">
+        <div className="kailinksDestTickerTrack">
+          {[...clientLogos, ...clientLogos].map((logo, i) => (
+            <div key={i} className="kailinksLogoItem">
+              <img src={logo.src} alt={logo.alt} loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* ── 4. SERVICES: "Three tracks, one quality standard" ── */}
       <RevealFx translateY="12" delay={0.45}>
-        <Column fillWidth gap="12" align="center" horizontal="center">
+        <Column
+          fillWidth
+          gap="12"
+          align="center"
+          horizontal="center"
+          className="kailinksServiceIntro"
+        >
           <Badge paddingX="12" paddingY="4" background="accent-alpha-weak" arrow={false}>
             {servicesIntro.badge}
           </Badge>
@@ -221,6 +341,7 @@ export default async function Home() {
             onBackground="neutral-weak"
             variant="body-default-l"
             wrap="balance"
+            className="kailinksServiceIntroDescription"
             style={{ maxWidth: "36rem" }}
           >
             {servicesIntro.description}
@@ -228,160 +349,102 @@ export default async function Home() {
         </Column>
       </RevealFx>
 
-      {routes["/education"] && (
-        <RevealFx translateY="16" delay={0.55}>
-          <Column
-            fillWidth
-            gap="12"
-            padding="20"
-            border="neutral-alpha-weak"
-            background="page"
-            radius="l"
-            className="kailinksServiceCard"
-          >
-            <Row gap="8" vertical="center">
-              <Icon name="book" size="l" onBackground="brand-medium" />
-              <Heading as="h3" variant="heading-strong-l" wrap="balance">
-                {education.title}
-              </Heading>
-            </Row>
-            <Text onBackground="neutral-weak" variant="body-default-l">
-              {taglines.education}
-            </Text>
-            <Button
-              href={education.path}
-              variant="secondary"
-              size="m"
-              weight="default"
-              data-border="rounded"
-              prefixIcon="book"
-              arrowIcon
-            >
-              {openSectionLabel}
-            </Button>
-          </Column>
-        </RevealFx>
-      )}
+      <MobileHomeTabs
+        items={servicePanels.map(({ href, title, description, label }) => ({
+          href,
+          title,
+          description,
+          label,
+        }))}
+        actionLabel={openSectionLabel}
+      />
 
-      {routes["/business"] && (
-        <RevealFx translateY="16" delay={0.65}>
-          <Column
-            fillWidth
-            gap="12"
-            padding="20"
-            border="neutral-alpha-weak"
-            background="page"
-            radius="l"
-            className="kailinksServiceCard"
-          >
-            <Row gap="8" vertical="center">
-              <Icon name="grid" size="l" onBackground="brand-medium" />
-              <Heading as="h3" variant="heading-strong-l" wrap="balance">
-                {business.title}
-              </Heading>
-            </Row>
-            <Text onBackground="neutral-weak" variant="body-default-l">
-              {taglines.business}
-            </Text>
-            <Button
-              href={business.path}
-              variant="secondary"
-              size="m"
-              weight="default"
-              data-border="rounded"
-              prefixIcon="grid"
-              arrowIcon
+      <RevealFx translateY="16" delay={0.55}>
+        <Column fillWidth gap="16" className="kailinksServiceGrid">
+          {servicePanels.map((panel, index) => (
+            <Row
+              key={panel.href}
+              fillWidth
+              gap="20"
+              padding="16"
+              border="neutral-alpha-weak"
+              background="page"
+              radius="m"
+              vertical="stretch"
+              className="kailinksServicePanel"
+              s={{ direction: "column" }}
             >
-              {openSectionLabel}
-            </Button>
-          </Column>
-        </RevealFx>
-      )}
-
-      {routes["/personal"] && (
-        <RevealFx translateY="16" delay={0.75}>
-          <Column
-            fillWidth
-            gap="12"
-            padding="20"
-            border="neutral-alpha-weak"
-            background="page"
-            radius="l"
-            className="kailinksServiceCard"
-          >
-            <Row gap="8" vertical="center">
-              <Icon name="person" size="l" onBackground="brand-medium" />
-              <Heading as="h3" variant="heading-strong-l" wrap="balance">
-                {personal.title}
-              </Heading>
+              <div className="kailinksServiceImage">
+                <img src={panel.image} alt={panel.label} loading={index === 0 ? "eager" : "lazy"} />
+              </div>
+              <Column flex={1} gap="12" paddingY="4">
+                <Text variant="label-strong-s" onBackground="brand-medium">
+                  {String(index + 1).padStart(2, "0")} / {panel.label}
+                </Text>
+                <Heading as="h3" variant="heading-strong-l" wrap="balance">
+                  {panel.title}
+                </Heading>
+                <Text onBackground="neutral-weak" variant="body-default-m">
+                  {panel.description}
+                </Text>
+                {panel.regions && (
+                  <div className="kailinksRegionStr">
+                    {panel.regions.map((r) => (
+                      <span key={r} className="kailinksRegionTag">
+                        {r}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <Button
+                  href={panel.href}
+                  variant="secondary"
+                  size="m"
+                  weight="default"
+                  data-border="rounded"
+                  arrowIcon
+                >
+                  {openSectionLabel}
+                </Button>
+              </Column>
             </Row>
-            <Text onBackground="neutral-weak" variant="body-default-l">
-              {taglines.personal}
-            </Text>
-            <Button
-              href={personal.path}
-              variant="secondary"
-              size="m"
-              weight="default"
-              data-border="rounded"
-              prefixIcon="person"
-              arrowIcon
-            >
-              {openSectionLabel}
-            </Button>
-          </Column>
-        </RevealFx>
-      )}
-
-      {/* ── REGIONS STRIP ── */}
-      <RevealFx translateY="16" delay={0.8}>
-        <Column fillWidth gap="8" align="center" horizontal="center">
-          <Text variant="label-default-s" onBackground="neutral-weak" align="center">
-            {regionsLabel}
-          </Text>
-          <Row gap="8" wrap horizontal="center">
-            {regions.map((r) => (
-              <Badge
-                key={r}
-                paddingX="12"
-                paddingY="4"
-                background="neutral-alpha-weak"
-                border="neutral-alpha-weak"
-                arrow={false}
-              >
-                <Row gap="4" vertical="center">
-                  <Icon name="globe" size="xs" onBackground="brand-medium" />
-                  <Text variant="label-strong-s">{r}</Text>
-                </Row>
-              </Badge>
-            ))}
-          </Row>
+          ))}
         </Column>
       </RevealFx>
 
-      {/* ── TRUSTED-BY CLIENT LOGOS ── */}
+      {/* ── OPERATING COVERAGE ── */}
       <RevealFx translateY="16" delay={0.9}>
-        <Column fillWidth gap="12" align="center" horizontal="center">
+        <Column
+          fillWidth
+          gap="12"
+          align="center"
+          horizontal="center"
+          className="kailinksClientProof"
+        >
           <Text variant="label-default-s" onBackground="neutral-weak" align="center">
             {locale === "en"
-              ? "Trusted by organizations across 4 continents"
+              ? "Operating coverage across priority regions"
               : locale === "ja"
-                ? "4大陸の組織から信頼されています"
-                : "Organizaciones en 4 continentes confían en nosotros"}
+                ? "主要地域での運営対応"
+                : "Cobertura operativa en regiones prioritarias"}
           </Text>
-          <Row
-            gap="24"
-            wrap
-            horizontal="center"
-            style={{ opacity: 0.55, filter: "grayscale(1)" }}
-          >
-            {Array.from({ length: 8 }, (_, i) => (
-              <img
-                key={i}
-                src={`/images/clients/client-${i + 1}.png`}
-                alt={`Client ${i + 1}`}
-                style={{ height: "2rem", width: "auto", objectFit: "contain" }}
-              />
+          <Row gap="8" wrap horizontal="center">
+            {(locale === "en"
+              ? ["East Asia", "Latin America", "Europe", "Multi-city programs"]
+              : locale === "ja"
+                ? ["東アジア", "中南米", "欧州", "複数都市プログラム"]
+                : ["Asia Oriental", "América Latina", "Europa", "Programas multicity"]
+            ).map((region) => (
+              <Badge
+                key={region}
+                paddingX="12"
+                paddingY="4"
+                background="page"
+                border="neutral-alpha-weak"
+                arrow={false}
+              >
+                {region}
+              </Badge>
             ))}
           </Row>
         </Column>
@@ -411,11 +474,12 @@ export default async function Home() {
               onBackground="neutral-weak"
               align="center"
               wrap="balance"
+              className="kailinksCtaDescription"
               style={{ maxWidth: "32rem" }}
             >
               {heroLead.description}
             </Text>
-            <Row gap="8" wrap horizontal="center" paddingTop="4">
+            <Row gap="8" wrap horizontal="center" paddingTop="4" className="kailinksCtaChecklist">
               {heroLead.checklist.map((item) => (
                 <Badge
                   key={item}
@@ -430,7 +494,7 @@ export default async function Home() {
               ))}
             </Row>
           </Column>
-          <Row gap="12" wrap horizontal="center">
+          <Row gap="12" wrap horizontal="center" className="kailinksCtaActions">
             <Button
               data-border="rounded"
               href={briefMailHref}

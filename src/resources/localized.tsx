@@ -1,18 +1,4 @@
-import {
-  about as aboutEs,
-  blog as blogEs,
-  business as businessEs,
-  education as educationEs,
-  gallery as galleryEs,
-  home as homeEs,
-  newsletter as newsletterEs,
-  person as personEs,
-  personal as personalEs,
-  social as socialEs,
-  work as workEs,
-} from "./content";
-import { Locale } from "./locale";
-import {
+import type {
   About,
   Blog,
   Business,
@@ -26,6 +12,20 @@ import {
   Work,
 } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
+import {
+  about as aboutEs,
+  blog as blogEs,
+  business as businessEs,
+  education as educationEs,
+  gallery as galleryEs,
+  home as homeEs,
+  newsletter as newsletterEs,
+  person as personEs,
+  personal as personalEs,
+  social as socialEs,
+  work as workEs,
+} from "./content";
+import type { Locale } from "./locale";
 
 type LocalizedResources = {
   person: Person;
@@ -55,7 +55,7 @@ const en: LocalizedResources = {
   newsletter: {
     display: false,
     title: <>Get KaiLinks updates</>,
-    description: <>Insights for education programs, business delegations, and personal support.</>,
+    description: <>Insights for education programs, business delegations, and group travel.</>,
   },
   social: [
     {
@@ -93,10 +93,10 @@ const en: LocalizedResources = {
     path: "/",
     image: "/images/og/home.jpg",
     label: "Home",
-    title: "KaiLinks | Global DMC, exhibitions, and market entry",
+    title: "KaiLinks | International program operations",
     description:
-      "DMC (Destination Management Company), exhibition, event, and market-entry support across Japan, Mexico, Germany/EU, and Hong Kong/China.",
-    headline: <>Bridging cultures and businesses — from plan to execution.</>,
+      "Professional planning and local execution for international programs across priority destinations.",
+    headline: <>International programs, clearly operated.</>,
     featured: {
       display: true,
       title: (
@@ -104,16 +104,16 @@ const en: LocalizedResources = {
           <strong>KaiLinks</strong>
           <Line background="brand-alpha-strong" vert height="20" />
           <Text marginRight="4" onBackground="brand-medium">
-            DMC · Pavilions · Incentives · Market entry
+            Local coordination · International delivery
           </Text>
         </Row>
       ),
-      href: "/business",
+      href: "/about",
     },
     subline: (
       <>
-        Academic programs, corporate events, incentive trips, and individual travel logistics
-        — planned and delivered on the ground across Japan, Mexico, Germany/EU, and Hong Kong/China.
+        KaiLinks structures the agenda, coordinates suppliers, and manages delivery on the ground
+        so every program moves with control.
       </>
     ),
   },
@@ -122,7 +122,7 @@ const en: LocalizedResources = {
     label: "About",
     title: "About KaiLinks",
     description:
-      "KaiLinks is a global DMC and execution partner for programs, exhibitions, and market-entry initiatives across Japan, Mexico, Germany/EU, and Hong Kong/China.",
+      "KaiLinks is a global DMC and execution partner for programs, exhibitions, and market-entry initiatives across East Asia, Latin America, and Europe.",
     tableOfContent: {
       display: false,
       subItems: false,
@@ -139,10 +139,9 @@ const en: LocalizedResources = {
       title: "Who We Are",
       description: (
         <>
-          KaiLinks supports organizations and individuals when they need to execute in destinations
-          they do not manage directly. We combine DMC operations, local coordination, and
-          market-entry support so clients can stay focused on outcomes while we run the delivery on
-          the ground.
+          KaiLinks supports organizations and groups when they need to execute in destinations they
+          do not manage directly. We combine DMC operations, local coordination, and market-entry
+          support so clients can stay focused on outcomes while we run the delivery on the ground.
         </>
       ),
     },
@@ -152,10 +151,12 @@ const en: LocalizedResources = {
       experiences: [
         {
           company: "DMC Operations",
-          timeframe: "Education | Business | Personal",
+          timeframe: "Education | Business | Groups",
           role: "Program design and local execution",
           achievements: [
-            <>End-to-end itinerary planning, supplier sourcing, booking, and on-site coordination.</>,
+            <>
+              End-to-end itinerary planning, supplier sourcing, booking, and on-site coordination.
+            </>,
             <>Flexible delivery models for single-city, multi-city, and multi-country programs.</>,
           ],
           images: [],
@@ -165,7 +166,10 @@ const en: LocalizedResources = {
           timeframe: "Assessment | Matchmaking | Regional Coordination",
           role: "Regional setup and partner development",
           achievements: [
-            <>Market research, feasibility support, and partner matchmaking for expansion initiatives.</>,
+            <>
+              Market research, feasibility support, and partner matchmaking for expansion
+              initiatives.
+            </>,
             <>Regulatory and localization guidance coordinated through regional experts.</>,
           ],
           images: [],
@@ -175,7 +179,9 @@ const en: LocalizedResources = {
           timeframe: "Pre-trip to post-program",
           role: "Execution, risk control, and reporting",
           achievements: [
-            <>Real-time troubleshooting, schedule control, and multilingual communication support.</>,
+            <>
+              Real-time troubleshooting, schedule control, and multilingual communication support.
+            </>,
             <>Post-event reporting with recommendations for continuous improvement.</>,
           ],
           images: [],
@@ -187,20 +193,30 @@ const en: LocalizedResources = {
       title: "Operational Coverage",
       institutions: [
         {
-          name: "Japan",
-          description: <>Program operations, local partnerships, education visits, and executive support.</>,
+          name: "East Asia",
+          description: (
+            <>Program operations, local partnerships, education visits, and executive support.</>
+          ),
         },
         {
-          name: "Mexico",
-          description: <>Institutional exchanges, delegations, and destination logistics in major cities.</>,
+          name: "Latin America",
+          description: (
+            <>Institutional exchanges, delegations, and destination logistics in major cities.</>
+          ),
         },
         {
-          name: "Germany / EU",
-          description: <>Conference planning, exhibition support, and cross-border coordination.</>,
+          name: "Europe",
+          description: (
+            <>
+              Market entry, commercial channels, exhibition support, and cross-border coordination.
+            </>
+          ),
         },
         {
-          name: "Hong Kong / China",
-          description: <>Business access, executive support, and high-touch regional delivery.</>,
+          name: "Multi-city programs",
+          description: (
+            <>Coordination across venues, suppliers, and local teams when programs cross regions.</>
+          ),
         },
       ],
     },
@@ -251,7 +267,7 @@ const en: LocalizedResources = {
             },
             {
               name: "Follow-up",
-              icon: "person",
+              icon: "globe",
             },
           ],
           images: [],
@@ -276,21 +292,21 @@ const en: LocalizedResources = {
     label: "Education",
     title: "Educational Institutions",
     description:
-      "We design and run academic programs across four regions: Japan, Mexico, Hong Kong/China, and Germany/EU. We handle institutional partnerships, scheduling, logistics, and on-site operations.",
+      "We design and run academic programs, conferences, and institutional events with partnerships, scheduling, logistics, and on-site operations.",
   },
   business: {
     path: "/business",
     label: "Business",
-    title: "Businesses",
+    title: "Corporate programs",
     description:
-      "Operational support for corporate meetings, conferences, incentive trips, expo participation, and market-entry strategies across our operating regions.",
+      "We structure executive agendas, expo participation, and local coordination for companies operating outside their usual market.",
   },
   personal: {
-    path: "/personal",
-    label: "Personal",
-    title: "Individual travel",
+    path: "/groups",
+    label: "Groups",
+    title: "Group programs",
     description:
-      "Logistics for freelancers, athletes, and independent professionals who want to attend events, competitions, and activities abroad.",
+      "We coordinate groups, incentives, delegations, and special-interest experiences with clear scheduling, reliable suppliers, and local support.",
   },
   gallery: {
     path: "/gallery",
@@ -299,43 +315,33 @@ const en: LocalizedResources = {
     description: "Selected moments from KaiLinks-supported programs.",
     images: [
       {
-        src: "/images/events/Nagano_Sky_2025.webp",
-        alt: "Nagano Sky — Japan program",
+        src: "/images/illustrations/group-travel.svg",
+        alt: "Group travel operations illustration",
         orientation: "horizontal",
       },
       {
-        src: "/images/events/HongKong_Jewrellery_2025.webp",
-        alt: "Hong Kong Jewellery Fair — trade show",
+        src: "/images/illustrations/pavilion-expo.svg",
+        alt: "Pavilion and exhibition operations illustration",
         orientation: "vertical",
       },
       {
-        src: "/images/events/Tokyo_Spasce_Expo_2024.webp",
-        alt: "Tokyo Space Expo — technology exhibition",
+        src: "/images/illustrations/kailinks-operations-map.svg",
+        alt: "International coordination illustration",
         orientation: "horizontal",
       },
       {
-        src: "/images/events/Osaka_Expo_2025.webp",
-        alt: "Osaka Expo 2025 — international event",
+        src: "/images/illustrations/education-programs.svg",
+        alt: "International education program illustration",
         orientation: "vertical",
       },
       {
-        src: "/images/events/Queretaro_Expo_2025.webp",
-        alt: "Querétaro Expo — Mexico exhibition",
+        src: "/images/illustrations/startup-market-entry.svg",
+        alt: "Corporate international agenda illustration",
         orientation: "vertical",
       },
       {
-        src: "/images/events/UpcmEvnts_2.webp",
-        alt: "Business event — corporate delegation",
-        orientation: "horizontal",
-      },
-      {
-        src: "/images/events/UpcmEvnts_4.webp",
-        alt: "International conference — KaiLinks program",
-        orientation: "horizontal",
-      },
-      {
-        src: "/images/events/Tokyo_Electronics_2025.webp",
-        alt: "Tokyo Electronics — electronics fair",
+        src: "/images/illustrations/risk-map.svg",
+        alt: "Operations and risk control illustration",
         orientation: "vertical",
       },
     ],
@@ -370,7 +376,7 @@ const ja: LocalizedResources = {
   newsletter: {
     display: false,
     title: <>KaiLinksの最新情報を受け取る</>,
-    description: <>教育・企業・個人向けサービスの実務インサイトを配信します。</>,
+    description: <>教育・企業・団体向けサービスの実務インサイトを配信します。</>,
   },
   social: [
     {
@@ -408,10 +414,10 @@ const ja: LocalizedResources = {
     path: "/",
     image: "/images/og/home.jpg",
     label: "ホーム",
-    title: "KaiLinks | グローバルDMC・展示会・市場参入支援",
+    title: "KaiLinks | 国際プログラム運営",
     description:
-      "日本・メキシコ・ドイツ/EU・香港/中国で、DMC運営、展示会・イベント対応、市場参入支援を提供します。",
-    headline: <>文化とビジネスをつなぐ — 計画から実行まで。</>,
+      "主要地域での国際プログラムに必要な企画、現地調整、実行管理を提供します。",
+    headline: <>国際プログラムを、確実に運営する。</>,
     featured: {
       display: true,
       title: (
@@ -419,16 +425,16 @@ const ja: LocalizedResources = {
           <strong>KaiLinks</strong>
           <Line background="brand-alpha-strong" vert height="20" />
           <Text marginRight="4" onBackground="brand-medium">
-            DMC · パビリオン · インセンティブ · 市場参入
+            現地調整 · 国際プログラム運営
           </Text>
         </Row>
       ),
-      href: "/business",
+      href: "/about",
     },
     subline: (
       <>
-        学術プログラム、企業イベント、インセンティブ旅行、個人渡航ロジスティクス ——
-        日本・メキシコ・ドイツ/EU・香港/中国で現地運営。
+        KaiLinksはアジェンダ設計、サプライヤー調整、現地運営を一体で管理し、
+        プログラムを明確に進行させます。
       </>
     ),
   },
@@ -437,7 +443,7 @@ const ja: LocalizedResources = {
     label: "会社情報",
     title: "KaiLinksについて",
     description:
-      "KaiLinksは日本・メキシコ・ドイツ/EU・香港/中国で、プログラム運営・展示会・市場参入を支援するグローバルDMC/実行パートナーです。",
+      "KaiLinksは東アジア・中南米・欧州を中心に、プログラム運営・展示会・市場参入を支援するグローバルDMC/実行パートナーです。",
     tableOfContent: {
       display: false,
       subItems: false,
@@ -454,7 +460,7 @@ const ja: LocalizedResources = {
       title: "私たちについて",
       description: (
         <>
-          KaiLinksは、組織や個人が自社で直接管理していない地域で実行する必要があるときに、
+          KaiLinksは、組織や団体が自社で直接管理していない地域で実行する必要があるときに、
           DMC運営・現地調整・市場参入支援を組み合わせて支援します。クライアントが成果に集中できるよう、
           私たちが現地実務を担います。
         </>
@@ -466,7 +472,7 @@ const ja: LocalizedResources = {
       experiences: [
         {
           company: "デスティネーション・マネジメント",
-          timeframe: "教育 | 企業 | 個人",
+          timeframe: "教育 | 企業 | 団体",
           role: "プログラム設計と現地実行",
           achievements: [
             <>旅程設計、調達、手配、予約、当日運営までを一括対応。</>,
@@ -501,20 +507,20 @@ const ja: LocalizedResources = {
       title: "運営対応エリア",
       institutions: [
         {
-          name: "日本",
+          name: "東アジア",
           description: <>教育連携、現地運営、パートナー開拓を担当。</>,
         },
         {
-          name: "メキシコ",
+          name: "中南米",
           description: <>交流プログラム、視察団、都市間ロジスティクスを担当。</>,
         },
         {
-          name: "ドイツ / EU",
-          description: <>会議・展示会運営と広域連携を担当。</>,
+          name: "欧州",
+          description: <>市場参入、販路開拓、展示会支援、広域連携を担当。</>,
         },
         {
-          name: "香港 / 中国",
-          description: <>ビジネスアクセス支援と高品質な実務運営を担当。</>,
+          name: "複数都市プログラム",
+          description: <>地域をまたぐ会場、サプライヤー、現地チームの調整を担当。</>,
         },
       ],
     },
@@ -524,8 +530,7 @@ const ja: LocalizedResources = {
       skills: [
         {
           title: "企画とパートナー開発",
-          description:
-            "プログラム設計、現地パートナー選定、会場交渉、実行タイムラインの設計。",
+          description: "プログラム設計、現地パートナー選定、会場交渉、実行タイムラインの設計。",
           tags: [
             {
               name: "戦略",
@@ -540,8 +545,7 @@ const ja: LocalizedResources = {
         },
         {
           title: "現地実行",
-          description:
-            "運営チーム配置、参加者管理、現地スタッフ手配、移動管理、トラブル対応。",
+          description: "運営チーム配置、参加者管理、現地スタッフ手配、移動管理、トラブル対応。",
           tags: [
             {
               name: "運営",
@@ -556,8 +560,7 @@ const ja: LocalizedResources = {
         },
         {
           title: "事後支援",
-          description:
-            "ドキュメント作成、報告、次回施策に向けた最適化提案。",
+          description: "ドキュメント作成、報告、次回施策に向けた最適化提案。",
           tags: [
             {
               name: "分析",
@@ -565,7 +568,7 @@ const ja: LocalizedResources = {
             },
             {
               name: "フォロー",
-              icon: "person",
+              icon: "globe",
             },
           ],
           images: [],
@@ -590,21 +593,21 @@ const ja: LocalizedResources = {
     label: "教育機関",
     title: "教育機関向け",
     description:
-      "日本・メキシコ・香港/中国・ドイツ/EUの4地域で学術プログラムを設計・運営。機関連携、スケジュール調整、ロジスティクス、現地運営を担当します。",
+      "学術プログラム、会議、教育イベントに必要な機関連携、スケジュール調整、ロジスティクス、現地運営を支援します。",
   },
   business: {
     path: "/business",
     label: "企業",
-    title: "企業向け",
+    title: "市場参入支援",
     description:
-      "企業会議、カンファレンス、インセンティブ旅行、展示会参加、市場参入戦略に対するオペレーショナルサポート。",
+      "通常の商圏外で活動する企業向けに、役員アジェンダ、展示会参加、現地調整を構造化して支援します。",
   },
   personal: {
-    path: "/personal",
-    label: "個人",
-    title: "個人渡航",
+    path: "/groups",
+    label: "団体",
+    title: "団体プログラム",
     description:
-      "海外のイベント・大会・活動に参加したいフリーランス、アスリート、独立プロフェッショナル向けのロジスティクス。",
+      "団体、インセンティブ、代表団、テーマ別体験を、明確な日程、信頼できるサプライヤー、現地サポートで調整します。",
   },
   gallery: {
     path: "/gallery",
@@ -613,43 +616,33 @@ const ja: LocalizedResources = {
     description: "KaiLinksが支援したプログラムのハイライト。",
     images: [
       {
-        src: "/images/events/Nagano_Sky_2025.webp",
-        alt: "長野スカイ — 日本プログラム",
+        src: "/images/illustrations/group-travel.svg",
+        alt: "団体旅行運営のイラスト",
         orientation: "horizontal",
       },
       {
-        src: "/images/events/HongKong_Jewrellery_2025.webp",
-        alt: "香港ジュエリーフェア — 展示会",
+        src: "/images/illustrations/pavilion-expo.svg",
+        alt: "パビリオン・展示会運営のイラスト",
         orientation: "vertical",
       },
       {
-        src: "/images/events/Tokyo_Spasce_Expo_2024.webp",
-        alt: "東京宇宙博 — 技術展示会",
+        src: "/images/illustrations/kailinks-operations-map.svg",
+        alt: "国際調整のイラスト",
         orientation: "horizontal",
       },
       {
-        src: "/images/events/Osaka_Expo_2025.webp",
-        alt: "大阪万博2025 — 国際イベント",
+        src: "/images/illustrations/education-programs.svg",
+        alt: "教育プログラムのイラスト",
         orientation: "vertical",
       },
       {
-        src: "/images/events/Queretaro_Expo_2025.webp",
-        alt: "ケレタロ博 — メキシコ展示会",
+        src: "/images/illustrations/startup-market-entry.svg",
+        alt: "企業アジェンダ運営のイラスト",
         orientation: "vertical",
       },
       {
-        src: "/images/events/UpcmEvnts_2.webp",
-        alt: "ビジネスイベント — 企業視察",
-        orientation: "horizontal",
-      },
-      {
-        src: "/images/events/UpcmEvnts_4.webp",
-        alt: "国際会議 — KaiLinksプログラム",
-        orientation: "horizontal",
-      },
-      {
-        src: "/images/events/Tokyo_Electronics_2025.webp",
-        alt: "東京エレクトロニクス — 電子機器展",
+        src: "/images/illustrations/risk-map.svg",
+        alt: "運営管理とリスク整理のイラスト",
         orientation: "vertical",
       },
     ],

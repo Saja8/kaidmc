@@ -29,7 +29,6 @@ export function BusinessProjects({ locale = "es", range, exclude }: BusinessProj
     <Column fillWidth gap="xl" marginBottom="40" paddingX="l">
       {displayedProjects.map((post, index) => (
         <ProjectCard
-          priority={index < 2}
           key={post.slug}
           href={`/business/${post.slug}`}
           images={post.metadata.images}

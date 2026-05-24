@@ -29,7 +29,6 @@ export function EducationProjects({ locale = "es", range, exclude }: EducationPr
     <Column fillWidth gap="xl" marginBottom="40" paddingX="l">
       {displayedProjects.map((post, index) => (
         <ProjectCard
-          priority={index < 2}
           key={post.slug}
           href={`/education/${post.slug}`}
           images={post.metadata.images}
