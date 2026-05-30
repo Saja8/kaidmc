@@ -17,6 +17,7 @@ import {
   blog as blogEs,
   business as businessEs,
   education as educationEs,
+  events as eventsEs,
   gallery as galleryEs,
   home as homeEs,
   newsletter as newsletterEs,
@@ -34,6 +35,7 @@ type LocalizedResources = {
   home: Home;
   about: About;
   blog: Blog;
+  events: Blog;
   work: Work;
   gallery: Gallery;
   education: Education;
@@ -46,7 +48,7 @@ const en: LocalizedResources = {
     firstName: "KaiLinks",
     lastName: "Team",
     name: "KaiLinks",
-    role: "Global DMC, exhibitions, and market-entry partner",
+    role: "Global DMC · Exhibitions · Market Entry",
     avatar: "/images/avatar.webp",
     email: "info@kailinks.com",
     location: "Asia/Tokyo",
@@ -93,10 +95,10 @@ const en: LocalizedResources = {
     path: "/",
     image: "/images/og/home.jpg",
     label: "Home",
-    title: "KaiLinks | International program operations",
+    title: "KaiLinks | International Program Operations",
     description:
-      "Professional planning and local execution for international programs across priority destinations.",
-    headline: <>International programs, clearly operated.</>,
+      "One contact. Any destination. Local execution for international programs across East Asia, Latin America, and Europe.",
+    headline: <>One contact. Any destination.</>,
     featured: {
       display: true,
       title: (
@@ -104,7 +106,7 @@ const en: LocalizedResources = {
           <strong>KaiLinks</strong>
           <Line background="brand-alpha-strong" vert height="20" />
           <Text marginRight="4" onBackground="brand-medium">
-            Local coordination · International delivery
+            Global DMC · Asia · Latin America · Europe
           </Text>
         </Row>
       ),
@@ -112,8 +114,8 @@ const en: LocalizedResources = {
     },
     subline: (
       <>
-        KaiLinks structures the agenda, coordinates suppliers, and manages delivery on the ground
-        so every program moves with control.
+        We manage agenda, suppliers, and on-ground operations so your international programs move
+        with clarity — from brief to delivery.
       </>
     ),
   },
@@ -122,7 +124,7 @@ const en: LocalizedResources = {
     label: "About",
     title: "About KaiLinks",
     description:
-      "KaiLinks is a global DMC and execution partner for programs, exhibitions, and market-entry initiatives across East Asia, Latin America, and Europe.",
+      "Local execution for international programs. In-region network across East Asia, Latin America, and Europe.",
     tableOfContent: {
       display: false,
       subItems: false,
@@ -281,6 +283,12 @@ const en: LocalizedResources = {
     title: "KaiLinks Insights",
     description: "Practical notes for destination management and cross-market operations.",
   },
+  events: {
+    path: "/events",
+    label: "Events",
+    title: "KaiLinks Events",
+    description: "Agenda and events organized and coordinated by KaiLinks.",
+  },
   work: {
     path: "/work",
     label: "Work",
@@ -355,6 +363,7 @@ const es: LocalizedResources = {
   home: homeEs,
   about: aboutEs,
   blog: blogEs,
+  events: eventsEs,
   work: workEs,
   gallery: galleryEs,
   education: educationEs,
@@ -581,6 +590,12 @@ const ja: LocalizedResources = {
     label: "ブログ",
     title: "KaiLinksインサイト",
     description: "デスティネーション運営と越境オペレーションに関する実務ノート。",
+  },
+  events: {
+    path: "/events",
+    label: "イベント",
+    title: "KaiLinksイベント",
+    description: "KaiLinksが企画・調整する公開イベントやセッションの最新情報。",
   },
   work: {
     path: "/work",

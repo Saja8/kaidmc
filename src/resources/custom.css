@@ -186,6 +186,13 @@ header[data-border="rounded"] a[href="/"]:hover {
   max-width: 100%;
 }
 
+.kailinksClientStrip {
+  width: min(100%, 54rem);
+  display: grid;
+  gap: var(--static-space-8);
+  margin-top: calc(-1 * var(--static-space-8));
+}
+
 .kailinksHeroPanel {
   position: relative;
   overflow: hidden;
@@ -429,18 +436,19 @@ header[data-border="rounded"] a[href="/"]:hover {
     display: none !important;
   }
 
+  /* Nav column fills full width so centering works */
   .kailinksHeaderCenter {
-    flex: 0 1 auto !important;
-    width: auto !important;
+    flex: 1 !important;
+    width: 100% !important;
     max-width: calc(100vw - 1rem);
+    justify-content: center !important;
   }
 
-  .kailinksNavItems {
-    gap: 0.1rem !important;
-  }
-
+  /* Nav shell: full width, items centered, horizontal scroll as fallback */
   .kailinksNavShell {
-    justify-content: flex-start;
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: center !important;
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-width: none;
@@ -450,19 +458,23 @@ header[data-border="rounded"] a[href="/"]:hover {
     display: none;
   }
 
+  /* Give items breathing room and bigger touch targets */
   .kailinksNavItems {
-    min-width: max-content;
+    gap: 0.2rem !important;
+    min-width: 0;
+    justify-content: center;
   }
 
+  /* Restore language flag buttons to a usable size */
   .kailinksLanguageToggle {
-    gap: 0.1rem;
-    padding: 0.1rem;
+    gap: 0.15rem;
+    padding: 0.15rem;
   }
 
   .kailinksLanguageOption {
-    width: 1.2rem;
-    height: 1.2rem;
-    font-size: 0.88rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.95rem;
   }
 
   .kailinksHeroBadge {
@@ -499,9 +511,13 @@ header[data-border="rounded"] a[href="/"]:hover {
     padding: var(--static-space-12) !important;
   }
 
-  .kailinksOperationsVisual,
-  .kailinksDestTicker {
+  .kailinksOperationsVisual {
     display: none !important;
+  }
+
+  .kailinksClientStrip {
+    width: min(100%, calc(100vw - 1.25rem));
+    margin-top: 0;
   }
 
   .kailinksServiceIntro {

@@ -17,7 +17,7 @@ const person: Person = {
   firstName: "KaiLinks",
   lastName: "Team",
   name: "KaiLinks",
-  role: "Socio global de gestión de destinos (DMC), exhibiciones y entrada a mercados",
+  role: "DMC global · Exhibiciones · Entrada a mercados",
   avatar: "/images/avatar.webp",
   email: "info@kailinks.com",
   location: "Asia/Tokyo",
@@ -72,7 +72,7 @@ const home: Home = {
   title: "KaiLinks | Operación internacional",
   description:
     "Planeación y ejecución local para programas internacionales con coordinación profesional en cada destino.",
-  headline: <>Operación internacional, sin fricción.</>,
+  headline: <>Un contacto. Cualquier destino.</>,
   featured: {
     display: true,
     title: (
@@ -80,7 +80,7 @@ const home: Home = {
         <strong>KaiLinks</strong>
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Coordinación local · Programas internacionales
+          DMC global · Asia · América Latina · Europa
         </Text>
       </Row>
     ),
@@ -88,8 +88,8 @@ const home: Home = {
   },
   subline: (
     <>
-      KaiLinks estructura la agenda, coordina proveedores y gestiona la operación en sitio para que
-      cada programa avance con claridad.
+      Gestionamos agenda, proveedores y operación en sitio para que tus programas internacionales
+      avancen con claridad — desde el brief hasta la entrega.
     </>
   ),
 };
@@ -99,7 +99,7 @@ const about: About = {
   label: "Nosotros",
   title: "Nosotros | KaiLinks",
   description:
-    "KaiLinks es un socio global DMC y de ejecución internacional para programas, exhibiciones y soporte de entrada a mercados con red en Asia Oriental, América Latina y Europa.",
+    "Ejecución local para programas internacionales. Red propia en Asia Oriental, América Latina y Europa.",
   tableOfContent: {
     display: false,
     subItems: false,
@@ -207,7 +207,7 @@ const about: About = {
       {
         title: "Planeación y alianzas",
         description:
-          "Arquitectura de programas, selección de socios locales, negociación de sedes y diseño de timeline.",
+          "Arquitectura de programas, selección de socios locales, negociación de sedes y diseño de timeline. Integración de herramientas digitales para seguimiento y coordinación.",
         tags: [
           {
             name: "Estrategia",
@@ -223,7 +223,7 @@ const about: About = {
       {
         title: "Ejecución en sitio",
         description:
-          "Despliegue de equipo, gestión de asistentes, staff local, traslados y resolución de incidencias.",
+          "Despliegue de equipo, gestión de asistentes, staff local, traslados y resolución de incidencias. Uso de operaciones basadas en datos para mayor previsibilidad.",
         tags: [
           {
             name: "Operaciones",
@@ -239,7 +239,7 @@ const about: About = {
       {
         title: "Soporte post programa",
         description:
-          "Documentación, reportes y recomendaciones de optimización para el siguiente ciclo.",
+          "Documentación, reportes y recomendaciones de optimización para el siguiente ciclo. Entregables claros con insights prácticos y métricas.",
         tags: [
           {
             name: "Análisis",
@@ -261,6 +261,13 @@ const blog: Blog = {
   label: "Blog",
   title: "Perspectivas de KaiLinks",
   description: "Notas prácticas sobre gestión de destinos y operaciones entre mercados.",
+};
+
+const events: Blog = {
+  path: "/events",
+  label: "Eventos",
+  title: "Eventos KaiLinks",
+  description: "Agenda y eventos organizados y coordinados por KaiLinks.",
 };
 
 const work: Work = {
@@ -333,6 +340,7 @@ const gallery: Gallery = {
   ],
 };
 
+
 export {
   person,
   social,
@@ -340,6 +348,7 @@ export {
   home,
   about,
   blog,
+  events,
   work,
   gallery,
   education,

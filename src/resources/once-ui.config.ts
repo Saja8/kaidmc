@@ -21,6 +21,7 @@ const routes: RoutesConfig = {
   "/about": true,
   "/work": false,
   "/blog": true,
+  "/events": true,
   "/gallery": false,
   "/education": true,
   "/business": true,
@@ -83,9 +84,9 @@ const style: StyleConfig = {
   theme: "system", // dark | light | system
   neutral: "slate", // sand | gray | slate | mint | rose | dusk | custom
   brand: "indigo", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
-  accent: "emerald", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  accent: "orange", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
   solid: "color", // color | contrast
-  solidStyle: "plastic", // flat | plastic
+  solidStyle: "flat", // flat | plastic
   border: "rounded", // rounded | playful | conservative | sharp
   surface: "translucent", // filled | translucent
   transition: "all", // all | micro | macro
