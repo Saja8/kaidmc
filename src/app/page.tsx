@@ -215,6 +215,141 @@ export default async function Home() {
         ? "主なクライアント・パートナー"
         : "Clientes y aliados de referencia";
 
+  /* ── How a program works — 4 steps ── */
+  const processData =
+    locale === "en"
+      ? {
+          eyebrow: "Process",
+          heading: "How a program comes together",
+          steps: [
+            {
+              num: "01",
+              title: "Brief",
+              desc: "Share destination, dates, group profile, and expected outcome. We respond within 24 h with a structured delivery path.",
+            },
+            {
+              num: "02",
+              title: "Design",
+              desc: "We build the itinerary, source and vet local suppliers, and confirm the full budget before anything moves.",
+            },
+            {
+              num: "03",
+              title: "On-ground delivery",
+              desc: "Our local team handles transfers, schedule, supplier coordination, and real-time issue resolution throughout.",
+            },
+            {
+              num: "04",
+              title: "Post-program report",
+              desc: "A structured debrief with participant feedback, budget reconciliation, and improvement recommendations.",
+            },
+          ],
+        }
+      : locale === "ja"
+        ? {
+            eyebrow: "プロセス",
+            heading: "プログラムができるまで",
+            steps: [
+              { num: "01", title: "ブリーフ", desc: "行き先、日程、グループ像、成果目標をお伝えください。24時間以内に実行手順をご返答します。" },
+              { num: "02", title: "設計", desc: "旅程作成、現地サプライヤーの選定と検証、全体予算の確定を行います。" },
+              { num: "03", title: "現地実行", desc: "移動、スケジュール、調達調整、リアルタイム対応を現地チームが担当します。" },
+              { num: "04", title: "事後報告", desc: "参加者フィードバック、予算精算、次回改善提案を含む報告書をお届けします。" },
+            ],
+          }
+        : {
+            eyebrow: "Proceso",
+            heading: "Cómo se arma un programa",
+            steps: [
+              {
+                num: "01",
+                title: "Brief",
+                desc: "Comparte destino, fechas, perfil del grupo y resultado esperado. Respondemos en 24 h con una ruta de entrega estructurada.",
+              },
+              {
+                num: "02",
+                title: "Diseño",
+                desc: "Construimos el itinerario, validamos proveedores locales y confirmamos el presupuesto completo antes de que nada se mueva.",
+              },
+              {
+                num: "03",
+                title: "Ejecución en sitio",
+                desc: "Nuestro equipo local gestiona traslados, agenda, coordinación con proveedores y resolución de imprevistos en tiempo real.",
+              },
+              {
+                num: "04",
+                title: "Reporte post-programa",
+                desc: "Informe estructurado con retroalimentación de participantes, conciliación de presupuesto y recomendaciones para tu próximo programa.",
+              },
+            ],
+          };
+
+  /* ── Region coverage cards ── */
+  const regionsData =
+    locale === "en"
+      ? {
+          eyebrow: "Coverage",
+          heading: "Where we operate",
+          regions: [
+            {
+              name: "East Asia",
+              desc: "Japan, Hong Kong, and mainland China are our home markets. Deep local networks for education visits, corporate programs, exhibitions, and incentive groups.",
+              tags: ["Japan", "Hong Kong", "China", "South Korea"],
+            },
+            {
+              name: "Latin America",
+              desc: "Institutional exchanges, delegation logistics, and incoming program coordination in Mexico and Central America for international visitors and organizations.",
+              tags: ["Mexico", "Guatemala"],
+            },
+            {
+              name: "Europe",
+              desc: "Market entry, trade fair support, and cross-border partnership facilitation with focus on Germany and Slovakia.",
+              tags: ["Germany", "Slovakia"],
+            },
+          ],
+        }
+      : locale === "ja"
+        ? {
+            eyebrow: "カバレッジ",
+            heading: "対応エリア",
+            regions: [
+              {
+                name: "東アジア",
+                desc: "日本・香港・中国本土が私たちのホームマーケット。教育訪問、企業プログラム、展示会、インセンティブグループに対応した深い現地ネットワーク。",
+                tags: ["日本", "香港", "中国", "韓国"],
+              },
+              {
+                name: "中南米",
+                desc: "メキシコ・中米において、機関間交流、視察団ロジスティクス、海外ゲスト向け受入プログラムを調整します。",
+                tags: ["メキシコ", "グアテマラ"],
+              },
+              {
+                name: "欧州",
+                desc: "ドイツ・スロバキア市場を中心とした市場参入支援、国際商業フェア対応、越境パートナーシップのファシリテーション。",
+                tags: ["ドイツ", "スロバキア"],
+              },
+            ],
+          }
+        : {
+            eyebrow: "Cobertura",
+            heading: "Dónde operamos",
+            regions: [
+              {
+                name: "Asia Oriental",
+                desc: "Japón, Hong Kong y China continental son nuestros mercados de origen. Redes locales profundas para visitas educativas, programas corporativos, exhibiciones y grupos de incentivo.",
+                tags: ["Japón", "Hong Kong", "China", "Corea del Sur"],
+              },
+              {
+                name: "América Latina",
+                desc: "Coordinación de intercambios institucionales, logística de delegaciones y programas de recepción en México y Centroamérica para visitantes y organizaciones internacionales.",
+                tags: ["México", "Guatemala"],
+              },
+              {
+                name: "Europa",
+                desc: "Entrada a mercado, soporte en ferias comerciales y facilitación de alianzas transfronterizas con foco en Alemania y Eslovaquia.",
+                tags: ["Alemania", "Eslovaquia"],
+              },
+            ],
+          };
+
   return (
     <Column
       maxWidth="m"
@@ -368,6 +503,31 @@ export default async function Home() {
         </section>
       </RevealFx>
 
+      {/* ── PROCESS: How a program comes together ── */}
+      <RevealFx fillWidth translateY="8" delay={0.44}>
+        <Column fillWidth gap="16">
+          <Row fillWidth horizontal="between" vertical="end" wrap gap="12">
+            <Column gap="4">
+              <Text variant="label-strong-s" onBackground="brand-medium">
+                {processData.eyebrow}
+              </Text>
+              <Heading as="h2" variant="heading-strong-xl" wrap="balance">
+                {processData.heading}
+              </Heading>
+            </Column>
+          </Row>
+          <div className="kailinksProcess">
+            {processData.steps.map((step) => (
+              <div key={step.num} className="kailinksProcessStep">
+                <span className="kailinksProcessNum">{step.num}</span>
+                <p className="kailinksProcessTitle">{step.title}</p>
+                <p className="kailinksProcessDesc">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </Column>
+      </RevealFx>
+
       {/* ── 3. OPERATIONS VISUAL ── */}
       <RevealFx fillWidth translateY="8" delay={0.36}>
         <div className="kailinksOperationsVisual" aria-hidden="true">
@@ -466,41 +626,32 @@ export default async function Home() {
         </Column>
       </RevealFx>
 
-      {/* ── OPERATING COVERAGE ── */}
-      <RevealFx translateY="16" delay={0.9}>
-        <Column
-          fillWidth
-          gap="12"
-          align="center"
-          horizontal="center"
-          className="kailinksClientProof"
-        >
-          <Text variant="label-default-s" onBackground="neutral-weak" align="center">
-            {locale === "en"
-              ? "Operating coverage across priority regions"
-              : locale === "ja"
-                ? "主要地域での運営対応"
-                : "Cobertura operativa en regiones prioritarias"}
-          </Text>
-          <Row gap="8" wrap horizontal="center">
-            {(locale === "en"
-              ? ["East Asia", "Latin America", "Europe", "Multi-city programs"]
-              : locale === "ja"
-                ? ["東アジア", "中南米", "欧州", "複数都市プログラム"]
-                : ["Asia Oriental", "América Latina", "Europa", "Programas multicity"]
-            ).map((region) => (
-              <Badge
-                key={region}
-                paddingX="12"
-                paddingY="4"
-                background="page"
-                border="neutral-alpha-weak"
-                arrow={false}
-              >
-                {region}
-              </Badge>
-            ))}
+      {/* ── REGION COVERAGE — rich 3-column cards ── */}
+      <RevealFx translateY="16" delay={0.85}>
+        <Column fillWidth gap="16">
+          <Row fillWidth horizontal="between" vertical="end" wrap gap="12">
+            <Column gap="4">
+              <Text variant="label-strong-s" onBackground="brand-medium">
+                {regionsData.eyebrow}
+              </Text>
+              <Heading as="h2" variant="heading-strong-xl" wrap="balance">
+                {regionsData.heading}
+              </Heading>
+            </Column>
           </Row>
+          <div className="kailinksRegionGrid">
+            {regionsData.regions.map((region) => (
+              <div key={region.name} className="kailinksRegionCard">
+                <p className="kailinksRegionName">{region.name}</p>
+                <p className="kailinksRegionDesc">{region.desc}</p>
+                <div className="kailinksRegionTags">
+                  {region.tags.map((tag) => (
+                    <span key={tag} className="kailinksRegionTagItem">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </Column>
       </RevealFx>
 

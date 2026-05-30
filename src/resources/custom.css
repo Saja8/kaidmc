@@ -681,6 +681,34 @@ header[data-border="rounded"] a[href="/"]:hover {
     font-size: 1.8rem !important;
   }
 
+  /* Process steps — 2-col on tablet breakpoint */
+  .kailinksProcess {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .kailinksProcessStep:nth-child(2) {
+    border-right: none !important;
+  }
+
+  .kailinksProcessStep:nth-child(1),
+  .kailinksProcessStep:nth-child(2) {
+    border-bottom: 1px solid var(--neutral-alpha-weak);
+  }
+
+  .kailinksProcessStep {
+    padding: var(--static-space-16) !important;
+  }
+
+  /* Region cards — single column on tablet */
+  .kailinksRegionGrid {
+    grid-template-columns: 1fr !important;
+    max-width: min(100%, calc(100vw - 1.5rem));
+  }
+
+  .kailinksRegionCard {
+    padding: var(--static-space-16) !important;
+  }
+
   .kailinksProjectImage {
     min-height: 4rem;
     max-height: 6rem;
@@ -992,6 +1020,170 @@ header[data-border="rounded"] a[href="/"]:hover {
   padding-top: var(--static-space-4);
 }
 
+/* ═══════════════════════════════════════
+   PROCESS STEPS — 4-column grid
+═══════════════════════════════════════ */
+.kailinksProcess {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  background: color-mix(in srgb, var(--page-background) 94%, var(--neutral-alpha-weak));
+}
+
+.kailinksProcessStep {
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-12);
+  padding: var(--static-space-20);
+  border-right: 1px solid var(--neutral-alpha-weak);
+  transition: background var(--kl-transition);
+}
+
+.kailinksProcessStep:last-child {
+  border-right: none;
+}
+
+.kailinksProcessStep:hover {
+  background: color-mix(in srgb, var(--brand-alpha-weak) 35%, transparent);
+}
+
+.kailinksProcessNum {
+  display: inline-block;
+  width: fit-content;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-on-background-medium);
+  padding: 0.2rem 0.55rem;
+  background: color-mix(in srgb, var(--brand-alpha-weak) 60%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand-alpha-medium) 35%, transparent);
+  border-radius: 999px;
+}
+
+.kailinksProcessTitle {
+  margin: 0;
+  font-size: var(--font-size-heading-m);
+  font-weight: 700;
+  color: var(--neutral-on-background-strong);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.kailinksProcessDesc {
+  margin: 0;
+  font-size: var(--font-size-body-s);
+  color: var(--neutral-on-background-weak);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .kailinksProcess {
+    grid-template-columns: 1fr 1fr;
+  }
+  .kailinksProcessStep:nth-child(2) { border-right: none; }
+  .kailinksProcessStep:nth-child(1),
+  .kailinksProcessStep:nth-child(2) { border-bottom: 1px solid var(--neutral-alpha-weak); }
+}
+
+@media (max-width: 540px) {
+  .kailinksProcess {
+    grid-template-columns: 1fr;
+  }
+  .kailinksProcessStep {
+    border-right: none;
+    border-bottom: 1px solid var(--neutral-alpha-weak);
+    padding: var(--static-space-16);
+  }
+  .kailinksProcessStep:last-child { border-bottom: none; }
+}
+
+/* ═══════════════════════════════════════
+   REGION COVERAGE CARDS — 3-column grid
+═══════════════════════════════════════ */
+.kailinksRegionGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--static-space-12);
+  width: 100%;
+}
+
+.kailinksRegionCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-12);
+  padding: var(--static-space-20);
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: var(--radius-l);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--page-background) 96%, var(--neutral-alpha-weak)),
+    color-mix(in srgb, var(--page-background) 90%, var(--brand-alpha-weak))
+  );
+  transition: border-color var(--kl-transition), box-shadow var(--kl-transition),
+    transform var(--kl-transition);
+}
+
+.kailinksRegionCard:hover {
+  border-color: color-mix(in srgb, var(--brand-alpha-medium) 70%, transparent);
+  box-shadow: 0 10px 32px color-mix(in srgb, var(--brand-alpha-weak) 22%, transparent);
+  transform: translateY(-4px);
+}
+
+.kailinksRegionName {
+  margin: 0;
+  font-size: var(--font-size-heading-m);
+  font-weight: 700;
+  color: var(--neutral-on-background-strong);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.kailinksRegionDesc {
+  margin: 0;
+  font-size: var(--font-size-body-s);
+  color: var(--neutral-on-background-weak);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.kailinksRegionTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.kailinksRegionTagItem {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--brand-on-background-medium);
+  padding: 0.2rem 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--brand-alpha-medium) 40%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--brand-alpha-weak) 45%, transparent);
+}
+
+@media (max-width: 900px) {
+  .kailinksRegionGrid {
+    grid-template-columns: 1fr;
+    max-width: min(100%, 34rem);
+    margin: 0 auto;
+  }
+}
+
+/* ═══════════════════════════════════════
+   SECTION INTRO HEADINGS — shared style
+═══════════════════════════════════════ */
+.kailinksSectionIntro {
+  padding-bottom: var(--static-space-4);
+  border-bottom: 1px solid color-mix(in srgb, var(--neutral-alpha-weak) 80%, transparent);
+  margin-bottom: var(--static-space-4);
+}
+
 /* ─── Fact number — larger, tighter letter-spacing ─── */
 .kailinksFactNum {
   font-size: 2.4rem !important;
@@ -1036,9 +1228,22 @@ header[data-border="rounded"] a[href="/"]:hover {
   border-top: 1px solid color-mix(in srgb, var(--neutral-alpha-weak) 70%, transparent);
 }
 
-/* ─── Operations visual: slightly taller on desktop ─── */
+/* ─── Operations visual: cinematic aspect ratio on desktop ─── */
 .kailinksOperationsVisual img {
-  aspect-ratio: 16 / 6;
+  aspect-ratio: 16 / 5;
+}
+
+/* ─── Display headline — slightly tighter tracking on large screens ─── */
+[class*="display-strong-l"] {
+  letter-spacing: -0.04em;
+}
+
+/* ─── Section eyebrow label — stronger contrast ─── */
+.kailinksCorporateSection [class*="label-strong-s"],
+.kailinksProcess ~ * [class*="label-strong-s"] {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 /* ─── CTA panel: slightly stronger border ─── */
