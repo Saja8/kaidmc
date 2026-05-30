@@ -64,10 +64,10 @@ export default async function Education() {
       />
 
       {/* — Hero — */}
-      <RevealFx>
-        <Column gap="12" horizontal="center" align="center">
+      <RevealFx fillWidth horizontal="center">
+        <Column gap="16" horizontal="center" align="center" fillWidth>
           <Badge paddingX="12" paddingY="4" background="brand-alpha-weak" arrow={false}>{ui.badge}</Badge>
-          <Heading variant="display-strong-l" align="center">{education.title}</Heading>
+          <Heading variant="display-strong-m" align="center" wrap="balance">{education.title}</Heading>
           <Text
             variant="body-default-l"
             onBackground="neutral-weak"
@@ -85,7 +85,7 @@ export default async function Education() {
 
       {/* — Services list — */}
       <RevealFx translateY="8">
-        <Column fillWidth style={{ maxWidth: "38rem", margin: "0 auto" }}>
+        <Column fillWidth style={{ maxWidth: "44rem", margin: "0 auto" }}>
           <ServiceList
             items={posts.map((post) => ({
               title: post.metadata.title,

@@ -999,19 +999,32 @@ header[data-border="rounded"] a[href="/"]:hover {
 /* ─── Service page hero illustration ─── */
 .kailinksServiceHeroIllustration {
   width: 100%;
-  max-width: 26rem;
-  margin: 0.5rem auto 0;
+  max-width: 48rem;
+  margin: 1.5rem auto 0;
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  border: 1px solid var(--neutral-alpha-weak);
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--page-background) 88%, var(--brand-alpha-weak)) 0%,
+    color-mix(in srgb, var(--page-background) 82%, var(--accent-alpha-weak)) 100%
+  );
+  box-shadow: 0 8px 40px color-mix(in srgb, var(--neutral-alpha-medium) 14%, transparent);
 }
 
 .kailinksServiceHeroIllustration img {
   display: block;
   width: 100%;
   height: auto;
+  padding: 1.5rem 2rem;
 }
 
 @media (max-width: 1024px) {
   .kailinksServiceHeroIllustration {
-    max-width: 16rem;
+    max-width: min(100%, calc(100vw - 2rem));
+  }
+  .kailinksServiceHeroIllustration img {
+    padding: 1rem 1.5rem;
   }
 }
 

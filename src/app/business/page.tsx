@@ -77,12 +77,12 @@ export default async function Business() {
       />
 
       {/* — Hero — */}
-      <RevealFx>
-        <Column gap="20" horizontal="center" align="center">
+      <RevealFx fillWidth horizontal="center">
+        <Column gap="16" horizontal="center" align="center" fillWidth>
           <Badge paddingX="12" paddingY="4" background="brand-alpha-weak" arrow={false}>
             {ui.badge}
           </Badge>
-          <Heading variant="display-strong-l" align="center">
+          <Heading variant="display-strong-m" align="center" wrap="balance">
             {business.title}
           </Heading>
           <Text
@@ -102,7 +102,7 @@ export default async function Business() {
 
       {/* — Services list — */}
       <RevealFx translateY="8">
-        <Column fillWidth style={{ maxWidth: "38rem", margin: "0 auto" }}>
+        <Column fillWidth style={{ maxWidth: "44rem", margin: "0 auto" }}>
           <ServiceList
             items={posts.map((post) => ({
               title: post.metadata.title,
