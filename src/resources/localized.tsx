@@ -98,7 +98,7 @@ const en: LocalizedResources = {
     title: "KaiLinks | International Program Operations",
     description:
       "One contact. Any destination. Local execution for international programs across East Asia, Latin America, and Europe.",
-    headline: <>One contact. Any destination.</>,
+    headline: <>One contact. Where you need it.</>,
     featured: {
       display: true,
       title: (
@@ -106,7 +106,7 @@ const en: LocalizedResources = {
           <strong>KaiLinks</strong>
           <Line background="brand-alpha-strong" vert height="20" />
           <Text marginRight="4" onBackground="brand-medium">
-            Global DMC · Asia · Latin America · Europe
+            Japan · Mexico · Germany
           </Text>
         </Row>
       ),
@@ -114,7 +114,7 @@ const en: LocalizedResources = {
     },
     subline: (
       <>
-        Agenda, suppliers, and on-ground operations — managed from a single point of contact.
+        Agenda, suppliers, and on-ground operations — coordinated by one team.
       </>
     ),
   },
@@ -425,7 +425,7 @@ const ja: LocalizedResources = {
     title: "KaiLinks | 国際プログラム運営",
     description:
       "主要地域での国際プログラムに必要な企画、現地調整、実行管理を提供します。",
-    headline: <>国際プログラムを、確実に運営する。</>,
+    headline: <>一つの窓口。必要な場所に。</>,
     featured: {
       display: true,
       title: (
@@ -433,7 +433,7 @@ const ja: LocalizedResources = {
           <strong>KaiLinks</strong>
           <Line background="brand-alpha-strong" vert height="20" />
           <Text marginRight="4" onBackground="brand-medium">
-            現地調整 · 国際プログラム運営
+            日本 · メキシコ · ドイツ
           </Text>
         </Row>
       ),
@@ -441,7 +441,7 @@ const ja: LocalizedResources = {
     },
     subline: (
       <>
-        アジェンダ、調達、現地運営 — 一つの窓口で統括します。
+        アジェンダ、調達、現地運営 — 一つのチームが統括します。
       </>
     ),
   },

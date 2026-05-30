@@ -65,47 +65,23 @@ export default async function Home() {
   const facts =
     locale === "en"
       ? [
-          { number: "01", title: "Coordination", desc: "One lead contact from brief to delivery" },
-          {
-            number: "02",
-            title: "Local network",
-            desc: "Partners across East Asia, Latin America, and Europe",
-          },
-          {
-            number: "03",
-            title: "Logistics",
-            desc: "Itinerary, suppliers, transport, and on-site control",
-          },
-          { number: "04", title: "Follow-up", desc: "Clear reporting after each program" },
+          { number: "01", title: "Coordination", desc: "One contact from brief to delivery" },
+          { number: "02", title: "Local teams", desc: "On-ground partners in each market we serve" },
+          { number: "03", title: "Logistics", desc: "Itinerary, suppliers, transport, on-site control" },
+          { number: "04", title: "Reporting", desc: "Structured debrief after every program" },
         ]
       : locale === "ja"
         ? [
-            { number: "01", title: "調整力", desc: "要件整理から実施まで一つの窓口で管理" },
-            {
-              number: "02",
-              title: "現地ネットワーク",
-              desc: "東アジア・中南米・欧州のパートナーと連携",
-            },
-            { number: "03", title: "ロジスティクス", desc: "旅程、調達、移動、現地運営を統合" },
-            { number: "04", title: "フォロー", desc: "実施後の報告と次回改善まで対応" },
+            { number: "01", title: "一本化", desc: "ブリーフから実施まで一つの窓口" },
+            { number: "02", title: "現地体制", desc: "対応エリアに現地チームを配置" },
+            { number: "03", title: "ロジスティクス", desc: "旅程・調達・移動・現地運営を統合" },
+            { number: "04", title: "報告", desc: "毎プログラム後に構造化されたレポート" },
           ]
         : [
-            {
-              number: "01",
-              title: "Coordinación",
-              desc: "Un solo contacto desde brief hasta entrega",
-            },
-            {
-              number: "02",
-              title: "Red local",
-              desc: "Aliados en Asia Oriental, América Latina y Europa",
-            },
-            {
-              number: "03",
-              title: "Logística",
-              desc: "Itinerario, proveedores, traslados y control en sitio",
-            },
-            { number: "04", title: "Seguimiento", desc: "Reporte claro después de cada programa" },
+            { number: "01", title: "Coordinación", desc: "Un contacto desde el brief hasta la entrega" },
+            { number: "02", title: "Equipos locales", desc: "Presencia en cada mercado donde operamos" },
+            { number: "03", title: "Logística", desc: "Itinerario, proveedores, traslados y control en sitio" },
+            { number: "04", title: "Reporte", desc: "Informe estructurado después de cada programa" },
           ];
 
   const factsIntro =
@@ -291,40 +267,40 @@ export default async function Home() {
           regions: [
             {
               name: "East Asia",
-              desc: "Japan, Hong Kong, and mainland China are our home markets. Deep local networks for education visits, corporate programs, exhibitions, and incentive groups.",
-              tags: ["Japan", "Hong Kong", "China", "South Korea"],
+              desc: "Our home region. Local teams for education visits, corporate programs, exhibitions, and incentive groups.",
+              tags: ["Japan", "Hong Kong"],
             },
             {
               name: "Latin America",
-              desc: "Institutional exchanges, delegation logistics, and incoming program coordination in Mexico and Central America for international visitors and organizations.",
-              tags: ["Mexico", "Guatemala"],
+              desc: "Institutional exchanges, delegation logistics, and destination coordination for international visitors.",
+              tags: ["Mexico"],
             },
             {
               name: "Europe",
-              desc: "Market entry, trade fair support, and cross-border partnership facilitation with focus on Germany and Slovakia.",
-              tags: ["Germany", "Slovakia"],
+              desc: "Market entry, trade fair coordination, and cross-border partnership support.",
+              tags: ["Germany"],
             },
           ],
         }
       : locale === "ja"
         ? {
-            eyebrow: "カバレッジ",
-            heading: "対応エリア",
+            eyebrow: "対応エリア",
+            heading: "私たちが活動する地域",
             regions: [
               {
                 name: "東アジア",
-                desc: "日本・香港・中国本土が私たちのホームマーケット。教育訪問、企業プログラム、展示会、インセンティブグループに対応した深い現地ネットワーク。",
-                tags: ["日本", "香港", "中国", "韓国"],
+                desc: "ホームリージョン。教育訪問、企業プログラム、展示会、インセンティブグループに対応する現地チームを配置。",
+                tags: ["日本", "香港"],
               },
               {
                 name: "中南米",
-                desc: "メキシコ・中米において、機関間交流、視察団ロジスティクス、海外ゲスト向け受入プログラムを調整します。",
-                tags: ["メキシコ", "グアテマラ"],
+                desc: "機関間交流、視察団ロジスティクス、海外ゲスト向け受入プログラムを調整。",
+                tags: ["メキシコ"],
               },
               {
                 name: "欧州",
-                desc: "ドイツ・スロバキア市場を中心とした市場参入支援、国際商業フェア対応、越境パートナーシップのファシリテーション。",
-                tags: ["ドイツ", "スロバキア"],
+                desc: "市場参入支援、国際商業フェア対応、越境パートナーシップのファシリテーション。",
+                tags: ["ドイツ"],
               },
             ],
           }
@@ -334,18 +310,18 @@ export default async function Home() {
             regions: [
               {
                 name: "Asia Oriental",
-                desc: "Japón, Hong Kong y China continental son nuestros mercados de origen. Redes locales profundas para visitas educativas, programas corporativos, exhibiciones y grupos de incentivo.",
-                tags: ["Japón", "Hong Kong", "China", "Corea del Sur"],
+                desc: "Nuestra región de origen. Equipos locales para visitas educativas, programas corporativos, exhibiciones y grupos de incentivo.",
+                tags: ["Japón", "Hong Kong"],
               },
               {
                 name: "América Latina",
-                desc: "Coordinación de intercambios institucionales, logística de delegaciones y programas de recepción en México y Centroamérica para visitantes y organizaciones internacionales.",
-                tags: ["México", "Guatemala"],
+                desc: "Intercambios institucionales, logística de delegaciones y coordinación de destino para visitantes internacionales.",
+                tags: ["México"],
               },
               {
                 name: "Europa",
-                desc: "Entrada a mercado, soporte en ferias comerciales y facilitación de alianzas transfronterizas con foco en Alemania y Eslovaquia.",
-                tags: ["Alemania", "Eslovaquia"],
+                desc: "Entrada a mercado, coordinación de ferias comerciales y soporte de alianzas transfronterizas.",
+                tags: ["Alemania"],
               },
             ],
           };
@@ -601,15 +577,6 @@ export default async function Home() {
                 <Text onBackground="neutral-weak" variant="body-default-m">
                   {panel.description}
                 </Text>
-                {panel.regions && (
-                  <div className="kailinksRegionStr">
-                    {panel.regions.map((r) => (
-                      <span key={r} className="kailinksRegionTag">
-                        {r}
-                      </span>
-                    ))}
-                  </div>
-                )}
                 <Button
                   href={panel.href}
                   variant="secondary"

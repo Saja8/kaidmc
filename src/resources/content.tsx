@@ -72,7 +72,7 @@ const home: Home = {
   title: "KaiLinks | Operación internacional",
   description:
     "Planeación y ejecución local para programas internacionales con coordinación profesional en cada destino.",
-  headline: <>Un contacto. Cualquier destino.</>,
+  headline: <>Un contacto. Donde lo necesitas.</>,
   featured: {
     display: true,
     title: (
@@ -80,7 +80,7 @@ const home: Home = {
         <strong>KaiLinks</strong>
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          DMC global · Asia · América Latina · Europa
+          Japón · México · Alemania
         </Text>
       </Row>
     ),
@@ -88,7 +88,7 @@ const home: Home = {
   },
   subline: (
     <>
-      Agenda, proveedores y operación en sitio — gestionados desde un solo punto de contacto.
+      Agenda, proveedores y operación en sitio — coordinados por un solo equipo.
     </>
   ),
 };
