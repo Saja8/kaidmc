@@ -1,8 +1,7 @@
 "use client";
 
-import { Card, Column, Media, Row, Avatar, Text } from "@once-ui-system/core";
+import { Card, Column, Media, Row, Text, Badge } from "@once-ui-system/core";
 import { formatDate } from "@/utils/formatDate";
-import { person } from "@/resources";
 import { useEffect, useState } from "react";
 import { Locale, getClientLocale } from "@/resources/locale";
 
@@ -10,9 +9,10 @@ interface PostProps {
   post: any;
   thumbnail: boolean;
   direction?: "row" | "column";
+  basePath?: string;
 }
 
-export default function Post({ post, thumbnail, direction }: PostProps) {
+export default function Post({ post, thumbnail, direction, basePath = "/blog" }: PostProps) {
   const [locale, setLocale] = useState<Locale>("es");
 
   useEffect(() => {
@@ -23,52 +23,48 @@ export default function Post({ post, thumbnail, direction }: PostProps) {
     <Card
       fillWidth
       key={post.slug}
-      href={`/blog/${post.slug}`}
+      href={`${basePath}/${post.slug}`}
       transition="micro-medium"
       direction={direction}
-      border="transparent"
-      background="transparent"
-      padding="4"
-      radius="l-4"
-      gap={direction === "column" ? undefined : "24"}
+      border="neutral-alpha-weak"
+      background="page"
+      padding="0"
+      radius="l"
+      gap={direction === "column" ? undefined : "0"}
       s={{ direction: "column" }}
+      className="klBlogCard"
     >
       {post.metadata.image && thumbnail && (
         <Media
           priority
           sizes="(max-width: 768px) 100vw, 640px"
-          border="neutral-alpha-weak"
+          border="transparent"
           cursor="interactive"
-          radius="l"
+          radius="l-4"
           src={post.metadata.image}
           alt={
             (locale === "en" ? "Thumbnail of " : locale === "ja" ? "サムネイル: " : "Miniatura de ") +
             post.metadata.title
           }
           aspectRatio="16 / 9"
+          style={{ borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }}
         />
       )}
-      <Row fillWidth>
-        <Column maxWidth={28} paddingY="24" paddingX="l" gap="20" vertical="center">
-          <Row gap="24" vertical="center">
-            <Row vertical="center" gap="16">
-              <Avatar src={person.avatar} size="s" />
-              <Text variant="label-default-s">{person.name}</Text>
-            </Row>
-            <Text variant="body-default-xs" onBackground="neutral-weak">
-              {formatDate(post.metadata.publishedAt, false)}
-            </Text>
-          </Row>
-          <Text variant="heading-strong-l" wrap="balance">
-            {post.metadata.title}
+      <Column fillWidth paddingY="20" paddingX="24" gap="12">
+        <Text variant="heading-strong-l" wrap="balance">
+          {post.metadata.title}
+        </Text>
+        <Row gap="12" vertical="center" wrap>
+          <Text variant="body-default-xs" onBackground="neutral-weak">
+            {formatDate(post.metadata.publishedAt, false)}
           </Text>
           {post.metadata.tag && (
-            <Text variant="label-strong-s" onBackground="neutral-weak">
+            <Text variant="label-strong-s" onBackground="neutral-weak" className="klBlogTag">
               {post.metadata.tag}
             </Text>
           )}
-        </Column>
-      </Row>
+        </Row>
+      </Column>
     </Card>
   );
 }

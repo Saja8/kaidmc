@@ -1205,7 +1205,7 @@ header[data-border="rounded"] a[href="/"]:hover {
   );
 }
 
-/* ─── Service panel: thicker left accent, bolder number ─── */
+/* ─── Service panel: thicker left accent ─── */
 .kailinksServicePanel::before {
   width: 0.3rem;
   opacity: 1;
@@ -1217,15 +1217,62 @@ header[data-border="rounded"] a[href="/"]:hover {
   text-transform: uppercase;
 }
 
+/* ─── Service panels: clearly visible in light AND dark mode ─── */
+.kailinksServicePanel {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--page-background) 84%, var(--neutral-alpha-medium)) 0%,
+    color-mix(in srgb, var(--page-background) 78%, var(--brand-alpha-weak)) 100%
+  ) !important;
+  border-color: color-mix(in srgb, var(--neutral-alpha-medium) 65%, transparent) !important;
+}
+
+.kailinksServicePanel:hover {
+  border-color: color-mix(in srgb, var(--brand-alpha-medium) 80%, transparent) !important;
+}
+
 /* ─── Corporate section: stronger left-border accent on facts ─── */
 .kailinksFact {
   border-left-width: 4px;
 }
 
-/* ─── Client strip: top fade line ─── */
+/* ─── Client strip: better logo sizes ─── */
 .kailinksClientStrip {
   padding-top: var(--static-space-8);
   border-top: 1px solid color-mix(in srgb, var(--neutral-alpha-weak) 70%, transparent);
+}
+
+.kailinksLogoItem img {
+  height: 2.2rem;
+  filter: grayscale(1) opacity(0.55);
+  transition: filter 0.3s ease;
+}
+
+.kailinksDestTicker:hover .kailinksLogoItem img {
+  filter: grayscale(0.3) opacity(0.8);
+}
+
+/* ─── Blog post cards ─── */
+.klBlogCard {
+  overflow: hidden;
+  transition: border-color var(--kl-transition), box-shadow var(--kl-transition),
+    transform var(--kl-transition);
+}
+
+.klBlogCard:hover {
+  border-color: color-mix(in srgb, var(--brand-alpha-medium) 70%, transparent) !important;
+  box-shadow: 0 8px 28px color-mix(in srgb, var(--brand-alpha-weak) 20%, transparent);
+  transform: translateY(-3px);
+}
+
+.klBlogTag {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--neutral-alpha-weak) 50%, transparent);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
 }
 
 /* ─── Operations visual: cinematic aspect ratio on desktop ─── */
@@ -1233,12 +1280,12 @@ header[data-border="rounded"] a[href="/"]:hover {
   aspect-ratio: 16 / 5;
 }
 
-/* ─── Display headline — slightly tighter tracking on large screens ─── */
+/* ─── Display headline — tighter tracking ─── */
 [class*="display-strong-l"] {
   letter-spacing: -0.04em;
 }
 
-/* ─── Section eyebrow label — stronger contrast ─── */
+/* ─── Section eyebrow labels — uppercase, spaced ─── */
 .kailinksCorporateSection [class*="label-strong-s"],
 .kailinksProcess ~ * [class*="label-strong-s"] {
   font-size: 0.7rem;
@@ -1246,7 +1293,7 @@ header[data-border="rounded"] a[href="/"]:hover {
   text-transform: uppercase;
 }
 
-/* ─── CTA panel: slightly stronger border ─── */
+/* ─── CTA panel: stronger border ─── */
 .kailinksHeroPanel {
   border-color: color-mix(in srgb, var(--neutral-alpha-medium) 80%, var(--brand-alpha-weak)) !important;
 }

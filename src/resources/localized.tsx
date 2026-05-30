@@ -114,8 +114,7 @@ const en: LocalizedResources = {
     },
     subline: (
       <>
-        We manage agenda, suppliers, and on-ground operations so your international programs move
-        with clarity — from brief to delivery.
+        Agenda, suppliers, and on-ground operations — managed from a single point of contact.
       </>
     ),
   },
@@ -442,8 +441,7 @@ const ja: LocalizedResources = {
     },
     subline: (
       <>
-        KaiLinksはアジェンダ設計、サプライヤー調整、現地運営を一体で管理し、
-        プログラムを明確に進行させます。
+        アジェンダ、調達、現地運営 — 一つの窓口で統括します。
       </>
     ),
   },

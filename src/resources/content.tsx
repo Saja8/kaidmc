@@ -88,8 +88,7 @@ const home: Home = {
   },
   subline: (
     <>
-      Gestionamos agenda, proveedores y operación en sitio para que tus programas internacionales
-      avancen con claridad — desde el brief hasta la entrega.
+      Agenda, proveedores y operación en sitio — gestionados desde un solo punto de contacto.
     </>
   ),
 };
