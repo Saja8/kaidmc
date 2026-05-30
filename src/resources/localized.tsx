@@ -278,9 +278,9 @@ const en: LocalizedResources = {
   },
   blog: {
     path: "/blog",
-    label: "Blog",
-    title: "KaiLinks Insights",
-    description: "Practical notes for destination management and cross-market operations.",
+    label: "Events",
+    title: "KaiLinks Events",
+    description: "Events, notes, and updates on international programs and destination management.",
   },
   events: {
     path: "/events",
@@ -585,9 +585,9 @@ const ja: LocalizedResources = {
   },
   blog: {
     path: "/blog",
-    label: "ブログ",
-    title: "KaiLinksインサイト",
-    description: "デスティネーション運営と越境オペレーションに関する実務ノート。",
+    label: "イベント",
+    title: "KaiLinksイベント",
+    description: "国際プログラムとデスティネーション運営に関するイベント・ノート・更新情報。",
   },
   events: {
     path: "/events",

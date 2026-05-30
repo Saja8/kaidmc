@@ -1,6 +1,6 @@
 :root {
-  --font-size-display-multiplier: 1.06;
-  --font-size-heading-multiplier: 1.03;
+  --font-size-display-multiplier: 1.0;
+  --font-size-heading-multiplier: 1.0;
   --default-border: var(--neutral-alpha-medium);
   --kl-transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   --kl-hover-lift: translateY(-2px);
@@ -25,7 +25,7 @@
   .wcmPing1, .wcmPing2, .wcmPing3 { animation: none; opacity: 0; }
 }
 
-/* ─── Home page gradient orbs ─── */
+/* ─── Home page hero glow — single wide sweep, no floating orbs ─── */
 .homeOrbWrap {
   position: absolute;
   inset: 0;
@@ -36,59 +36,57 @@
 .homeOrbWrap::before {
   content: '';
   position: absolute;
-  top: -140px;
-  right: -60px;
-  width: 520px;
-  height: 520px;
-  border-radius: 50%;
+  top: -8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 32rem;
   background: radial-gradient(
-    circle,
-    color-mix(in srgb, var(--brand-background-strong) 26%, transparent) 0%,
-    transparent 65%
+    ellipse at 50% 0%,
+    color-mix(in srgb, var(--brand-background-strong) 18%, transparent) 0%,
+    color-mix(in srgb, var(--accent-background-strong) 8%, transparent) 55%,
+    transparent 75%
   );
-  filter: blur(8px);
+  filter: blur(2px);
 }
 .homeOrbWrap::after {
-  content: '';
-  position: absolute;
-  bottom: 0px;
-  left: -80px;
-  width: 460px;
-  height: 460px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    color-mix(in srgb, var(--accent-background-strong) 20%, transparent) 0%,
-    transparent 65%
-  );
-  filter: blur(8px);
+  content: none;
 }
 
-/* Plus Jakarta Sans heading refinements */
+/* Syne heading refinements — tight tracking at display sizes */
 [class*="display-strong"],
 [class*="display-default"],
 [class*="heading-strong"],
 [class*="heading-default"] {
-  letter-spacing: -0.025em;
-  font-feature-settings: "ss01", "cv01";
+  letter-spacing: -0.03em;
+  font-feature-settings: "kern";
 }
 
 [class*="display-strong-xl"],
-[class*="display-strong-l"],
-[class*="display-strong-m"] {
+[class*="display-strong-l"] {
+  letter-spacing: -0.045em;
+  font-weight: 700;
+}
+
+[class*="display-strong-m"],
+[class*="display-strong-s"] {
   letter-spacing: -0.035em;
   font-weight: 700;
 }
 
-/* DM Sans body refinements */
+/* Inter body refinements */
 [class*="body-default"],
 [class*="body-strong"] {
-  letter-spacing: -0.005em;
-  font-feature-settings: "kern";
+  letter-spacing: -0.011em;
+  font-feature-settings: "kern", "liga";
 }
 
 [class*="label-strong"] {
-  letter-spacing: 0.01em;
+  letter-spacing: 0.005em;
+}
+
+[class*="label-default"] {
+  letter-spacing: 0;
 }
 
 /* ─── Header / Nav brand ─── */

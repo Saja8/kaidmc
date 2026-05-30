@@ -41,25 +41,25 @@ const protectedRoutes: ProtectedRoutesConfig = {
 };
 
 // Import and set font for each variant
-import { Plus_Jakarta_Sans } from "next/font/google";
-import { DM_Sans } from "next/font/google";
+import { Syne } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 
-const heading = Plus_Jakarta_Sans({
+const heading = Syne({
   variable: "--font-heading",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
-const body = DM_Sans({
+const body = Inter({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["300", "400", "500"],
   display: "swap",
 });
 
-const label = DM_Sans({
+const label = Inter({
   variable: "--font-label",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
@@ -116,12 +116,12 @@ const effects: EffectsConfig = {
   },
   gradient: {
     display: true,
-    opacity: 28,
+    opacity: 18,
     x: 50,
-    y: 14,
-    width: 84,
-    height: 48,
-    tilt: -12,
+    y: 0,
+    width: 100,
+    height: 40,
+    tilt: 0,
     colorStart: "brand-background-strong",
     colorEnd: "accent-background-strong",
   },
@@ -139,7 +139,7 @@ const effects: EffectsConfig = {
     height: "0.25rem",
   },
   lines: {
-    display: true,
+    display: false,
     opacity: 8,
     color: "brand-alpha-medium",
     size: "32",

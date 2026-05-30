@@ -24,7 +24,7 @@ export const Header = () => {
       ? {
           home: "Home",
           about: "About",
-          blog: "Blog",
+          blog: "Events",
           education: "Education",
           business: "Business",
           personal: "Groups",
@@ -34,7 +34,7 @@ export const Header = () => {
         ? {
             home: "ホーム",
             about: "会社情報",
-            blog: "ブログ",
+            blog: "イベント",
             education: "教育",
             business: "企業",
             personal: "団体",
@@ -43,7 +43,7 @@ export const Header = () => {
         : {
             home: "Inicio",
             about: "Nosotros",
-            blog: "Blog",
+            blog: "Eventos",
             education: "Educación",
             business: "Empresas",
             personal: "Grupos",
@@ -97,7 +97,13 @@ export const Header = () => {
         <Row fillWidth horizontal="center" className="kailinksHeaderCenter">
           <Row
             as="nav"
-            aria-label={locale === "en" ? "Main navigation" : locale === "ja" ? "メインナビゲーション" : "Navegación principal"}
+            aria-label={
+              locale === "en"
+                ? "Main navigation"
+                : locale === "ja"
+                  ? "メインナビゲーション"
+                  : "Navegación principal"
+            }
             background="page"
             border="neutral-alpha-weak"
             radius="m-4"
@@ -117,7 +123,11 @@ export const Header = () => {
               {routes["/"] && (
                 <>
                   <Row s={{ hide: true }}>
-                    <ToggleButton href="/" label={labels.home} selected={pathname === "/"} />
+                    <ToggleButton
+                      href="/"
+                      label={labels.home}
+                      selected={pathname === "/" || pathname.startsWith("/about")}
+                    />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
@@ -125,7 +135,7 @@ export const Header = () => {
                       prefixIcon="home"
                       aria-label={labels.home}
                       title={labels.home}
-                      selected={pathname === "/"}
+                      selected={pathname === "/" || pathname.startsWith("/about")}
                     />
                   </Row>
                 </>
@@ -211,37 +221,20 @@ export const Header = () => {
                   </Row>
                 </>
               )}
-              {(routes["/education"] || routes["/business"] || routes["/groups"] || routes["/gallery"]) &&
-                (routes["/about"] || routes["/blog"]) && (
+              {(routes["/education"] ||
+                routes["/business"] ||
+                routes["/groups"] ||
+                routes["/gallery"]) &&
+                (routes["/blog"] || routes["/events"]) && (
                   <Line background="neutral-alpha-medium" vert maxHeight="24" />
                 )}
-              {routes["/about"] && (
-                <>
-                  <Row s={{ hide: true }}>
-                    <ToggleButton
-                      href="/about"
-                      label={labels.about}
-                      selected={pathname.startsWith("/about")}
-                    />
-                  </Row>
-                  <Row hide s={{ hide: false }}>
-                    <ToggleButton
-                      href="/about"
-                      prefixIcon="info"
-                      aria-label={labels.about}
-                      title={labels.about}
-                      selected={pathname.startsWith("/about")}
-                    />
-                  </Row>
-                </>
-              )}
               {routes["/blog"] && (
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       href="/blog"
                       label={labels.blog}
-                      selected={pathname.startsWith("/blog")}
+                      selected={pathname.startsWith("/blog") || pathname.startsWith("/events")}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
@@ -250,7 +243,7 @@ export const Header = () => {
                       prefixIcon="book"
                       aria-label={labels.blog}
                       title={labels.blog}
-                      selected={pathname.startsWith("/blog")}
+                      selected={pathname.startsWith("/blog") || pathname.startsWith("/events")}
                     />
                   </Row>
                 </>

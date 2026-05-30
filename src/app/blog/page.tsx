@@ -22,17 +22,17 @@ export default async function Blog() {
 
   const pageTitle =
     locale === "en"
-      ? "Notes & updates"
+      ? "Events"
       : locale === "ja"
-        ? "ノートと更新情報"
-        : "Notas y actualizaciones";
+        ? "イベント"
+        : "Eventos";
 
   const pageDescription =
     locale === "en"
-      ? "Practical notes on destination management, program operations, and market entry."
+      ? "Events, notes, and updates on international programs and destination management."
       : locale === "ja"
-        ? "デスティネーション運営と市場展開に関する実務ノート。"
-        : "Notas prácticas sobre gestión de destinos, operaciones y entrada a mercados.";
+        ? "国際プログラムとデスティネーション運営に関するイベント・ノート・更新情報。"
+        : "Eventos, notas y actualizaciones sobre programas internacionales y gestión de destinos.";
 
   return (
     <Column maxWidth="m" paddingTop="24" paddingX="0">

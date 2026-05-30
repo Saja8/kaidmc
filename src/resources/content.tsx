@@ -257,9 +257,9 @@ const about: About = {
 
 const blog: Blog = {
   path: "/blog",
-  label: "Blog",
-  title: "Perspectivas de KaiLinks",
-  description: "Notas prácticas sobre gestión de destinos y operaciones entre mercados.",
+  label: "Eventos",
+  title: "Eventos KaiLinks",
+  description: "Eventos, notas y actualizaciones sobre programas internacionales y gestión de destinos.",
 };
 
 const events: Blog = {
