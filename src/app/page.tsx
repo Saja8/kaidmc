@@ -37,27 +37,27 @@ export default async function Home() {
   const heroLead =
     locale === "en"
       ? {
-          title: "Start with an operational brief",
+          title: "Tell us the market. We'll map the path.",
           description:
-            "Share destination, dates, participant profile, and expected outcome. We respond with a practical delivery path and the first budget assumptions.",
-          checklist: ["Destination", "Dates", "Participants", "Outcome"],
-          emailCta: "Send your brief",
+            "Share your target market, company profile, and what you want to achieve. We'll come back with a diagnosis, a proposed agenda, and a realistic scope.",
+          checklist: ["Target market", "Company profile", "Goal", "Timeline"],
+          emailCta: "Send a brief",
           contactCta: "Open contact page",
         }
       : locale === "ja"
         ? {
-            title: "運営ブリーフから始める",
+            title: "市場を教えてください。私たちがルートを描きます。",
             description:
-              "行き先、日程、参加者像、期待する成果をお送りください。実行手順と初期予算前提を整理してご返信します。",
-            checklist: ["行き先", "日程", "参加者", "成果"],
-            emailCta: "要件をメール送信",
-            contactCta: "お問い合わせページ",
+              "対象市場、御社のプロフィール、達成したいことをお聞かせください。診断、アジェンダ案、現実的なスコープをご返答します。",
+            checklist: ["対象市場", "御社のプロフィール", "目標", "スケジュール"],
+            emailCta: "ブリーフを送る",
+            contactCta: "お問い合わせ",
           }
         : {
-            title: "Comienza con un brief operativo",
+            title: "Dinos el mercado. Nosotros trazamos el camino.",
             description:
-              "Comparte destino, fechas, perfil de participantes y resultado esperado. Respondemos con una ruta de ejecución y supuestos iniciales de presupuesto.",
-            checklist: ["Destino", "Fechas", "Participantes", "Resultado"],
+              "Comparte el mercado objetivo, el perfil de tu empresa y lo que quieres lograr. Respondemos con un diagnóstico, una agenda propuesta y un alcance realista.",
+            checklist: ["Mercado objetivo", "Perfil de empresa", "Meta", "Plazo"],
             emailCta: "Enviar brief",
             contactCta: "Abrir página de contacto",
           };
@@ -65,52 +65,52 @@ export default async function Home() {
   const facts =
     locale === "en"
       ? [
-          { number: "01", title: "Coordination", desc: "One contact from brief to delivery" },
-          { number: "02", title: "Local teams", desc: "On-ground partners in each market we serve" },
-          { number: "03", title: "Logistics", desc: "Itinerary, suppliers, transport, on-site control" },
-          { number: "04", title: "Reporting", desc: "Structured debrief after every program" },
+          { number: "01", title: "Market diagnosis", desc: "ICP, channels, and competitive read — before you arrive" },
+          { number: "02", title: "B2B agenda", desc: "Pre-qualified meetings with interpretation and accompaniment" },
+          { number: "03", title: "On-ground execution", desc: "Logistics, access, and real-time issue resolution" },
+          { number: "04", title: "Deliverables", desc: "Contact notes, reports, and 30–90 day next steps" },
         ]
       : locale === "ja"
         ? [
-            { number: "01", title: "一本化", desc: "ブリーフから実施まで一つの窓口" },
-            { number: "02", title: "現地体制", desc: "対応エリアに現地チームを配置" },
-            { number: "03", title: "ロジスティクス", desc: "旅程・調達・移動・現地運営を統合" },
-            { number: "04", title: "報告", desc: "毎プログラム後に構造化されたレポート" },
+            { number: "01", title: "市場診断", desc: "現地ICP・チャネル・競合分析 — 渡航前に完了" },
+            { number: "02", title: "B2Bアジェンダ", desc: "精査済み商談 + 通訳・同行サポート付き" },
+            { number: "03", title: "現地実行", desc: "移動・アクセス・リアルタイム対応を統括" },
+            { number: "04", title: "成果物", desc: "商談メモ、報告書、30〜90日の次のアクション" },
           ]
         : [
-            { number: "01", title: "Coordinación", desc: "Un contacto desde el brief hasta la entrega" },
-            { number: "02", title: "Equipos locales", desc: "Presencia en cada mercado donde operamos" },
-            { number: "03", title: "Logística", desc: "Itinerario, proveedores, traslados y control en sitio" },
-            { number: "04", title: "Reporte", desc: "Informe estructurado después de cada programa" },
+            { number: "01", title: "Diagnóstico", desc: "ICP, canales y lectura competitiva — antes de llegar" },
+            { number: "02", title: "Agenda B2B", desc: "Reuniones precalificadas con interpretación y acompañamiento" },
+            { number: "03", title: "Ejecución en sitio", desc: "Logística, acceso y resolución de incidencias en tiempo real" },
+            { number: "04", title: "Entregables", desc: "Notas de conversaciones, reportes y próximos pasos 30–90 días" },
           ];
 
   const factsIntro =
     locale === "en"
-      ? { eyebrow: "Method", heading: "Four operating strengths" }
+      ? { eyebrow: "What we deliver", heading: "More than logistics" }
       : locale === "ja"
-        ? { eyebrow: "運営体制", heading: "4つの運営力" }
-        : { eyebrow: "Método", heading: "Cuatro fortalezas operativas" };
+        ? { eyebrow: "提供するもの", heading: "ロジスティクス以上の価値" }
+        : { eyebrow: "Lo que entregamos", heading: "Más que logística" };
 
   const servicesIntro =
     locale === "en"
       ? {
           badge: "Programs",
-          heading: "Built around the objective",
+          heading: "Choose your track",
           description:
-            "Choose the operating model that matches the audience, agenda, and level of local support required.",
+            "We operate across three program types — each with the same structured methodology, adapted to your audience and goals.",
         }
       : locale === "ja"
         ? {
             badge: "プログラム",
-            heading: "目的に合わせた運営設計",
+            heading: "目的に合わせたトラック選択",
             description:
-              "参加者、アジェンダ、現地サポートのレベルに合わせて、適切な運営モデルを選択できます。",
+              "3種類のプログラムに対応。同じ体系的メソッドを、参加者とゴールに合わせて適用します。",
           }
         : {
             badge: "Programas",
-            heading: "Diseño operativo según el objetivo",
+            heading: "Elige tu modalidad",
             description:
-              "Elige el modelo de operación según audiencia, agenda y nivel de soporte local requerido.",
+              "Operamos tres tipos de programa — con la misma metodología estructurada, adaptada a tu audiencia y objetivos.",
           };
 
   const servicePanels = [
@@ -195,65 +195,81 @@ export default async function Home() {
   const processData =
     locale === "en"
       ? {
-          eyebrow: "Process",
-          heading: "How a program comes together",
+          eyebrow: "Method",
+          heading: "How we enter a market with you",
           steps: [
             {
               num: "01",
-              title: "Brief",
-              desc: "Share destination, dates, group profile, and expected outcome. We respond within 24 h with a structured delivery path.",
+              title: "Diagnosis",
+              desc: "We map the market: ICP fit, key channels, relevant contacts, and barriers. You know what you're walking into before you book anything.",
             },
             {
               num: "02",
-              title: "Design",
-              desc: "We build the itinerary, source and vet local suppliers, and confirm the full budget before anything moves.",
+              title: "Agenda design",
+              desc: "We source and pre-qualify meetings — importers, distributors, partners, institutions — and build a prioritized schedule around your goals.",
             },
             {
               num: "03",
-              title: "On-ground delivery",
-              desc: "Our local team handles transfers, schedule, supplier coordination, and real-time issue resolution throughout.",
+              title: "In-market execution",
+              desc: "We run the program on the ground: logistics, interpretation, accompaniment in every meeting, and real-time problem-solving.",
             },
             {
               num: "04",
-              title: "Post-program report",
-              desc: "A structured debrief with participant feedback, budget reconciliation, and improvement recommendations.",
+              title: "Commercial deliverables",
+              desc: "You leave with contact notes, conversation summaries, deal status, and a 30–90 day action plan. No blank slate after the trip.",
             },
           ],
         }
       : locale === "ja"
         ? {
-            eyebrow: "プロセス",
-            heading: "プログラムができるまで",
-            steps: [
-              { num: "01", title: "ブリーフ", desc: "行き先、日程、グループ像、成果目標をお伝えください。24時間以内に実行手順をご返答します。" },
-              { num: "02", title: "設計", desc: "旅程作成、現地サプライヤーの選定と検証、全体予算の確定を行います。" },
-              { num: "03", title: "現地実行", desc: "移動、スケジュール、調達調整、リアルタイム対応を現地チームが担当します。" },
-              { num: "04", title: "事後報告", desc: "参加者フィードバック、予算精算、次回改善提案を含む報告書をお届けします。" },
-            ],
-          }
-        : {
-            eyebrow: "Proceso",
-            heading: "Cómo se arma un programa",
+            eyebrow: "メソッド",
+            heading: "KaiLinksとともに市場へ",
             steps: [
               {
                 num: "01",
-                title: "Brief",
-                desc: "Comparte destino, fechas, perfil del grupo y resultado esperado. Respondemos en 24 h con una ruta de entrega estructurada.",
+                title: "診断",
+                desc: "市場を読む：ICP適合性、主要チャネル、有効な接点、参入障壁。渡航前に全体像を把握できます。",
               },
               {
                 num: "02",
-                title: "Diseño",
-                desc: "Construimos el itinerario, validamos proveedores locales y confirmamos el presupuesto completo antes de que nada se mueva.",
+                title: "アジェンダ設計",
+                desc: "輸入業者・販売代理店・パートナー・機関を精査し、ゴールに沿った優先順位付きのスケジュールを構築します。",
               },
               {
                 num: "03",
-                title: "Ejecución en sitio",
-                desc: "Nuestro equipo local gestiona traslados, agenda, coordinación con proveedores y resolución de imprevistos en tiempo real.",
+                title: "現地実行",
+                desc: "ロジスティクス、通訳、全商談への同行、リアルタイム対応をKaiLinksが担当します。",
               },
               {
                 num: "04",
-                title: "Reporte post-programa",
-                desc: "Informe estructurado con retroalimentación de participantes, conciliación de presupuesto y recomendaciones para tu próximo programa.",
+                title: "商業的成果物",
+                desc: "渡航後に：商談メモ、会話サマリー、商談状況、30〜90日のアクションプランをお渡しします。",
+              },
+            ],
+          }
+        : {
+            eyebrow: "Método",
+            heading: "Cómo entramos al mercado contigo",
+            steps: [
+              {
+                num: "01",
+                title: "Diagnóstico",
+                desc: "Mapeamos el mercado: encaje de ICP, canales clave, contactos relevantes y barreras reales. Sabes a qué vas antes de reservar nada.",
+              },
+              {
+                num: "02",
+                title: "Diseño de agenda",
+                desc: "Identificamos y precalificamos reuniones — importadores, distribuidores, socios, instituciones — y armamos un calendario priorizado según tus objetivos.",
+              },
+              {
+                num: "03",
+                title: "Ejecución en mercado",
+                desc: "Operamos el programa en campo: logística, interpretación, acompañamiento en cada reunión y resolución de imprevistos en tiempo real.",
+              },
+              {
+                num: "04",
+                title: "Entregables comerciales",
+                desc: "Sales con notas de contacto, resúmenes de conversaciones, estado de deals y un plan de acción 30–90 días. Sin pizarrón en blanco después del viaje.",
               },
             ],
           };

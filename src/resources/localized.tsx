@@ -98,7 +98,7 @@ const en: LocalizedResources = {
     title: "KaiLinks | International Program Operations",
     description:
       "One contact. Any destination. Local execution for international programs across East Asia, Latin America, and Europe.",
-    headline: <>One contact. Where you need it.</>,
+    headline: <>Your expansion. Our operations.</>,
     featured: {
       display: true,
       title: (
@@ -114,7 +114,7 @@ const en: LocalizedResources = {
     },
     subline: (
       <>
-        Agenda, suppliers, and on-ground operations — coordinated by one team.
+        Market diagnosis, B2B agenda, and on-ground execution — for companies entering new markets seriously.
       </>
     ),
   },
@@ -123,7 +123,7 @@ const en: LocalizedResources = {
     label: "About",
     title: "About KaiLinks",
     description:
-      "Local execution for international programs. In-region network across East Asia, Latin America, and Europe.",
+      "KaiLinks combines market diagnosis, B2B agenda design, and on-ground execution for companies entering Japan, Mexico, or Germany.",
     tableOfContent: {
       display: false,
       subItems: false,
@@ -425,7 +425,7 @@ const ja: LocalizedResources = {
     title: "KaiLinks | 国際プログラム運営",
     description:
       "主要地域での国際プログラムに必要な企画、現地調整、実行管理を提供します。",
-    headline: <>一つの窓口。必要な場所に。</>,
+    headline: <>御社の展開。私たちが動かす。</>,
     featured: {
       display: true,
       title: (
@@ -441,7 +441,7 @@ const ja: LocalizedResources = {
     },
     subline: (
       <>
-        アジェンダ、調達、現地運営 — 一つのチームが統括します。
+        市場診断、B2Bアジェンダ、現地実行 — 新市場に本気で進出する企業のために。
       </>
     ),
   },

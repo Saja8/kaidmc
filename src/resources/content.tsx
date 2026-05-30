@@ -72,7 +72,7 @@ const home: Home = {
   title: "KaiLinks | Operación internacional",
   description:
     "Planeación y ejecución local para programas internacionales con coordinación profesional en cada destino.",
-  headline: <>Un contacto. Donde lo necesitas.</>,
+  headline: <>Tu expansión. Nuestra operación.</>,
   featured: {
     display: true,
     title: (
@@ -88,7 +88,7 @@ const home: Home = {
   },
   subline: (
     <>
-      Agenda, proveedores y operación en sitio — coordinados por un solo equipo.
+      Diagnóstico de mercado, agenda B2B y ejecución local — para empresas que entran en serio a nuevos mercados.
     </>
   ),
 };
@@ -98,7 +98,7 @@ const about: About = {
   label: "Nosotros",
   title: "Nosotros | KaiLinks",
   description:
-    "Ejecución local para programas internacionales. Red propia en Asia Oriental, América Latina y Europa.",
+    "KaiLinks combina diagnóstico de mercado, agenda B2B y ejecución local para empresas que entran en serio a Japón, México o Alemania.",
   tableOfContent: {
     display: false,
     subItems: false,
