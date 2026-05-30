@@ -1016,7 +1016,10 @@ header[data-border="rounded"] a[href="/"]:hover {
   display: block;
   width: 100%;
   height: auto;
-  padding: 1.5rem 2rem;
+  min-height: 14rem;
+  padding: 1rem 1.5rem;
+  object-fit: contain;
+  object-position: center center;
 }
 
 @media (max-width: 1024px) {

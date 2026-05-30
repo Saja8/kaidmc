@@ -6,6 +6,7 @@ export {
   home,
   about,
   blog,
+  events,
   work,
   gallery,
   education,

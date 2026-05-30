@@ -9,6 +9,15 @@ export function getBlogPostsPath(locale: Locale): string[] {
   ];
 }
 
+export function getEventsPostsPath(locale: Locale): string[] {
+  return [
+    "src",
+    "app",
+    "events",
+    locale === "en" ? "posts-en" : locale === "ja" ? "posts-ja" : "posts",
+  ];
+}
+
 export function getEducationProjectsPath(locale: Locale): string[] {
   return [
     "src",
