@@ -36,30 +36,32 @@
 .homeOrbWrap::before {
   content: '';
   position: absolute;
-  top: -120px;
-  right: -80px;
-  width: 420px;
-  height: 420px;
+  top: -140px;
+  right: -60px;
+  width: 520px;
+  height: 520px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    color-mix(in srgb, var(--brand-background-strong) 14%, transparent) 0%,
-    transparent 70%
+    color-mix(in srgb, var(--brand-background-strong) 26%, transparent) 0%,
+    transparent 65%
   );
+  filter: blur(8px);
 }
 .homeOrbWrap::after {
   content: '';
   position: absolute;
-  bottom: 20px;
-  left: -100px;
-  width: 360px;
-  height: 360px;
+  bottom: 0px;
+  left: -80px;
+  width: 460px;
+  height: 460px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    color-mix(in srgb, var(--accent-background-strong) 10%, transparent) 0%,
-    transparent 70%
+    color-mix(in srgb, var(--accent-background-strong) 20%, transparent) 0%,
+    transparent 65%
   );
+  filter: blur(8px);
 }
 
 /* Plus Jakarta Sans heading refinements */
@@ -661,6 +663,24 @@ header[data-border="rounded"] a[href="/"]:hover {
     justify-content: center;
   }
 
+  /* Hero CTA buttons — stack on mobile */
+  .kailinksHeroCtaRow {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    width: min(100%, 22rem);
+    gap: var(--static-space-8) !important;
+  }
+
+  .kailinksHeroCtaRow > * {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Fact numbers — scale down on mobile */
+  .kailinksFactNum {
+    font-size: 1.8rem !important;
+  }
+
   .kailinksProjectImage {
     min-height: 4rem;
     max-height: 6rem;
@@ -965,6 +985,65 @@ header[data-border="rounded"] a[href="/"]:hover {
   .kailinksServiceHeroIllustration {
     max-width: 16rem;
   }
+}
+
+/* ─── Hero CTA row ─── */
+.kailinksHeroCtaRow {
+  padding-top: var(--static-space-4);
+}
+
+/* ─── Fact number — larger, tighter letter-spacing ─── */
+.kailinksFactNum {
+  font-size: 2.4rem !important;
+  line-height: 1 !important;
+  letter-spacing: -0.05em;
+  font-feature-settings: "tnum";
+}
+
+/* ─── Subtle gradient divider between page sections ─── */
+.kailinksDivider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--neutral-alpha-medium) 60%, transparent) 30%,
+    color-mix(in srgb, var(--neutral-alpha-medium) 60%, transparent) 70%,
+    transparent 100%
+  );
+}
+
+/* ─── Service panel: thicker left accent, bolder number ─── */
+.kailinksServicePanel::before {
+  width: 0.3rem;
+  opacity: 1;
+}
+
+.kailinksServicePanel [class*="label-strong-s"] {
+  letter-spacing: 0.04em;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+/* ─── Corporate section: stronger left-border accent on facts ─── */
+.kailinksFact {
+  border-left-width: 4px;
+}
+
+/* ─── Client strip: top fade line ─── */
+.kailinksClientStrip {
+  padding-top: var(--static-space-8);
+  border-top: 1px solid color-mix(in srgb, var(--neutral-alpha-weak) 70%, transparent);
+}
+
+/* ─── Operations visual: slightly taller on desktop ─── */
+.kailinksOperationsVisual img {
+  aspect-ratio: 16 / 6;
+}
+
+/* ─── CTA panel: slightly stronger border ─── */
+.kailinksHeroPanel {
+  border-color: color-mix(in srgb, var(--neutral-alpha-medium) 80%, var(--brand-alpha-weak)) !important;
 }
 
 /* ─── Reduced-motion accessibility ─── */

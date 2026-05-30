@@ -197,10 +197,23 @@ export default async function Home() {
     },
   ].filter((panel) => panel.enabled);
 
-  const clientLogos = Array.from({ length: 8 }, (_, i) => ({
-    src: `/images/clients/client-${i + 1}.png`,
-    alt: "",
-  }));
+  const clientLogos = [
+    { src: "/images/clients/client-1.png", alt: "MYOB" },
+    { src: "/images/clients/client-2.png", alt: "Belimo" },
+    { src: "/images/clients/client-3.png", alt: "LifeGroups" },
+    { src: "/images/clients/client-4.png", alt: "Grabyo" },
+    { src: "/images/clients/client-5.png", alt: "Citrus" },
+    { src: "/images/clients/client-6.png", alt: "Trustly" },
+    { src: "/images/clients/client-7.png", alt: "Oldendorff" },
+    { src: "/images/clients/client-8.png", alt: "Client logo" },
+  ];
+
+  const clientsIntro =
+    locale === "en"
+      ? "Selected clients and partners"
+      : locale === "ja"
+        ? "主なクライアント・パートナー"
+        : "Clientes y aliados de referencia";
 
   return (
     <Column
@@ -226,8 +239,9 @@ export default async function Home() {
         }}
       />
 
-      {/* ── 1. HERO: badge + headline + subline ── */}
-      <Column fillWidth horizontal="center" gap="m">
+      {/* ── 1. HERO: badge + headline + subline + CTAs ── */}
+      <Column fillWidth horizontal="center" gap="32">
+        {/* Constrained text column */}
         <Column maxWidth="s" horizontal="center" align="center">
           {home.featured.display && (
             <RevealFx
@@ -257,7 +271,7 @@ export default async function Home() {
               {home.headline}
             </Heading>
           </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="20">
+          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="24">
             <Text
               wrap="balance"
               onBackground="neutral-weak"
@@ -268,58 +282,98 @@ export default async function Home() {
             </Text>
           </RevealFx>
 
-          {/* ── 2. FUJI-STYLE FACTS ── */}
-          <RevealFx translateY={10} delay={0.26} fillWidth horizontal="center" paddingBottom="16">
-            <Column fillWidth gap="16" className="kailinksCorporateSection">
-              <Row fillWidth horizontal="between" vertical="end" wrap gap="12">
-                <Column gap="4">
-                  <Text variant="label-strong-s" onBackground="brand-medium">
-                    {factsIntro.eyebrow}
-                  </Text>
-                  <Heading as="h2" variant="heading-strong-xl" wrap="balance">
-                    {factsIntro.heading}
-                  </Heading>
-                </Column>
-              </Row>
-              <Row fillWidth wrap gap="12" className="kailinksFactGrid">
-                {facts.map((fact) => (
-                  <Column key={fact.number} gap="8" className="kailinksFact">
-                    <Text variant="heading-strong-xl" onBackground="brand-medium">
-                      {fact.number}
-                    </Text>
-                    <Column gap="4">
-                      <Text variant="label-strong-m" onBackground="neutral-strong">
-                        {fact.title}
-                      </Text>
-                      <Text variant="body-default-s" onBackground="neutral-weak">
-                        {fact.desc}
-                      </Text>
-                    </Column>
-                  </Column>
-                ))}
-              </Row>
-            </Column>
+          {/* ── Hero CTA buttons — primary action visible above the fold ── */}
+          <RevealFx translateY="8" delay={0.28} fillWidth horizontal="center">
+            <Row gap="12" wrap horizontal="center" className="kailinksHeroCtaRow">
+              <Button
+                data-border="rounded"
+                href={briefMailHref}
+                variant="primary"
+                size="l"
+                weight="default"
+                prefixIcon="email"
+                arrowIcon
+              >
+                {heroLead.emailCta}
+              </Button>
+              <Button
+                data-border="rounded"
+                href={contactPageHref}
+                variant="secondary"
+                size="l"
+                weight="default"
+                prefixIcon="calendar"
+              >
+                {heroLead.contactCta}
+              </Button>
+            </Row>
           </RevealFx>
         </Column>
+
+        {/* ── 2. FACTS — pulled to full width for stronger visual impact ── */}
+        <RevealFx translateY={10} delay={0.38} fillWidth horizontal="center">
+          <Column fillWidth gap="16" className="kailinksCorporateSection">
+            <Row fillWidth horizontal="between" vertical="end" wrap gap="12">
+              <Column gap="4">
+                <Text variant="label-strong-s" onBackground="brand-medium">
+                  {factsIntro.eyebrow}
+                </Text>
+                <Heading as="h2" variant="heading-strong-xl" wrap="balance">
+                  {factsIntro.heading}
+                </Heading>
+              </Column>
+            </Row>
+            <Row fillWidth wrap gap="12" className="kailinksFactGrid">
+              {facts.map((fact) => (
+                <Column key={fact.number} gap="8" className="kailinksFact">
+                  <Text variant="display-strong-m" onBackground="brand-medium" className="kailinksFactNum">
+                    {fact.number}
+                  </Text>
+                  <Column gap="4">
+                    <Text variant="label-strong-m" onBackground="neutral-strong">
+                      {fact.title}
+                    </Text>
+                    <Text variant="body-default-s" onBackground="neutral-weak">
+                      {fact.desc}
+                    </Text>
+                  </Column>
+                </Column>
+              ))}
+            </Row>
+          </Column>
+        </RevealFx>
       </Column>
 
+      {/* ── CLIENTES ── */}
+      <RevealFx fillWidth translateY="8" delay={0.3}>
+        <section className="kailinksClientStrip" aria-labelledby="clients-heading">
+          <Text
+            as="h2"
+            id="clients-heading"
+            variant="label-strong-s"
+            onBackground="neutral-weak"
+            align="center"
+          >
+            {clientsIntro}
+          </Text>
+          <div className="kailinksDestTicker">
+            <div className="kailinksDestTickerTrack">
+              {[...clientLogos, ...clientLogos].map((logo, i) => (
+                <div key={`${logo.src}-${i}`} className="kailinksLogoItem">
+                  <img src={logo.src} alt={logo.alt} loading="lazy" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </RevealFx>
+
       {/* ── 3. OPERATIONS VISUAL ── */}
-      <RevealFx fillWidth translateY="8" delay={0.32}>
+      <RevealFx fillWidth translateY="8" delay={0.36}>
         <div className="kailinksOperationsVisual" aria-hidden="true">
           <img src="/images/illustrations/kailinks-operations-map.svg" alt="" loading="lazy" />
         </div>
       </RevealFx>
-
-      {/* ── CLIENT LOGO TICKER ── */}
-      <div className="kailinksDestTicker" aria-hidden="true">
-        <div className="kailinksDestTickerTrack">
-          {[...clientLogos, ...clientLogos].map((logo, i) => (
-            <div key={i} className="kailinksLogoItem">
-              <img src={logo.src} alt={logo.alt} loading="lazy" />
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* ── 4. SERVICES: "Three tracks, one quality standard" ── */}
       <RevealFx translateY="12" delay={0.45}>
