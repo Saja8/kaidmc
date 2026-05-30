@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, Column, Media, Row, Text, Badge } from "@once-ui-system/core";
+import { Card, Column, Media, Row, Text } from "@once-ui-system/core";
 import { formatDate } from "@/utils/formatDate";
 import { useEffect, useState } from "react";
 import { Locale, getClientLocale } from "@/resources/locale";
