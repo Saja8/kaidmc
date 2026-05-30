@@ -41,14 +41,14 @@ const protectedRoutes: ProtectedRoutesConfig = {
 };
 
 // Import and set font for each variant
-import { Syne } from "next/font/google";
+import { Outfit } from "next/font/google";
 import { Inter } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 
-const heading = Syne({
+const heading = Outfit({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -116,11 +116,11 @@ const effects: EffectsConfig = {
   },
   gradient: {
     display: true,
-    opacity: 18,
+    opacity: 30,
     x: 50,
     y: 0,
     width: 100,
-    height: 40,
+    height: 52,
     tilt: 0,
     colorStart: "brand-background-strong",
     colorEnd: "accent-background-strong",

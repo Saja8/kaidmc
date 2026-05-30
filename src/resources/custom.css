@@ -36,58 +36,65 @@
 .homeOrbWrap::before {
   content: '';
   position: absolute;
-  top: -8rem;
+  top: -10rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 120%;
-  height: 32rem;
+  width: 130%;
+  height: 38rem;
   background: radial-gradient(
     ellipse at 50% 0%,
-    color-mix(in srgb, var(--brand-background-strong) 18%, transparent) 0%,
-    color-mix(in srgb, var(--accent-background-strong) 8%, transparent) 55%,
-    transparent 75%
+    color-mix(in srgb, var(--brand-background-strong) 28%, transparent) 0%,
+    color-mix(in srgb, var(--accent-background-strong) 14%, transparent) 45%,
+    transparent 70%
   );
-  filter: blur(2px);
+  filter: blur(1px);
 }
 .homeOrbWrap::after {
   content: none;
 }
 
-/* Syne heading refinements — tight tracking at display sizes */
+/* ─── Logo: show image in light, text in dark ─── */
+.kailinksLogoLight { display: block; }
+.kailinksLogoDark  { display: none;  }
+
+[data-theme="dark"] .kailinksLogoLight { display: none;  }
+[data-theme="dark"] .kailinksLogoDark  { display: block; }
+
+/* system dark mode fallback */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) .kailinksLogoLight { display: none;  }
+  html:not([data-theme]) .kailinksLogoDark  { display: block; }
+}
+
+/* ─── Outfit heading refinements ─── */
 [class*="display-strong"],
 [class*="display-default"],
 [class*="heading-strong"],
 [class*="heading-default"] {
-  letter-spacing: -0.03em;
-  font-feature-settings: "kern";
+  letter-spacing: -0.02em;
+  font-feature-settings: "kern", "liga";
 }
 
 [class*="display-strong-xl"],
 [class*="display-strong-l"] {
-  letter-spacing: -0.045em;
+  letter-spacing: -0.03em;
   font-weight: 700;
 }
 
 [class*="display-strong-m"],
 [class*="display-strong-s"] {
-  letter-spacing: -0.035em;
-  font-weight: 700;
+  letter-spacing: -0.025em;
+  font-weight: 600;
 }
 
-/* Inter body refinements */
+/* Inter body */
 [class*="body-default"],
 [class*="body-strong"] {
   letter-spacing: -0.011em;
-  font-feature-settings: "kern", "liga";
 }
 
-[class*="label-strong"] {
-  letter-spacing: 0.005em;
-}
-
-[class*="label-default"] {
-  letter-spacing: 0;
-}
+[class*="label-strong"] { letter-spacing: 0.005em; }
+[class*="label-default"] { letter-spacing: 0; }
 
 /* ─── Header / Nav brand ─── */
 header[data-border="rounded"] a[href="/"] {

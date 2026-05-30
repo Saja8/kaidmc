@@ -82,13 +82,21 @@ export const Header = () => {
               textDecoration: "none",
               display: "flex",
               alignItems: "center",
-              gap: "var(--static-space-8)",
             }}
           >
+            {/* Logo image — light mode */}
+            <img
+              src="/images/logo.png"
+              alt="KaiLinks — Bridging Businesses and Cultures"
+              className="kailinksLogoLight"
+              style={{ height: "38px", width: "auto", display: "block" }}
+            />
+            {/* Text fallback — dark mode */}
             <Text
               variant="label-strong-m"
               onBackground="brand-strong"
               style={{ letterSpacing: "-0.02em" }}
+              className="kailinksLogoDark"
             >
               KaiLinks
             </Text>
