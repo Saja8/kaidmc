@@ -1,6 +1,6 @@
 "use client";
 
-import NotFound from "@/app/not-found";
+import NotFound from "@/components/NotFoundClient";
 import { protectedRoutes, routes } from "@/resources";
 import { Button, Column, Flex, Heading, PasswordInput, Spinner } from "@once-ui-system/core";
 import { usePathname } from "next/navigation";
@@ -33,7 +33,15 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
           return routes[pathname as keyof typeof routes];
         }
 
-        const dynamicRoutes = ["/blog", "/work", "/education", "/business", "/groups", "/gallery"] as const;
+        const dynamicRoutes = [
+          "/blog",
+          "/events",
+          "/work",
+          "/education",
+          "/business",
+          "/groups",
+          "/gallery",
+        ] as const;
         for (const route of dynamicRoutes) {
           if (pathname?.startsWith(route) && routes[route]) {
             return true;
