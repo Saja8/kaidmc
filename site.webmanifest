@@ -1,0 +1,28 @@
+{
+  "name": "KaiLinks - Global Business Connections",
+  "short_name": "KaiLinks",
+  "description": "KaiLinks connects businesses globally with tailored exhibition and market entry solutions",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8B0000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/img/favicon1.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/img/favicon_i.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "en",
+  "scope": "/",
+  "id": "kailinks-global-business"
+}

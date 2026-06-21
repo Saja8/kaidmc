@@ -1,0 +1,7 @@
+.git
+.DS_Store
+dist
+deploy.sh
+deploy-check.sh
+update-cache-versions.sh
+assets/scss/main.css.map

@@ -1,36 +1,25 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# SCSS source files (we only need the compiled CSS)
+assets/scss/*.scss
+assets/scss/**/*.scss
+!assets/scss/main.css
+!assets/scss/main.css.map
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-.yarn/install-state.gz
+# Backup files
+*_backup.*
+*_clean.*
+*.backup
 
-# testing
-/coverage
+# Development files
+oldversion/
+dist/
 
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
+# System files
 .DS_Store
-*.pem
+**/.DS_Store
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Temporary files
+*.tmp
+*.temp
 
-# local env files
-.env*.local
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# Unused development JavaScript
+assets/js/show-more-events.js
