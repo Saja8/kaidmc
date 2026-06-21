@@ -38,7 +38,7 @@
             "name": "What services does KaiLinks offer?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "KaiLinks offers educational programs, corporate market-entry support, delegation logistics, and innovation event coordination between Japan and Latin America."
+              "text": "KaiLinks offers educational programs, corporate market-entry support, delegation logistics, and innovation event coordination across East Asia, Latin America, and Europe."
             }
           },
           {
@@ -46,7 +46,7 @@
             "name": "Which countries does KaiLinks operate in?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "KaiLinks works from Mexico and Japan to support organizations building programs between Japan and Latin America."
+              "text": "KaiLinks works from Mexico and Japan, with active links in Germany, to support organizations building programs across Latin America, East Asia, and Europe."
             }
           },
           {
@@ -71,7 +71,7 @@
       const serviceData = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Japan-Latin America Innovation Programs",
+        "name": "Cross-Border Innovation Programs",
         "provider": {
           "@type": "Organization",
           "name": "KaiLinks",
@@ -79,7 +79,7 @@
         },
         "serviceType": "Business Services",
         "areaServed": [
-          "Mexico", "Japan", "Latin America"
+          "Mexico", "Japan", "Germany", "Latin America", "East Asia", "Europe"
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
@@ -98,7 +98,7 @@
               "itemOffered": {
                 "@type": "Service",
                 "name": "Corporate Market Entry",
-                "description": "Market diagnosis, B2B agenda design, and local coordination between Japan and Latin America"
+                "description": "Market diagnosis, B2B agenda design, and local coordination across East Asia, Latin America, and Europe"
               }
             },
             {
@@ -157,7 +157,7 @@
       const events = [
         {
           name: "Tokyo-Latin America Innovation Exchange",
-          description: "Public program connecting companies, embassies, startups, and support organizations between Japan and Latin America.",
+          description: "Public program connecting companies, embassies, startups, and support organizations across East Asia and Latin America.",
           startDate: "2026-06-29",
           endDate: "2026-06-29",
           location: "Tokyo Innovation Base, Tokyo, Japan"
@@ -247,7 +247,7 @@
         "name": "KaiLinks",
         "url": window.location.origin,
         "logo": `${window.location.origin}/assets/img/logo.webp`,
-        "description": "Japan-Latin America innovation programs, market-entry support, delegation logistics, and on-ground event execution",
+        "description": "Cross-border innovation programs, market-entry support, delegation logistics, and on-ground event execution across East Asia, Latin America, and Europe",
         "foundingDate": "2020",
         "founder": {
           "@type": "Person",
@@ -288,8 +288,20 @@
             "name": "Japan"
           },
           {
+            "@type": "Country",
+            "name": "Germany"
+          },
+          {
             "@type": "Place",
             "name": "Latin America"
+          },
+          {
+            "@type": "Place",
+            "name": "East Asia"
+          },
+          {
+            "@type": "Place",
+            "name": "Europe"
           }
         ]
       };
