@@ -1,7 +1,7 @@
 // Service Worker for KaiLinks PWA
-// Version 1.4 - Homepage refresh cache invalidation
+// Version 1.5 - Projects and representatives refresh
 
-const CACHE_NAME = 'kailinks-v1782559542';
+const CACHE_NAME = 'kailinks-v1782560295';
 const OFFLINE_URL = 'index.html';
 
 // Critical resources to cache immediately
