@@ -118,9 +118,16 @@
 --------------------------------------------------------------*/
 body {
   color: var(--default-color);
-  background: radial-gradient(ellipse at top, rgba(139, 0, 0, 0.03) 0%, transparent 50%), radial-gradient(ellipse at bottom, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.02) 40%, transparent 70%), linear-gradient(180deg, #ffffff 0%, #fafafa 85%, #f5f5f5 100%);
+  background:
+    repeating-linear-gradient(115deg, rgba(139, 0, 0, 0.045) 0 1px, transparent 1px 150px),
+    repeating-linear-gradient(25deg, rgba(45, 70, 94, 0.035) 0 1px, transparent 1px 190px),
+    radial-gradient(ellipse at top, rgba(139, 0, 0, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.02) 40%, transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #fafafa 85%, #f5f5f5 100%);
+  background-size: 280px 280px, 340px 340px, auto, auto, auto;
   font-family: var(--default-font);
   padding-top: 120px; /* Account for fixed header */
+  animation: kailinks-background-drift 34s linear infinite;
 }
 @media (max-width: 768px) {
   body {
@@ -2446,7 +2453,12 @@ section,
 }
 
 [data-theme=dark] body {
-  background: radial-gradient(ellipse at top, rgba(216, 74, 74, 0.12), transparent 42%), linear-gradient(180deg, #0d1117 0%, #111823 60%, #0a0d12 100%);
+  background:
+    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 150px),
+    repeating-linear-gradient(25deg, rgba(216, 74, 74, 0.04) 0 1px, transparent 1px 190px),
+    radial-gradient(ellipse at top, rgba(216, 74, 74, 0.12), transparent 42%),
+    linear-gradient(180deg, #0d1117 0%, #111823 60%, #0a0d12 100%);
+  background-size: 280px 280px, 340px 340px, auto, auto;
 }
 
 [data-theme=dark] .header .branding,
@@ -2893,6 +2905,22 @@ section,
   }
   to {
     transform: translateX(calc(-50% - 8px));
+  }
+}
+
+@keyframes kailinks-background-drift {
+  from {
+    background-position: 0 0, 0 0, center top, center bottom, center;
+  }
+
+  to {
+    background-position: 280px 160px, -220px 180px, center top, center bottom, center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none;
   }
 }
 

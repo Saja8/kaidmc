@@ -2,52 +2,24 @@
 const teamMembers = [
   {
     name: "Arturo Diaz",
-    position: "Chief Executive Officer",
+    position: "Representative Director",
     positionKey: "ceo_position",
     image: "assets/img/team/Archi.webp",
     linkedin: "https://www.linkedin.com/in/arturo-diaz-ponce-80b50ba2"
   },
   {
-    name: "Miki Yamanaka",
-    position: "Program Coordinator",
-    positionKey: "hk_contact_position",
-    image: "assets/img/team/Miki1.webp",
-    linkedin: "https://www.linkedin.com/company/kailinks/"
-  },
-  {
-    name: "Ali Motahari",
-    position: "Regional Operations",
-    positionKey: "apac_operations_position",
-    image: "assets/img/team/Alison.webp",
-    linkedin: "https://www.linkedin.com/in/alimotahari/"
-  },
-  {
-    name: "Arely Sanchez",
-    position: "Market Entry Consultant",
-    positionKey: "mx_consultant_position",
-    image: "assets/img/team/sanchez.webp?v=1769143659",
-    linkedin: "https://www.linkedin.com/in/arely-sánchez-tejada-9978996a/"
-  },
-  {
     name: "Satomi Ota",
-    position: "Market Entry Advisor",
+    position: "Market Entry Representative",
     positionKey: "market_advisor_position",
     image: "assets/img/team/Sami1.webp",
     linkedin: "https://www.linkedin.com/in/satomi-o-8ba049216/"
   },
   {
     name: "Takaji Fujita",
-    position: "International Relations",
+    position: "Institutional Relations Representative",
     positionKey: "intl_relations_position",
     image: "assets/img/team/Aniki.webp",
     linkedin: "https://www.linkedin.com/company/kailinks/"
-  },
-  {
-    name: "Parisa Jalali",
-    position: "Program Advisor",
-    positionKey: "de_contact_position",
-    image: "assets/img/team/pari.webp",
-    linkedin: "https://www.linkedin.com/in/parisa-jalali-4a324019a/"
   }
 ];
 
@@ -172,16 +144,11 @@ function updateTeamTranslations() {
 function initializeTeamSwiper() {
   try {
     teamSwiperInstance = new Swiper('.team-swiper', {
-      loop: true,
-      speed: 8000, // Very slow - 8 seconds per transition
-      autoplay: {
-        delay: 2000, // 2 second pause between movements
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-        reverseDirection: false
-      },
-      slidesPerView: 'auto',
-      spaceBetween: 8,
+      loop: false,
+      speed: 400,
+      autoplay: false,
+      slidesPerView: 1.15,
+      spaceBetween: 12,
       centeredSlides: false,
       grabCursor: true,
       allowTouchMove: true,
@@ -193,23 +160,23 @@ function initializeTeamSwiper() {
       },
       breakpoints: {
         320: {
-          slidesPerView: 2.5,
-          spaceBetween: 8,
+          slidesPerView: 1.35,
+          spaceBetween: 12,
           centeredSlides: false
         },
         480: {
-          slidesPerView: 3,
-          spaceBetween: 10,
+          slidesPerView: 2,
+          spaceBetween: 14,
           centeredSlides: false
         },
         768: {
-          slidesPerView: 4,
-          spaceBetween: 15,
+          slidesPerView: 3,
+          spaceBetween: 18,
           centeredSlides: false
         },
         992: {
-          slidesPerView: 5,
-          spaceBetween: 20,
+          slidesPerView: 3,
+          spaceBetween: 22,
           centeredSlides: false
         }
       }
