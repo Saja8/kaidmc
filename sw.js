@@ -1,7 +1,7 @@
 // Service Worker for KaiLinks PWA
-// Version 1.5 - Projects and representatives refresh
+// Version 1.6 - Events-only bottom section refresh
 
-const CACHE_NAME = 'kailinks-v1782560295';
+const CACHE_NAME = 'kailinks-v1782561528';
 const OFFLINE_URL = 'index.html';
 
 // Critical resources to cache immediately

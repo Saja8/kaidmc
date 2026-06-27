@@ -2484,7 +2484,7 @@ section,
 [data-theme=dark] .about-copy-panel,
 [data-theme=dark] .coverage-panel,
 [data-theme=dark] .coverage-card,
-[data-theme=dark] .featured-event,
+[data-theme=dark] .event-card,
 [data-theme=dark] .partners-panel,
 [data-theme=dark] .partner-logo,
 [data-theme=dark] .project-card,
@@ -2513,7 +2513,7 @@ section,
 [data-theme=dark] .about-copy-panel,
 [data-theme=dark] .coverage-panel,
 [data-theme=dark] .coverage-card,
-[data-theme=dark] .featured-event,
+[data-theme=dark] .event-card,
 [data-theme=dark] .partners-panel,
 [data-theme=dark] .partner-logo,
 [data-theme=dark] .project-card,
@@ -2673,25 +2673,40 @@ section,
   align-items: stretch;
 }
 
-.featured-event {
+.events-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.event-card {
   position: relative;
   overflow: hidden;
-  margin-bottom: 34px;
-  padding: 26px;
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 24px;
+  align-items: stretch;
+  padding: 18px;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
   border-radius: var(--radius-base);
-  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 93%), color-mix(in srgb, #0052cc, transparent 94%)), var(--surface-color);
+  background: var(--surface-color);
   box-shadow: var(--shadow-lg);
 }
 
-.featured-event::after {
+.event-card::after {
   content: "";
   position: absolute;
   inset: auto 0 0 auto;
-  width: 220px;
-  height: 220px;
-  background: radial-gradient(circle, color-mix(in srgb, var(--accent-color), transparent 78%), transparent 70%);
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent-color), transparent 86%), transparent 70%);
   pointer-events: none;
+}
+
+.event-card-image {
+  position: relative;
+  z-index: 1;
 }
 
 .featured-event-image {
@@ -2704,24 +2719,25 @@ section,
   box-shadow: var(--shadow-base);
 }
 
-.featured-event-copy {
+.event-card-copy {
   position: relative;
   z-index: 1;
-  padding: 8px 12px;
+  align-self: center;
+  padding: 10px 8px 10px 0;
 }
 
-.featured-event h3 {
+.event-card h3 {
   margin: 0 0 14px;
   color: var(--heading-color);
-  font-size: 2rem;
+  font-size: 1.62rem;
   line-height: 1.2;
 }
 
-.featured-event p {
+.event-card p {
   max-width: 680px;
   margin: 0 0 22px;
   color: color-mix(in srgb, var(--default-color), transparent 12%);
-  font-size: 1.02rem;
+  font-size: 0.98rem;
 }
 
 .featured-event-details {
@@ -3192,15 +3208,16 @@ section,
     height: 190px;
   }
 
-  .featured-event {
+  .event-card {
+    grid-template-columns: 1fr;
     padding: 18px;
   }
 
-  .featured-event-copy {
+  .event-card-copy {
     padding: 4px 0 0;
   }
 
-  .featured-event h3 {
+  .event-card h3 {
     font-size: 1.55rem;
   }
 
