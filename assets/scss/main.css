@@ -118,16 +118,27 @@
 --------------------------------------------------------------*/
 body {
   color: var(--default-color);
-  background:
-    repeating-linear-gradient(115deg, rgba(139, 0, 0, 0.045) 0 1px, transparent 1px 150px),
-    repeating-linear-gradient(25deg, rgba(45, 70, 94, 0.035) 0 1px, transparent 1px 190px),
-    radial-gradient(ellipse at top, rgba(139, 0, 0, 0.03) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.02) 40%, transparent 70%),
-    linear-gradient(180deg, #ffffff 0%, #fafafa 85%, #f5f5f5 100%);
-  background-size: 280px 280px, 340px 340px, auto, auto, auto;
+  background: linear-gradient(180deg, #f8fafc 0%, #f4f7fb 58%, #f7f8fb 100%);
   font-family: var(--default-font);
   padding-top: 120px; /* Account for fixed header */
-  animation: kailinks-background-drift 34s linear infinite;
+  position: relative;
+  isolation: isolate;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(115deg, rgba(139, 0, 0, 0.045) 0 1px, transparent 1px 160px),
+    linear-gradient(25deg, rgba(45, 70, 94, 0.035) 0 1px, transparent 1px 210px),
+    radial-gradient(circle at 18% 12%, rgba(139, 0, 0, 0.055), transparent 30%),
+    radial-gradient(circle at 86% 44%, rgba(45, 70, 94, 0.055), transparent 34%);
+  background-size: 320px 320px, 380px 380px, auto, auto;
+  opacity: 0.75;
+  animation: kailinks-background-drift 58s linear infinite;
 }
 @media (max-width: 768px) {
   body {
@@ -685,10 +696,13 @@ p {
 --------------------------------------------------------------*/
 .footer {
   color: var(--default-color);
-  background: linear-gradient(135deg, var(--background-color) 90%, rgba(248, 187, 217, 0.05) 100%);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--surface-color), transparent 2%) 0%, color-mix(in srgb, var(--surface-color), var(--accent-color) 5%) 100%);
   font-size: 16px;
   padding: 40px 0 0 0;
   position: relative;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  box-shadow: 0 -20px 55px rgba(15, 23, 42, 0.06);
 }
 .footer a {
   color: var(--default-color);
@@ -729,9 +743,8 @@ p {
   border-color: var(--accent-color);
 }
 .footer .copyright {
-  padding: 25px 0;
-  border-top: 1px solid rgba(139, 0, 0, 0.1);
-  background: linear-gradient(135deg, rgba(248, 249, 250, 0.3) 50%, rgba(248, 187, 217, 0.2) 100%);
+  padding: 20px 0;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
 }
 .footer .copyright p {
   margin-bottom: 0;
@@ -1044,7 +1057,7 @@ html {
 section,
 .section {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: transparent;
   padding: 60px 0;
   scroll-margin-top: 90px;
   overflow: clip;
@@ -2453,12 +2466,17 @@ section,
 }
 
 [data-theme=dark] body {
+  background: linear-gradient(180deg, #0d1117 0%, #101720 58%, #0a0d12 100%);
+}
+
+[data-theme=dark] body::before {
   background:
-    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 150px),
-    repeating-linear-gradient(25deg, rgba(216, 74, 74, 0.04) 0 1px, transparent 1px 190px),
-    radial-gradient(ellipse at top, rgba(216, 74, 74, 0.12), transparent 42%),
-    linear-gradient(180deg, #0d1117 0%, #111823 60%, #0a0d12 100%);
-  background-size: 280px 280px, 340px 340px, auto, auto;
+    linear-gradient(115deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 160px),
+    linear-gradient(25deg, rgba(216, 74, 74, 0.038) 0 1px, transparent 1px 210px),
+    radial-gradient(circle at 18% 12%, rgba(216, 74, 74, 0.075), transparent 30%),
+    radial-gradient(circle at 86% 44%, rgba(67, 119, 188, 0.055), transparent 34%);
+  background-size: 320px 320px, 380px 380px, auto, auto;
+  opacity: 0.62;
 }
 
 [data-theme=dark] .header .branding,
@@ -2469,11 +2487,10 @@ section,
 [data-theme=dark] .featured-event,
 [data-theme=dark] .partners-panel,
 [data-theme=dark] .partner-logo,
-[data-theme=dark] .team-simple-panel,
+[data-theme=dark] .representative-card,
 [data-theme=dark] .features .tab-content,
 [data-theme=dark] .program-card,
-[data-theme=dark] .proof-card,
-[data-theme=dark] .recent-posts-2 .post-item {
+[data-theme=dark] .proof-card {
   background: var(--surface-color);
   color: var(--default-color);
 }
@@ -2486,7 +2503,7 @@ section,
 [data-theme=dark] .features .tab-pane h4,
 [data-theme=dark] .program-card h3,
 [data-theme=dark] .proof-card h3,
-[data-theme=dark] .post-item .post-content h3 {
+[data-theme=dark] .representative-card h3 {
   color: var(--heading-color);
 }
 
@@ -2497,10 +2514,9 @@ section,
 [data-theme=dark] .featured-event,
 [data-theme=dark] .partners-panel,
 [data-theme=dark] .partner-logo,
-[data-theme=dark] .team-simple-panel,
+[data-theme=dark] .representative-card,
 [data-theme=dark] .program-card,
-[data-theme=dark] .proof-card,
-[data-theme=dark] .recent-posts-2 .post-item {
+[data-theme=dark] .proof-card {
   border-color: rgba(255, 255, 255, 0.09);
 }
 
@@ -2910,16 +2926,16 @@ section,
 
 @keyframes kailinks-background-drift {
   from {
-    background-position: 0 0, 0 0, center top, center bottom, center;
+    background-position: 0 0, 0 0, center, center;
   }
 
   to {
-    background-position: 280px 160px, -220px 180px, center top, center bottom, center;
+    background-position: 320px 160px, -240px 180px, center, center;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body {
+  body::before {
     animation: none;
   }
 }
@@ -2928,45 +2944,78 @@ section,
   padding-top: 36px;
 }
 
-.team-simple-panel {
-  padding: 28px;
-  overflow: hidden;
+.representatives-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
-.team-simple-panel .team-swiper {
-  padding-bottom: 34px;
+.representative-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 170px;
+  padding: 22px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  border-radius: var(--radius-base);
+  background: color-mix(in srgb, var(--surface-color), transparent 0%);
+  box-shadow: var(--shadow-base);
 }
 
-.team-simple-panel .member {
-  max-width: 180px;
-  margin: 0 auto;
-}
-
-.team-simple-panel .member-img {
-  width: 104px;
-  height: 104px;
-  margin: 0 auto 14px;
-}
-
-.team-simple-panel .member-img img {
-  width: 104px;
-  height: 104px;
+.representative-card img {
+  width: 92px;
+  height: 92px;
+  flex: 0 0 auto;
+  border-radius: 50%;
   object-fit: cover;
+  border: 3px solid color-mix(in srgb, var(--accent-color), transparent 68%);
+  box-shadow: var(--shadow-sm);
 }
 
-.team-simple-panel .member-info h4 {
-  font-size: 0.98rem;
-  margin-bottom: 2px;
+.representative-card h3 {
+  margin: 0 0 5px;
+  color: var(--heading-color);
+  font-size: 1.08rem;
 }
 
-.team-simple-panel .member-info span {
+.representative-card p {
+  min-height: 44px;
+  margin: 0 0 12px;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.representative-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 7px 11px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 62%);
+  border-radius: 999px;
+  color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 93%);
+  font-weight: 800;
   font-size: 0.82rem;
+}
+
+.representative-card a:hover,
+.representative-card a:focus-visible {
+  color: var(--contrast-color);
+  background: var(--accent-color);
 }
 
 @media (max-width: 1199px) {
   .theme-toggle {
     margin-left: auto;
     margin-right: 12px;
+  }
+}
+
+@media (max-width: 991px) {
+  .representatives-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -3000,8 +3049,16 @@ section,
   .about-copy-panel,
   .coverage-panel,
   .partners-panel,
-  .team-simple-panel {
+  .representative-card {
     padding: 28px 20px;
+  }
+
+  .representatives-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .representative-card {
+    align-items: flex-start;
   }
 
   .partner-logo {

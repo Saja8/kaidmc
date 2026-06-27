@@ -1,7 +1,7 @@
 // Service Worker for KaiLinks PWA
-// Version 1.3 - Aggressive cache invalidation
+// Version 1.4 - Homepage refresh cache invalidation
 
-const CACHE_NAME = 'kailinks-v1769143659';
+const CACHE_NAME = 'kailinks-v1782559542';
 const OFFLINE_URL = 'index.html';
 
 // Critical resources to cache immediately
@@ -11,7 +11,6 @@ const CRITICAL_RESOURCES = [
   '/assets/scss/main.css',
   '/assets/js/main.js',
   '/assets/js/lang.js',
-  '/assets/js/team1.js',
   '/assets/img/logo.webp',
   '/assets/img/favicon1.png',
   '/assets/js/english.json',
